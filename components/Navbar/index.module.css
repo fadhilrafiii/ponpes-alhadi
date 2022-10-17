@@ -1,0 +1,22 @@
+.container {
+  background: linear-gradient(to bottom, var(--color-dark70) 0, var(--color-transparent) 100%);
+  filter: drop-shadow(0 2px 4px var(--color-dark70));
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbarTitle {
+  padding-top: var(--space-xl);
+  text-transform: capitalize;
+}
+
+.navbarTitle h3 {
+  font-family: var(--font-title);
+}
+
+.hamburger, .login {
+  padding: var(--space-l);
+  cursor: pointer;
+}
+
