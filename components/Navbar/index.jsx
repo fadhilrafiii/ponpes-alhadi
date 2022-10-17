@@ -21,10 +21,10 @@ const Navbar = () => {
           className={classes.navbarTitle}
         >
           <Grid item>
-            <ApartmentIcon sx={{ fontSize: 42 }} />
+            <ApartmentIcon sx={{ fontSize: 40 }} />
           </Grid>
           <Grid item>
-            <h3>Hotel Name</h3>
+            <h4>Hotel Name</h4>
           </Grid>
         </Grid>
         <Grid item className={classes.login}>

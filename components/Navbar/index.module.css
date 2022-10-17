@@ -1,9 +1,13 @@
 .container {
-  background: linear-gradient(to bottom, var(--color-dark70) 0, var(--color-transparent) 100%);
-  filter: drop-shadow(0 2px 4px var(--color-dark70));
+  background: linear-gradient(to bottom, var(--color-shadow) 0, var(--color-transparent) 100%);
   position: fixed;
   top: 0;
   width: 100%;
+  padding-bottom: var(--space-xxxxl);
+}
+
+.container * {
+  color: white;
 }
 
 .navbarTitle {
@@ -11,8 +15,9 @@
   text-transform: capitalize;
 }
 
-.navbarTitle h3 {
+.navbarTitle :is(h4, svg) {
   font-family: var(--font-title);
+  filter: drop-shadow(0 3px 1px var(--color-shadow));
 }
 
 .hamburger, .login {
