@@ -1,0 +1,43 @@
+.carouselContainer {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.carouselDimension {
+  position: relative;
+  height: calc(100vh - 98px);
+}
+
+@media (min-height: 640px) {
+  .carouselDimension {
+    height: 640px;
+  }
+}
+
+@media (max-width: 560px) {
+  .carouselDimension {
+    height: 375px;
+  }
+}
+
+.imageCaption {
+  width: 300px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-s) var(--space-m);
+  text-align: right;
+  background-color: var(--color-secondary70);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 8px;
+  color: var(--color-primary);
+}
+
+.mainContent {
+  position: relative;
+  z-index: 4;
+}
