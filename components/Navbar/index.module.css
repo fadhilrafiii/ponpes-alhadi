@@ -1,19 +1,38 @@
-.container {
+.navbar {
   background: linear-gradient(to bottom, var(--color-secondary70) 0, var(--color-transparent) 100%);
   position: fixed;
   top: 0;
   width: 100%;
   padding-bottom: var(--space-xxxxl);
   z-index: 10;
+  height: 67.5px;
+  transition: all .5s;
 }
 
-.container * {
-  color: white;
+.whiteNavbar {
+  background: var(--color-primary);
+  border-bottom: 1px solid var(--color-secondary);
+  height: 50px;
+}
+
+.navbar * {
+  color: var(--color-primary);
 }
 
 .navbarTitle {
+  position: relative;
   padding-top: var(--space-xl);
   text-transform: capitalize;
+  top: 0;
+  transition: all .3s;
+}
+
+.whiteNavbar .navbarTitle {
+  top: -8px;
+}
+
+.whiteNavbar * {
+  color: var(--color-secondary);
 }
 
 .navbarTitle :is(h4, svg) {
@@ -22,7 +41,15 @@
 }
 
 .hamburger, .login {
-  padding: var(--space-l);
+  padding: calc(var(--space-l) + 3px);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
 }
 

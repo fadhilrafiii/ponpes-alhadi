@@ -1,8 +1,8 @@
+import NavbarProvider from 'layouts/NavbarProvider';
 import Head from 'next/head';
 
 import Img from 'components/base/Img';
 import Carousel from 'components/Carousel';
-import Navbar from 'components/Navbar';
 import ReservationForm from 'components/ReservationForm';
 
 import classes from '../styles/Home.module.css';
@@ -22,26 +22,27 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
-      <div className={classes.carouselContainer}>
-        <Carousel className={classes.carouselDimension}>
-          {CAROUSEL_IMAGES.map((image) => (
-            <div key={image.url} className={classes.carouselDimension}>
-              <Img
-                src={`/images/${image.url}`}
-                alt={image.name}
-                sizes="(max-width: 560px) 40vw, (max-width: 1200px) 62.5vw, 100vw"
-              />
-              <figcaption className={classes.imageCaption}>{image.name}</figcaption>
-            </div>
-          ))}
-        </Carousel>
-      </div>
-      <main className={classes.mainContent}>
-        <ReservationForm />
-      </main>
+      <NavbarProvider>
+        <div className={classes.carouselContainer}>
+          <Carousel className={classes.carouselDimension}>
+            {CAROUSEL_IMAGES.map((image) => (
+              <div key={image.url} className={classes.carouselDimension}>
+                <Img
+                  src={`/images/${image.url}`}
+                  alt={image.name}
+                  sizes="(max-width: 560px) 40vw, (max-width: 1200px) 62.5vw, 100vw"
+                />
+                <figcaption className={classes.imageCaption}>{image.name}</figcaption>
+              </div>
+            ))}
+          </Carousel>
+        </div>
+        <main className={classes.mainContent}>
+          <ReservationForm />
+        </main>
 
-      <footer></footer>
+        <footer></footer>
+      </NavbarProvider>
     </div>
   );
 };
