@@ -7,7 +7,7 @@
   "jsxSingleQuote": false,
   "bracketSpacing": true,
   "importOrder": [
-    "^[react|next]$",
+    "^(react$|next/)",
     "^@mui",
     "<THIRD_PARTY_MODULES>",
     "^components",

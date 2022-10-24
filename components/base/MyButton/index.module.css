@@ -8,6 +8,10 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
+.filled {
+  outline: none !important;
+}
+
 .primary {
   outline-color: var(--color-secondary);
   background-color: var(--color-primary);
@@ -36,6 +40,12 @@
 
 .tertiary:hover {
   background-color: var(--color-tertiary-dark);
+  color: var(--color-primary);
+}
+
+.transparent {
+  outline-color: var(--color-primary);
+  background-color: transparent;
   color: var(--color-primary);
 }
 

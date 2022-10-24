@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 import classes from './index.module.css';
 
-const MyButton = ({ children, theme, className, fullWidth, ...props }) => {
-  const classNames = [classes.button, className, classes[theme]];
+const MyButton = ({ children, theme, buttonType, className, fullWidth, ...props }) => {
+  const classNames = [classes.button, className, classes[theme], classes[buttonType]];
 
   if (fullWidth) classNames.push(classes.fullWidth);
 
@@ -16,13 +16,15 @@ const MyButton = ({ children, theme, className, fullWidth, ...props }) => {
 
 MyButton.propTypes = {
   className: PropTypes.string,
-  theme: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+  theme: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'transparent']),
+  buttonType: PropTypes.oneOf(['filled', 'outlined']),
   children: PropTypes.node,
   fullWidth: PropTypes.bool,
 };
 
 MyButton.defaultProps = {
   className: '',
+  buttonType: 'outlined',
   theme: 'primary',
   fullWidth: false,
 };

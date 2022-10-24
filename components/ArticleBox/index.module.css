@@ -1,0 +1,29 @@
+.articleBox {
+  height: 100%;
+}
+
+.articleImg {
+  margin-bottom: var(--space-xxxl);
+  padding-bottom: 66.6%;
+  cursor: pointer;
+}
+
+.articleTitle {
+  font-size: 17px;
+  margin-bottom: var(--space-xl);
+  font-weight: 400;
+}
+
+.articleDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: var(--space-l);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.articleLink * {
+  font-size: 14px;
+  color: var(--color-secondary);
+  text-decoration: underline !important;
+}

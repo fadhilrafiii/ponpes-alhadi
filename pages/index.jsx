@@ -1,17 +1,23 @@
-import NavbarProvider from 'layouts/NavbarProvider';
 import Head from 'next/head';
 
+import { Grid } from '@mui/material';
+
+import NavbarProvider from 'layouts/NavbarProvider';
+
+import ArticleBox from 'components/ArticleBox';
 import Img from 'components/base/Img';
+import MyButton from 'components/base/MyButton';
 import Carousel from 'components/Carousel';
 import ReservationForm from 'components/ReservationForm';
 
-import classes from '../styles/Home.module.css';
+import {
+  CAROUSEL_IMAGES,
+  HOME_BOTTOM_ARTICLES,
+  HOME_MIDDLE_CAROUSEL_ARTICLE_IMAGES,
+  HOME_TOP_ARTICLES,
+} from './constants';
 
-const CAROUSEL_IMAGES = [
-  { name: 'First Image', url: 'carousel-image-1.jpg' },
-  { name: 'Second Image', url: 'carousel-image-2.jpg' },
-  { name: 'Third Image', url: 'carousel-image-3.jpg' },
-];
+import classes from '../styles/Home.module.css';
 
 const Home = () => {
   return (
@@ -39,6 +45,78 @@ const Home = () => {
         </div>
         <main className={classes.mainContent}>
           <ReservationForm />
+          <div className={classes.articleWrapper}>
+            <div className={classes.topArticle}>
+              <Grid item container rowSpacing={5} columnSpacing={3}>
+                {HOME_TOP_ARTICLES.map((article) => (
+                  <Grid item key={article.title} xs={12} md={6}>
+                    <ArticleBox
+                      title={article.title}
+                      body={article.body}
+                      img={article.img}
+                      path={article.path}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
+            <div className={classes.middleArticle}>
+              <Grid container columnSpacing={2} flexDirection="column">
+                <Grid container item xs={12} lg={3} flexDirection="column">
+                  <Grid item className={classes.featured}>
+                    FEATURED DESTINATION
+                  </Grid>
+                  <Grid item className={classes.middleArticleTitle}>
+                    <h2>DISCOVER THE BEAUTY OF ASIA PACIFIC</h2>
+                  </Grid>
+                </Grid>
+                <Grid item container className={classes.articleCarouselWrapper}>
+                  <Carousel className={classes.articleCarousel}>
+                    {HOME_MIDDLE_CAROUSEL_ARTICLE_IMAGES.map((image) => (
+                      <div key={image.url} className={classes.articleCarousel}>
+                        <Img
+                          className={classes.articleCarouselImg}
+                          src={image.url}
+                          alt={image.name}
+                          sizes="(max-width: 560px) 40vw, (max-width: 1200px) 62.5vw, 100vw"
+                        />
+                        {/* <figcaption className={classes.imageCaption}>{image.name}</figcaption> */}
+                      </div>
+                    ))}
+                  </Carousel>
+                </Grid>
+                <Grid item container flexDirection="column" xs={12} lg={3}>
+                  <Grid item className={classes.middleArticleBody}>
+                    <p>
+                      Experience modern cities that are home to time-honored traditions; immerse
+                      yourself in high-tech epicenters buzzing with energy; relax in tropical
+                      regions rich with unmatched natural scenery.
+                    </p>
+                  </Grid>
+                  <Grid item className={classes.middleArticleButton}>
+                    <MyButton fullWidth theme="secondary" buttonType="filled">
+                      EXPLORE HOTELS &#38; RESORTS
+                    </MyButton>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </div>
+            <div className={classes.bottomArticle}>
+              <Grid item container rowSpacing={5} columnSpacing={3}>
+                {HOME_BOTTOM_ARTICLES.map((article) => (
+                  <Grid item key={article.title} xs={12} md={6}>
+                    <ArticleBox
+                      title={article.title}
+                      body={article.body}
+                      img={article.img}
+                      path={article.path}
+                      redirectText="Discover More"
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
+          </div>
         </main>
 
         <footer></footer>

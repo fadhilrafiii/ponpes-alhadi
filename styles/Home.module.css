@@ -40,4 +40,93 @@
 .mainContent {
   position: relative;
   z-index: 4;
+  background-color: var(--color-primary);
+}
+
+.articleWrapper {
+  padding: 0 var(--space-l);
+}
+
+.topArticle, .middleArticle, .bottomArticle {
+  max-width: 1200px;
+  margin: var(--space-xxxxl) auto;
+}
+
+.topArticle {
+  padding-top: var(--space-xxxl);
+}
+
+.middleArticle {
+  position: relative;
+  margin: var(--space-xxxxl) auto var(--space-xxl);
+}
+
+.featured {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.middleArticleTitle {
+  margin: var(--space-xl) 0 var(--space-xxxl);
+}
+
+.middleArticleTitle > h2 {
+  font-family: var(--font-title);
+  letter-spacing: 0.8px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+@media(min-width: 1200px) {
+  .middleArticleTitle > h2 {
+    font-size: 38px;
+  }
+}
+
+.middleArticleBody {
+  margin-bottom: var(--space-xl);
+}
+
+.middleArticleBody > p {
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.middleArticleButton {
+  margin-bottom: var(--space-xl);
+}
+
+.articleCarousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.articleCarousel .articleCarouselImg {
+  padding-bottom: 66.6%;
+}
+
+.articleCarousel > div {
+  height: inherit;
+}
+
+.articleCarouselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .articleCarouselWrapper {
+    position: absolute;
+    width: 75%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .articleCarousel .articleCarouselImg {
+    padding-bottom: unset;
+  }
 }

@@ -5,26 +5,65 @@
   width: 100%;
   padding-bottom: var(--space-xxxxl);
   z-index: 10;
-  height: 67.5px;
   transition: all .5s;
+  display: flex;
+  justify-content: center;
 }
 
-.whiteNavbar {
-  background: var(--color-primary);
-  border-bottom: 1px solid var(--color-secondary);
-  height: 50px;
+@media(min-width: 768px) {
+  .navbar {
+    padding: var(--space-l);
+  }
 }
 
 .navbar * {
   color: var(--color-primary);
 }
 
+.navbar :is(a, h4, span, svg) {
+  filter: drop-shadow(0 3px 1px var(--color-secondary70));
+}
+
+.whiteNavbar {
+  background: var(--color-primary);
+  height: 50px;
+  box-shadow: 0 1px 5px var(--color-secondary70);
+}
+
+.whiteNavbar .hotelLogo {
+  display: none;
+}
+
+@media(min-width: 768px) {
+  .whiteNavbar {
+    height: unset;
+  }
+
+  .whiteNavbar .hotelLogo {
+    display: flex;
+  }
+}
+
+.whiteNavbar :is(a, h4, span, svg) {
+  filter: none;
+}
+
 .navbarTitle {
   position: relative;
-  padding-top: var(--space-xl);
   text-transform: capitalize;
   top: 0;
   transition: all .3s;
+  padding-bottom: 0;
+  justify-content: center;
+  padding-top: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .navbarTitle {
+    padding-top: 0;
+    justify-content: flex-start;
+    padding-bottom: var(--space-m);
+  }
 }
 
 .whiteNavbar .navbarTitle {
@@ -35,9 +74,8 @@
   color: var(--color-secondary);
 }
 
-.navbarTitle :is(h4, svg) {
+.navbarTitle h4 {
   font-family: var(--font-title);
-  filter: drop-shadow(0 3px 1px var(--color-secondary70));
 }
 
 .hamburger, .login {
@@ -48,8 +86,59 @@
 }
 
 @media (min-width: 768px) {
-  .hamburger {
+  .hamburger, .login {
     display: none;
   }
+}
+
+.navbarDesktopContentWrapper {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.navbarDesktopContent {
+  display: none;
+}
+
+.navbarDesktopContent * {
+  font-size: 12px;
+}
+
+.navbarDesktopContentTop {
+  padding: var(--space-m) 0 var(--space-ml);
+  border-bottom: .5px solid var(--color-primary);
+}
+
+.navbarDesktopContentBottom {
+  padding-top: var(--space-ml);
+}
+
+.navbarDesktopContentBottom > * {
+  letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+  .navbarDesktopContent {
+    display: flex;
+  }
+}
+
+.reserveNow {
+  outline: none;
+  border: 1px solid var(--color-primary);
+  box-shadow: inset 1px 1px 4px -1px var(--color-secondary70);
+  filter: drop-shadow(0 3px 1px var(--color-secondary70));
+  letter-spacing: 1.5px;
+  padding: var(--space-s) var(--space-xxl);
+}
+
+.reserveNow > * {
+  font-size: 14px;
+}
+
+.whiteNavbar .reserveNow {
+  border: 1px solid var(--color-secondary);
+  box-shadow: none;
+  filter: none;
 }
 

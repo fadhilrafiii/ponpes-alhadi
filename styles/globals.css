@@ -10,10 +10,12 @@
   --space-xs: 2px;
   --space-s: 4px;
   --space-m: 8px;
+  --space-ml: 10px;
   --space-l: 12px;
   --space-xl: 20px;
   --space-xxl: 24px;
   --space-xxxl: 32px;
+  --space-xxxxl: 48px;
 
   /* Color */
   --color-secondary-dark: #000;
@@ -21,6 +23,7 @@
   --color-secondary40: rgba(28, 28, 28, 0.4);
   --color-secondary70: rgba(28, 28, 28, 0.7);
   --color-primary: white;
+  --color-primary70: rgb(255, 255, 255, 0.7);
   --color-primary-dark: rgb(230, 230, 230);
   --color-tertiary-dark: #a5c1e2;
   --color-tertiary: #c7ddf3;
@@ -43,10 +46,24 @@ body {
 * {
   box-sizing: border-box;
   font-family: var(--font-paragraph);
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
   font-family: var(--font-heading);
   font-weight: 600;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:-webkit-any-link:hover, a:-webkit-any-link:active {
+  text-decoration: underline;
+}
+
+/* For slick */
+.slick-list, .slick-track, .slick-slide > div {
+  height: 100%;
 }
