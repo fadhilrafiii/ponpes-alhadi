@@ -20,7 +20,7 @@ import {
   HOME_BOTTOM_ARTICLES,
   HOME_MIDDLE_CAROUSEL_ARTICLE_IMAGES,
   HOME_TOP_ARTICLES,
-} from './constants';
+} from '../constants/pages/home';
 
 import classes from '../styles/Home.module.css';
 
