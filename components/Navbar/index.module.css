@@ -97,7 +97,7 @@
 }
 
 .navbarDesktopContent {
-  display: none;
+  display: none !important;
 }
 
 .navbarDesktopContent * {
@@ -119,7 +119,7 @@
 
 @media (min-width: 768px) {
   .navbarDesktopContent {
-    display: flex;
+    display: flex !important;
   }
 }
 

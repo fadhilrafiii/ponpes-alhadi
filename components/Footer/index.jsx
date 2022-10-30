@@ -15,9 +15,8 @@ const Footer = memo(() => {
       </div>
       <Grid container className={classes.footerBottom} justifyContent="space-between">
         <Grid item xs={12} md={8}>
-          RITZ® is a Registered Service Mark of The Ritz Hotel, Limited, and is used by The
-          Ritz-Carlton Hotel Company under License. © 2022 The Ritz-Carlton Hotel Company, L.L.C.
-          All rights reserved.
+          HOTEL® is a Registered Service Mark of The Ritz Hotel, Limited, and is used by The Hotel
+          Name Company under License. © 2022 The Hotel Name Company, L.L.C. All rights reserved.
         </Grid>
         <Grid item xs={12} md="auto">
           <Grid container spacing={1} wrap="nowrap">

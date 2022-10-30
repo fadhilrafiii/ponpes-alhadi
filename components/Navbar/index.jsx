@@ -112,7 +112,7 @@ const Navbar = ({ isSidebarOpen, actionToggleSidebar }) => {
             <Grid
               container
               item
-              columnSpacing={3}
+              spacing={3}
               justifyContent="flex-end"
               alignItems="center"
               className={classes.navbarDesktopContentBottom}

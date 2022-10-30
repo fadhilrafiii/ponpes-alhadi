@@ -126,7 +126,7 @@
 @media (min-width: 960px) {
   .articleCarouselWrapper {
     position: absolute;
-    width: 75%;
+    width: 75% !important;
     right: 0;
     top: 0;
     bottom: 0;
