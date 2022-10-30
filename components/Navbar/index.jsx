@@ -53,13 +53,13 @@ const Navbar = ({ isSidebarOpen, actionToggleSidebar }) => {
           container
           alignItems="center"
           justifyContent="space-between"
-          spacing={4}
+          columnSpacing={4}
           wrap="nowrap"
         >
           <Grid
             item
             container
-            spacing={1}
+            columnSpacing={1}
             alignItems="center"
             className={classes.navbarTitle}
             md={3}

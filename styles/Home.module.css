@@ -49,7 +49,10 @@
 
 .topArticle, .middleArticle, .bottomArticle {
   max-width: 1200px;
-  margin: var(--space-xxxxl) auto;
+  margin-left:  auto;
+  margin-right: auto;
+  padding-top: var(--space-xxxxl);
+  padding-bottom: var(--space-xxxxl);
 }
 
 .topArticle {
@@ -58,7 +61,9 @@
 
 .middleArticle {
   position: relative;
-  margin: var(--space-xxxxl) auto var(--space-xxl);
+  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .featured {
@@ -72,14 +77,15 @@
 
 .middleArticleTitle > h2 {
   font-family: var(--font-title);
-  letter-spacing: 0.8px;
+  letter-spacing: 1px;
   font-size: 24px;
   font-weight: 500;
 }
 
 @media(min-width: 1200px) {
   .middleArticleTitle > h2 {
-    font-size: 38px;
+    font-size: 34px;
+    margin-right: var(--space-xl);
   }
 }
 
@@ -105,7 +111,7 @@
 }
 
 .articleCarousel .articleCarouselImg {
-  padding-bottom: 66.6%;
+  padding-bottom: 56%;
 }
 
 .articleCarousel > div {
@@ -124,9 +130,92 @@
     right: 0;
     top: 0;
     bottom: 0;
+    aspect-ratio: 5 / 3;
   }
 
   .articleCarousel .articleCarouselImg {
     padding-bottom: unset;
   }
+}
+
+.lastArticle {
+  background-color: var(--color-tertiary-light);
+  display: flex;
+  justify-content: center;
+  margin-left: calc(-1 * var(--space-l));
+  margin-right: calc(-1 * var(--space-l));
+}
+
+.lastArticleContent {
+  max-width: 1100px;
+  padding: 88px var(--space-xl) 120px;
+}
+
+.lastArticleContent > div:last-child {
+  padding-top: var(--space-xxxxl);
+}
+
+.lastArticleImg {
+  padding-bottom: 54%;
+}
+
+.lastArticleSailAway {
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding-bottom: var(--space-ml);
+}
+
+.lastArticleTitle {
+  font-family: var(--font-title);
+  font-weight: 500;
+  padding-bottom: var(--space-xl);
+}
+
+.lastArticleDesc {
+  font-size: 14px;
+  padding-bottom: var(--space-xl);
+}
+
+.lastArticleButton {
+  line-height: 1;
+}
+
+.sectionDropdown {
+  background-color: var(--color-tertiary);
+  padding: 0 var(--space-l);
+}
+
+.sectionDropdown h2 {
+  font-size: 1.4em;
+  font-weight: 400;
+  letter-spacing: .5px;
+  padding: var(--space-xl) 0 var(--space-ml);
+}
+
+.sectionDropdown a {
+  display: block;
+  color: var(--color-secondary);
+  font-size: 15px;
+  margin-bottom: var(--space-s);
+}
+
+.sectionDropdownText {
+  padding: var(--space-m) 0;
+}
+
+.sectionDropdownContainer {
+  position: relative;
+  padding-left: 0;
+}
+
+.sectionDropdownContainer > div {
+  padding-top: 0;
+}
+
+.sectionDropdownItem {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.sectionDropdownItem:last-child {
+  border: none;
 }

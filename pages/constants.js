@@ -8,13 +8,13 @@ export const HOME_TOP_ARTICLES = [
   {
     img: '/images/article-image-1.jpg',
     title: 'POOLSIDE PERFECTION',
-    body: 'At The Ritz-Carlton, a beautiful pool is respite from the heat, a place of joyful gathering, a destination for wellness, a mark of a true vacation. Experience this simple luxury whether you prefer to be surrounded by the smooth, cool water or enjoy its meditative movement from the shade of a poolside cabana.',
+    body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum dicta error assumenda odit? Maiores, vel? Blanditiis libero illum voluptates pariatur, a mark of a true vacation. Illum dicta error assumenda odit? Maiores, vel? Blanditiis libero illum voluptates pariatur.',
     path: '/',
   },
   {
     img: '/images/article-image-2.jpg',
     title: 'BREATHTAKING BEACH RETREATS',
-    body: 'Discover the perfect beachfront escape at The Ritz-Carlton, where distinctive resort experiences reflect the world’s most desirable destinations. From secluded honeymoon retreats to family-friendly destinations, there are endless ways to find your place in the sun.',
+    body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum dicta error assumenda odit? Maiores, vel? Blanditiis libero illum voluptates pariatur, a mark of a true vacation. Illum dicta error assumenda odit? Maiores, vel? Blanditiis libero illum voluptates pariatur.',
     path: '/',
   },
 ];
@@ -46,13 +46,120 @@ export const HOME_BOTTOM_ARTICLES = [
   {
     img: '/images/article-image-3.jpg',
     title: 'JOURNEY DEEPER',
-    body: 'Discover a new perspective on luxury travel. Delve into the world of travel, style and culture with the guidance of the experts at The Ritz-Carlton.',
+    body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum dicta error assumenda odit? Maiores, vel? Blanditiis libero illum voluptates pariatur.',
     path: '/',
   },
   {
     img: '/images/article-image-4.jpg',
     title: 'CULINARY ADVENTURES',
-    body: 'From thoroughly modern fine dining to hidden-gem itineraries informed by local experts, these are the meals and moments you will never forget.',
+    body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum dicta error assumenda odit? Maiores, vel? Blanditiis libero illum voluptates pariatur.',
     path: '/',
+  },
+];
+
+export const BOTTOM_MENU_DROPDOWN = [
+  {
+    title: 'Hotels & Resort',
+    groups: [
+      {
+        title: 'HOTELS & RESORTS',
+        subGroups: [
+          {
+            title: 'Browse by Location',
+            path: '/',
+          },
+          {
+            title: 'Browse by Map',
+            path: '/',
+          },
+          {
+            title: 'Upcoming Locations',
+            path: '/',
+          },
+          {
+            title: 'Travel by Interest',
+            path: '/',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Spa, Shop, Contact',
+    groups: [
+      {
+        title: 'SPA',
+        subGroups: [
+          {
+            title: 'Treatments',
+            path: '/',
+          },
+          {
+            title: 'Locations',
+            path: '/',
+          },
+        ],
+      },
+      {
+        title: 'SHOP',
+        subGroups: [
+          {
+            title: 'Shop at Our Hotel',
+            path: '/',
+          },
+          {
+            title: 'Gift Card',
+            path: '/',
+          },
+        ],
+      },
+      {
+        title: 'CONTACT US',
+        subGroups: [
+          {
+            title: 'Online Reservations',
+            path: '/',
+          },
+          {
+            title: 'View Existing Reservations',
+            path: '/',
+          },
+          {
+            title: 'Reservations by Phone',
+            path: '/',
+          },
+          {
+            title: 'Connect With Us on Social',
+            path: '/',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Our Hotel',
+    groups: [
+      {
+        title: 'ABOUT US',
+        subGroups: [
+          {
+            title: 'Awards',
+            path: '/',
+          },
+          {
+            title: 'Fact Sheet',
+            path: '/',
+          },
+          {
+            title: 'News Room',
+            path: '/',
+          },
+          {
+            title: 'Best Rate Guarantee',
+            path: '/',
+          },
+        ],
+      },
+    ],
   },
 ];

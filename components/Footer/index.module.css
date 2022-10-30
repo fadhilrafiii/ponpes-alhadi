@@ -1,0 +1,21 @@
+.footer {
+  position: relative;
+  background-color: var(--color-secondary);
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerBottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-l);
+}
+
+.footerBottom > div:first-child {
+  color: var(--color-primary);
+  font-size: 12px;
+  margin-bottom: var(--space-m);
+}
