@@ -1,0 +1,42 @@
+@use '../../styles//variables' as *;
+
+.navbarContainer {
+  background-color: $primary-dark-color;
+  padding: $pad-xxxl;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbarContainer > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: $pad-xl;
+
+  h2 {
+    color: white;
+  }
+}
+
+.navbarContainer > div:last-child {
+  ul {
+    list-style-type: none;
+    display: flex;
+    gap: $pad-xxxl;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+
+    li {
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      width: 160px;
+      text-align: right;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

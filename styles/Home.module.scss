@@ -1,0 +1,138 @@
+@use './variables' as *;
+
+.mainSection {
+  height: 90vh;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.mainSection > div:first-child {
+  padding-left: 6%;
+  width: 32%;
+
+  h2 {
+    margin-bottom: $pad-xxl;
+  }
+
+  p {
+    margin-bottom: $pad-xxxl;
+    color: $black-grey-color;
+  }
+}
+
+.mainSection > div:last-child {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 66%;
+  overflow: hidden;
+
+  .dropShadow {
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 80px;
+    top: 0;
+    left: 0;
+    width: calc(30% + 40px);
+    background-color: rgba(255, 255, 255, .75);
+    clip-path: polygon(0 0, 40px 0, 100% 100%, calc(100% - 40px) 100%);
+  }
+
+
+  & > div:last-child {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+  }
+}
+
+.galerySection {
+  padding: 10% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin-bottom: $pad-xxxxl;
+  }
+}
+
+.galeryCardWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: $pad-xxxl;
+}
+
+.profileSection {
+  max-width: 989px;
+  margin: 0 auto;
+  padding: 2.5% 0;
+
+  & > * {
+    text-align: center;
+    margin-bottom: $pad-xxxl;
+  }
+
+  p {
+    color: $black-grey-color;
+  }
+
+  .linksWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $pad-xxxxl;
+  }
+
+  .link {
+    width: 215px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    padding: $pad-m 0;
+    border-radius: 24px;
+    border-top-left-radius: 0;
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.quoteSection {
+  padding: 5% 0 15%;
+
+  .quoteWrapper {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .imageWrapper {
+      height: 55vh;
+      aspect-ratio: 1.25 / 1;
+      padding-right: 5%;
+    }
+
+    .quote {
+      max-width: 467px;
+      
+      p {
+        text-align: center;
+        color: $black-grey-color;
+      }
+    }
+  }
+}

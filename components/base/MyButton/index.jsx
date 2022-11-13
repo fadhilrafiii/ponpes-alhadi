@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import classes from './index.module.css';
+import classes from './index.module.scss';
 
 const MyButton = ({ children, theme, buttonType, className, fullWidth, ...props }) => {
   const classNames = [classes.button, className, classes[theme], classes[buttonType]];

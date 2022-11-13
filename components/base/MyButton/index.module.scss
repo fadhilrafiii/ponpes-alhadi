@@ -1,0 +1,57 @@
+@use '../../../styles/variables' as *;
+
+.button {
+  border: 1px solid;
+  font-size: 16px;
+  padding: $pad-m $pad-xl;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 20px;
+  color: white;
+  min-width: 180px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.filled {
+  outline: none !important;
+}
+
+.primary {
+  border-color: $primary-color;
+  background-color: $primary-color;
+}
+
+.primary:hover {
+  background-color: $primary-dark-color;
+}
+
+.secondary {
+  border-color: $secondary-color;
+  background-color: $secondary-color;
+}
+
+// .secondary:hover {
+//   background-color: $secondary-dark-color;
+// }
+
+// .tertiary {
+//   border-color: $secondary-color;
+//   background-color: var(--color-tertiary);
+//   color: $secondary-color;
+// }
+
+// .tertiary:hover {
+//   background-color: var(--color-tertiary-dark);
+//   color: $primary-color;
+// }
+
+.transparent {
+  border-color: $primary-color;
+  background-color: transparent;
+  color: $primary-color;
+}
+
+.fullWidth {
+  width: 100%;
+}

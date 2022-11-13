@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
+import Footer from 'components/Footer';
 import Navbar from 'components/Navbar';
-import Sidebar from 'components/Sidebar';
 
-const NavbarProvider = ({ children }) => {
+const PageLayout = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const actionToggleSidebar = () => {
@@ -13,10 +13,10 @@ const NavbarProvider = ({ children }) => {
   return (
     <div>
       <Navbar isSidebarOpen={isSidebarOpen} actionToggleSidebar={actionToggleSidebar} />
-      <Sidebar isOpen={isSidebarOpen} />
       {children}
+      <Footer />
     </div>
   );
 };
 
-export default NavbarProvider;
+export default PageLayout;

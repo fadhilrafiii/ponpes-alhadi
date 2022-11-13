@@ -14,8 +14,9 @@
     "^constants",
     "^styles",
     "^[../](.*)(?<!.css)$",
-    "^[./](.*)(?<!.css)$",
-    "(.*)css$"
+    "^[./](.*)(?<!.scss)$",
+    "(.*)scss$",
+    "^public"
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
