@@ -136,7 +136,7 @@ const Home = () => {
                 serta tangguh dalam menaklukan tantangan zaman
               </p>
               <h4>Misi</h4>
-              <p>
+              <div>
                 Lulusan Pondok Pesantren Al-Hadi setingkat SMP/MTs diharapkan memiliki kompetensi
                 sebagai berikut:
                 <ol>
@@ -157,7 +157,7 @@ const Home = () => {
                     bersemangat dalam mengembangkan ilmu & menyampaikannya.
                   </li>
                 </ol>
-              </p>
+              </div>
             </div>
           </div>
         </section>
