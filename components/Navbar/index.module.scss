@@ -4,6 +4,7 @@
   background-color: $primary-dark-color;
   padding: $pad-xxxl;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
@@ -23,8 +24,8 @@
     list-style-type: none;
     display: flex;
     gap: $pad-xxxl;
-    flex-wrap: wrap;
     justify-content: flex-end;
+    flex-wrap: wrap;
     align-items: center;
 
     li {

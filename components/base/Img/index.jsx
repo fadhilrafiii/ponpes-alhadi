@@ -28,9 +28,9 @@ const Img = forwardRef(
 
 Img.propTypes = {
   className: PropTypes.string,
-  src: PropTypes.string.isRequired,
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   alt: PropTypes.string.isRequired,
-  sizes: PropTypes.string.isRequired,
+  sizes: PropTypes.string,
   layout: PropTypes.string,
   priority: PropTypes.bool,
   usePlaceholder: PropTypes.bool,

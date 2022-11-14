@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 
 import Img from 'components/base/Img';
 
-import styles from './GaleryCard.module.scss';
+import styles from './GaleriCard.module.scss';
 
-const GaleryCard = ({ image, title, body, to }) => {
+const GaleriCard = ({ image, title, body, to }) => {
   return (
-    <div className={styles.galeryCard}>
+    <div className={styles.galeriCard}>
       <div className={styles.imageWrapper}>
         <Img layout="fill" src={image} alt={title} sizes="360px" usePlaceholder />
       </div>
-      <div className={styles.galeryCardContent}>
+      <div className={styles.galeriCardContent}>
         <h4>{title}</h4>
         <p>{body}</p>
         {to && (
@@ -25,11 +25,11 @@ const GaleryCard = ({ image, title, body, to }) => {
   );
 };
 
-GaleryCard.propTypes = {
-  image: PropTypes.string.isRequired,
+GaleriCard.propTypes = {
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   to: PropTypes.string,
 };
 
-export default GaleryCard;
+export default GaleriCard;

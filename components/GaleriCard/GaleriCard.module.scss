@@ -1,14 +1,16 @@
 @use '../../styles/variables' as *;
 
-.galeryCard {
+.galeriCard {
   width: 333px;
   background-color: $primary-light-color;
   border-top-right-radius: 48px;
   border-bottom-left-radius: 48px;
 }
 
-.galeryCardContent {
+.galeriCardContent {
   padding: $pad-xxl $pad-xxxl;
+
+  h4 { font-size: 22px; }
 
   .readMore {
     margin: $pad-xxl auto 0;
