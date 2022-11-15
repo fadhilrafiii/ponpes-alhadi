@@ -1,0 +1,22 @@
+.nextArrow, .prevArrow {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--space-l) var(--space-m);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary70);
+  color: var(--color-secondary70);
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.nextArrow {
+  right: 0;
+}
+
+.nextArrow:hover, .prevArrow:hover {
+  opacity: 1;
+}

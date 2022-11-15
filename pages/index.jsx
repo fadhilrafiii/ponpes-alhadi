@@ -4,11 +4,12 @@ import React from 'react';
 
 import PageLayout from 'layouts/PageLayout';
 
+import Carousel from 'components/base/Carousel';
 import Img from 'components/base/Img';
 import MyButton from 'components/base/MyButton';
 import GaleriCard from 'components/GaleriCard';
 
-import { galleryCardList } from 'constants/galeri';
+import { fasilitasList, galleryCardList } from 'constants/home';
 
 import styles from 'styles/Home.module.scss';
 
@@ -24,7 +25,6 @@ const Home = () => {
           name="description"
           content="Masuk untuk dapatkan info seputar Pondok Pesantren Al Hadi atau mengelola hal-hal terkait akademik bagi santri dan santriwati Pondok Pesantren Al Hadi"
         />
-        {/* <link rel="preconnect" href="" /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -45,6 +45,7 @@ const Home = () => {
               src={fotoBersamaPutriPic}
               alt="Foto Bersama Putri Pondok Pesantren Al-Hadi"
               sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
+              priority
             />
           </div>
         </section>
@@ -164,18 +165,22 @@ const Home = () => {
         <section id="fasilitas" className={styles.fasilitasSection}>
           <h2>Fasilitas</h2>
           <div className={styles.fasilitasWrapper}>
-            <div className={styles.fasilitasContent}>
-              <div className={styles.fasilitasImageWrapper}>
-                <div className={styles.dropShadow} />
-                <Img
-                  layout="fill"
-                  src={fotoBersamaPutriPic}
-                  alt="Foto Bersama Putri Pondok Pesantren Al-Hadi"
-                  sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
-                />
-              </div>
-              <h2>Arena Lapangan & Sarana Olahraga</h2>
-            </div>
+            <Carousel>
+              {fasilitasList.map((fasilitas, idx) => (
+                <div key={idx} className={styles.fasilitasContent}>
+                  <div className={styles.fasilitasImageWrapper}>
+                    <div className={styles.dropShadow} />
+                    <Img
+                      layout="fill"
+                      src={fasilitas.image.src}
+                      alt={fasilitas.image.alt}
+                      sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
+                    />
+                  </div>
+                  <h2>{fasilitas.desc}</h2>
+                </div>
+              ))}
+            </Carousel>
           </div>
         </section>
         <section id="video" className={styles.videoSection}>

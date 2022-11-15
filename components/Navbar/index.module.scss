@@ -1,12 +1,15 @@
-@use '../../styles//variables' as *;
+@use '../../styles/variables' as *;
 
 .navbarContainer {
   background-color: $primary-dark-color;
   padding: $pad-xxxl;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+  }
 }
 
 .navbarContainer > div:first-child {
@@ -23,7 +26,7 @@
   ul {
     list-style-type: none;
     display: flex;
-    gap: $pad-xxxl;
+    gap: $pad-xl;
     justify-content: flex-end;
     flex-wrap: wrap;
     align-items: center;
