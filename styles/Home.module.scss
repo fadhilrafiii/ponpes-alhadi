@@ -200,7 +200,11 @@
       padding: 0 5vw;
 
       @media (max-width: $mobile) {
-        height: 30vh;
+        box-sizing: content-box;
+        height: unset;
+        width: 80vw;
+        aspect-ratio: 1 / 1;
+        padding: 5%;
       }
     }
 

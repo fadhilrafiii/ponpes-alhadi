@@ -12,6 +12,11 @@
   @media (max-width: $mobile) {
     flex-wrap: wrap-reverse;
     justify-content: flex-end;
+    padding: $pad-l;
+
+    & * {
+      font-size: 10px !important;
+    }
   }
 
   .footerContentLeft {
@@ -22,6 +27,7 @@
 
     @media (max-width: $mobile) {
       flex-direction: row;
+      justify-content: center;
       gap: $pad-l;
       width: 100%;
     }
