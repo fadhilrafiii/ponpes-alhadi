@@ -9,6 +9,12 @@
   justify-content: space-between;
   gap: $pad-xxxl;
 
+  a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+
   @media (max-width: $mobile) {
     flex-wrap: wrap-reverse;
     justify-content: flex-end;

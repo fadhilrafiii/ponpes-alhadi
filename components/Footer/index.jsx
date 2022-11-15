@@ -14,7 +14,7 @@ const Footer = () => {
           <div className={styles.imageWrapper}>
             <Img layout="fixed" src={WhatsappIcon} width={28} height={28} placeholder="empty" />
           </div>
-          <span>0812 7950 3322</span>
+          <a>0812 7950 3322</a>
         </div>
         <div>
           <div className={styles.image}>
@@ -37,8 +37,8 @@ const Footer = () => {
         </p>
         <div>
           <div>Contact Person:</div>
-          <div>0812 7950 3322</div>
-          <div>0896 2607 2735</div>
+          <a>0812 7950 3322</a>
+          <a>0896 2607 2735</a>
         </div>
       </div>
     </footer>
