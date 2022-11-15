@@ -5,12 +5,33 @@
   background-color: $primary-light-color;
   border-top-right-radius: 48px;
   border-bottom-left-radius: 48px;
+  overflow: hidden;
+
+  @media(max-width: $mobile) {
+    width: 267px;
+  }
 }
 
 .galeriCardContent {
   padding: $pad-xxl $pad-xxxl;
 
-  h4 { font-size: 22px; }
+  @media(max-width: $mobile) {
+    padding: $pad-xl $pad-xxl;
+  }
+
+  h4 {
+    font-size: 22px;
+
+    @media(max-width: $mobile) {
+      font-size: 12px;
+    }
+  }
+
+  p {
+    @media(max-width: $mobile) {
+      font-size: 12px;
+    }
+  }
 
   .readMore {
     margin: $pad-xxl auto 0;
@@ -31,10 +52,18 @@
       &:hover {
         text-decoration: underline;
       }
+
+      @media(max-width: $mobile) {
+        font-size: 12px;
+      }
     }
   }
 }
 
 .imageWrapper {
   height: 222px;
+
+  @media(max-width: $mobile) {
+    height: 178px;
+  }
 }

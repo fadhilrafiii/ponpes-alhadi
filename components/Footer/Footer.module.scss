@@ -1,6 +1,58 @@
 @use '/styles/variables' as *;
 
 .footerContainer {
+  padding: 2.5% 7.5%;
+  color: white;
   background-color: $primary-dark-color;
-  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $pad-xxxl;
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
+  }
+
+  .footerContentLeft {
+    display: flex;
+    flex-direction: column;
+    gap: $pad-xxl;
+    min-width: 300px;
+
+    @media (max-width: $mobile) {
+      flex-direction: row;
+      gap: $pad-l;
+      width: 100%;
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: $pad-m;
+
+      & > div:first-child {
+        span {
+          width: 17px !important;
+          height: 17px !important;
+        }
+      }
+    }
+  }
+
+  .footerContentRight {    
+    & > * {
+      text-align: right;
+    }
+
+    h3 {
+      padding: $pad-m 0;
+      border-bottom: 1px solid $secondary-color;
+      margin-bottom: $pad-m;
+    }
+
+    p {
+        margin-bottom: $pad-xxl;
+    }
+  }
 } 

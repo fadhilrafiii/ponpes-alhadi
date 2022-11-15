@@ -8,7 +8,17 @@
   justify-content: space-between;
 
   @media (max-width: $mobile) {
+    padding: $pad-xl;
     flex-wrap: wrap;
+  }
+
+  .imageWrapper {
+    span {
+      @media (max-width: $mobile) {
+        width: 28px !important;
+        height: 26px !important;
+      }
+    }
   }
 }
 
@@ -22,7 +32,7 @@
   }
 }
 
-.navbarContainer > div:last-child {
+.menu {
   ul {
     list-style-type: none;
     display: flex;
@@ -42,5 +52,25 @@
         text-decoration: underline;
       }
     }
+  }
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+}
+
+.hamburger {
+  display: none;
+
+  span {
+    background-color: white;
+    width: 24px;
+    height: 3px;
+  }
+
+  @media (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 3px
   }
 }

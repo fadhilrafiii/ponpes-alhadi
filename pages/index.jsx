@@ -6,7 +6,7 @@ import PageLayout from 'layouts/PageLayout';
 
 import Carousel from 'components/base/Carousel';
 import Img from 'components/base/Img';
-import MyButton from 'components/base/MyButton';
+// import MyButton from 'components/base/MyButton';
 import GaleriCard from 'components/GaleriCard';
 
 import { fasilitasList, galleryCardList } from 'constants/home';
@@ -36,7 +36,7 @@ const Home = () => {
               Melahirkan generasi “Penjaga Al Quran dan Sunnah” yang tangguh dalam menghadapi
               tatangan masa depan
             </p>
-            <MyButton theme="secondary">LOGIN</MyButton>
+            {/* <MyButton theme="secondary">LOGIN</MyButton> */}
           </div>
           <div>
             <div className={styles.dropShadow} />
@@ -62,15 +62,11 @@ const Home = () => {
             <h1>PONDOK PESANTREN AL-HADI</h1>
             <p>
               Pondok Modern berbasis Tahfidhzul Quran dan Ulumiyyah yang terintegrasi dengan Ilmu{' '}
-              <br />
               Pengetahuan dan Teknologi sehinga akan melahirkan generasi “Penjaga Al Quran dan
-              Sunnah”
-              <br />
-              yang tangguh dalam menghadapi tantangan masa depan.
+              Sunnah” yang tangguh dalam menghadapi tantangan masa depan.
               <br />
               <br />
               Semoga Allah ‘Azza wa Jalla senantiasa memberikan keistiqomahan langkah, hidayah serta
-              <br />
               pertolonganNya.
             </p>
           </div>

@@ -48,7 +48,7 @@ const Carousel = ({ className, config, children }) => {
 };
 
 Carousel.propTypes = {
-  className: PropTypes.string.isRequired, // Filled with your carousel item class
+  className: PropTypes.string, // Filled with your carousel item class
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   config: PropTypes.shape({
     [PropTypes.string]: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
