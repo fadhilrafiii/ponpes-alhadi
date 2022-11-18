@@ -12,19 +12,40 @@ const Footer = () => {
       <div className={styles.footerContentLeft}>
         <div>
           <div className={styles.imageWrapper}>
-            <Img layout="fixed" src={WhatsappIcon} width={28} height={28} placeholder="empty" />
+            <Img
+              layout="fixed"
+              src={WhatsappIcon}
+              width={28}
+              height={28}
+              placeholder="empty"
+              priority
+            />
           </div>
           <a>0812 7950 3322</a>
         </div>
         <div>
           <div className={styles.image}>
-            <Img layout="fixed" src={InstagramIcon} width={28} height={28} placeholder="empty" />
+            <Img
+              layout="fixed"
+              src={InstagramIcon}
+              width={28}
+              height={28}
+              placeholder="empty"
+              priority
+            />
           </div>
           <span>pondokpesantrenalhadi</span>
         </div>
         <div>
           <div className={styles.imageWrapper}>
-            <Img layout="fixed" src={FacebookIcon} width={28} height={28} placeholder="empty" />
+            <Img
+              layout="fixed"
+              src={FacebookIcon}
+              width={28}
+              height={28}
+              placeholder="empty"
+              priority
+            />
           </div>
           <span>Ponpes Alhadi</span>
         </div>

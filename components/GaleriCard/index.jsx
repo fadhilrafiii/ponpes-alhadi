@@ -10,7 +10,7 @@ const GaleriCard = ({ image, title, body, to }) => {
   return (
     <div className={styles.galeriCard}>
       <div className={styles.imageWrapper}>
-        <Img layout="fill" src={image} alt={title} sizes="360px" usePlaceholder />
+        <Img layout="fill" src={image} alt={title} sizes="360px" usePlaceholder priority />
       </div>
       <div className={styles.galeriCardContent}>
         <h4>{title}</h4>

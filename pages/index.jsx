@@ -45,7 +45,6 @@ const Home = () => {
               src={fotoBersamaPutriPic}
               alt="Foto Bersama Putri Pondok Pesantren Al-Hadi"
               sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
-              priority
             />
           </div>
         </section>
@@ -80,6 +79,7 @@ const Home = () => {
                 width={70}
                 height={85}
                 placeholder="empty"
+                priority
               />
               <p>Kurikulum Pondok Tahfidzul Qur&rsquo;an</p>
             </div>
@@ -123,7 +123,7 @@ const Home = () => {
                 layout="fill"
                 src={fotoBersamaPutraHivePic}
                 alt="Foto Bersama Putra Pondok Pesantren Al-Hadi"
-                sizes="(max-width: 560px) 400px, (max-width: 1200px) 600px, 800px"
+                sizes="(max-width: 560px) 300px, (max-width: 1200px) 400px, 500px"
               />
             </div>
             <div className={styles.quote}>
@@ -170,6 +170,7 @@ const Home = () => {
                       layout="fill"
                       src={fasilitas.image.src}
                       alt={fasilitas.image.alt}
+                      priority={idx === 0}
                       sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
                     />
                   </div>

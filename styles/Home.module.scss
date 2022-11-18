@@ -195,12 +195,10 @@
     gap: $pad-xxxl;
 
     .imageWrapper {
-      height: min(70vh, 80vw);
-      aspect-ratio: 1.25 / 1;
-      padding: 0 5vw;
+      width: clamp(360px, 50vw, 500px);
+      aspect-ratio: 1.1 / 1;
 
       @media (max-width: $mobile) {
-        box-sizing: content-box;
         height: unset;
         width: 80vw;
         aspect-ratio: 1 / 1;
