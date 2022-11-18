@@ -45,6 +45,7 @@ const Home = () => {
               src={fotoBersamaPutriPic}
               alt="Foto Bersama Putri Pondok Pesantren Al-Hadi"
               sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
+              priority
             />
           </div>
         </section>
