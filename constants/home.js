@@ -1,28 +1,27 @@
-import kbmPic from '../public/images/kbm.png';
-import senamPic from '../public/images/senam.png';
-import senam2Pic from '../public/images/senam-2.jpg';
-import halamanKelasPic from '../public/images/halaman-kelas.jpg';
-import aulaPutriPic from '../public/images/aula-santri-putri.jpg';
+import kbmPutra1Pic from '../public/images/kbm-putra-1.jpg';
+import kbmPutra2Pic from '../public/images/kbm-putra-2.jpg';
+import kbmPutra3Pic from '../public/images/kbm-putra-3.jpg';
+import asramaPutriPic from '../public/images/asrama-santri-putri.jpg';
+import gedungKelasPutraPic from '../public/images/gedung-kelas-putra.jpg';
 import masjidPic from '../public/images/masjid.jpg';
-import juaraTahfidzPic from '../public/images/juara-tahfidz.png';
 
 export const galleryCardList = [
   {
     title: 'Tentang Pondok Pesantren',
     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    image: kbmPic,
+    image: kbmPutra1Pic,
     to: '/'
   },
   {
     title: 'Kegiatan Siswa',
     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    image: senamPic,
+    image: kbmPutra2Pic,
     to: '/'
   },
   {
     title: 'Akademik',
     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    image: juaraTahfidzPic,
+    image: kbmPutra3Pic,
     to: '/'
   },
 ];
@@ -30,24 +29,17 @@ export const galleryCardList = [
 export const fasilitasList = [
   {
     image: {
-      src: senam2Pic,
-      alt: 'Senam Pondok Pesantren AlHadi'
+      src: asramaPutriPic,
+      alt: 'Asrama Santri Putri Pondok Pesantren AlHadi'
     },
-    desc: 'Arena Lapangan & Sarana Olahraga'
+    desc: 'Asrama Santri Putri'
   },
   {
     image: {
-      src: halamanKelasPic,
-      alt: 'Halaman Pondok Pesantren AlHadi'
+      src: gedungKelasPutraPic,
+      alt: 'Gedung Kelas Putra Pondok Pesantren AlHadi'
     },
-    desc: 'Halaman'
-  },
-  {
-    image: {
-      src: aulaPutriPic,
-      alt: 'Aula Santri Putri Pondok Pesantren AlHadi'
-    },
-    desc: 'Aula Santri Putri'
+    desc: 'Gedung Kelas Putra'
   },
   {
     image: {

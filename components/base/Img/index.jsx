@@ -13,7 +13,6 @@ const Img = forwardRef(({ className, src, alt, sizes, layout, usePlaceholder, ..
         src={src}
         alt={alt}
         sizes={sizes}
-        placeholder="blur"
         blurDataURL={usePlaceholder && '/images/placeholder.jpg'}
         objectFit="cover"
         objectPosition="center"

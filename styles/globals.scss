@@ -1,1 +1,19 @@
 @use './base';
+
+// Override react slick
+.slick-slide {
+  // display: flex !important;
+  // justify-content: center;
+
+  & > div {
+    width: auto;
+    display: flex;
+    justify-content: center;
+
+    & > div {
+      width: auto;
+      margin: 0 auto;
+    }
+
+  }
+}

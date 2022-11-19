@@ -1,40 +1,41 @@
 @use '../../styles/variables' as *;
 
 .galeriCard {
-  width: 333px;
+  display: flex;
   background-color: $primary-light-color;
-  border-top-right-radius: 48px;
-  border-bottom-left-radius: 48px;
+  border-bottom-left-radius: 40px;
+  border-top-right-radius: 40px;
   overflow: hidden;
-
-  @media(max-width: $mobile) {
-    width: 267px;
-  }
+  width: clamp(360px, 64vw, 800px);
+  aspect-ratio: 2.55 / 1;
 }
 
 .galeriCardContent {
-  padding: $pad-xxl $pad-xxxl;
+  flex: 0 0 40%;
+  padding: $pad-xxl $pad-xxxxl;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   @media(max-width: $mobile) {
     padding: $pad-xl $pad-xxl;
   }
 
   h4 {
-    font-size: 22px;
-
-    @media(max-width: $mobile) {
-      font-size: 12px;
-    }
+    margin-bottom: $pad-l;
   }
 
   p {
+    margin-bottom: $pad-xxxl;
+    font-size: 16px;
+    max-width: 240px;
+
     @media(max-width: $mobile) {
       font-size: 12px;
     }
   }
 
   .readMore {
-    margin: $pad-xxl auto 0;
     width: 160px;
     display: flex;
     align-items: center;
@@ -48,6 +49,7 @@
       text-decoration: none;
       color: white;
       font-weight: 600;
+      font-size: 16px;
 
       &:hover {
         text-decoration: underline;
@@ -61,9 +63,5 @@
 }
 
 .imageWrapper {
-  height: 222px;
-
-  @media(max-width: $mobile) {
-    height: 178px;
-  }
+  flex: 0 0 60%;
 }

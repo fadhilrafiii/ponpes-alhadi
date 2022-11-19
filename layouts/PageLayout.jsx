@@ -1,22 +1,25 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Footer from 'components/Footer';
 import Navbar from 'components/Navbar';
 
-const PageLayout = ({ children }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const actionToggleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev);
-  };
-
+const PageLayout = ({ children, showNavbarBottom }) => {
   return (
     <div>
-      <Navbar isSidebarOpen={isSidebarOpen} actionToggleSidebar={actionToggleSidebar} />
+      <Navbar showNavbarBottom={showNavbarBottom} />
       {children}
       <Footer />
     </div>
   );
+};
+
+PageLayout.propTypes = {
+  showNavbarBottom: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+};
+
+PageLayout.defaultProps = {
+  showNavbarBottom: false,
 };
 
 export default PageLayout;

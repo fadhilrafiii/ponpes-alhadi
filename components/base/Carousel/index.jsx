@@ -10,7 +10,7 @@ import classes from './index.module.scss';
 const NextArrow = ({ onClick }) => {
   return (
     <span className={classes.nextArrow} onClick={onClick}>
-      <Img src="/images/chevron-left.svg" placeholder="empty" width={24} height={24} />
+      <Img src="/icons/chevron-right.svg" placeholder="empty" width={32} height={32} />
     </span>
   );
 };
@@ -18,7 +18,7 @@ const NextArrow = ({ onClick }) => {
 const PrevArrow = ({ onClick }) => {
   return (
     <span className={classes.prevArrow} onClick={onClick}>
-      <Img src="/images/chevron-right.svg" placeholder="empty" width={24} height={24} />
+      <Img src="/icons/chevron-left.svg" placeholder="empty" width={32} height={32} />
     </span>
   );
 };
@@ -34,6 +34,7 @@ const Carousel = ({ className, config, children }) => {
     fade: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: false,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };

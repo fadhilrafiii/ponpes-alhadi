@@ -17,7 +17,7 @@ const GaleriCard = ({ image, title, body, to }) => {
         <p>{body}</p>
         {to && (
           <div className={styles.readMore}>
-            <Link href={to}>read more</Link>
+            <Link href={to}>selanjutnya...</Link>
           </div>
         )}
       </div>

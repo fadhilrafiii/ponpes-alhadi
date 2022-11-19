@@ -1,9 +1,9 @@
 @use '../../styles/variables' as *;
 
-.navbarContainer {
+.navbar {
   background-color: $primary-dark-color;
-  padding: $pad-xxxl;
   display: flex;
+  padding: $pad-xl $pad-xxxxxxl;
   align-items: center;
   justify-content: space-between;
 
@@ -22,10 +22,10 @@
   }
 }
 
-.navbarContainer > div:first-child {
+.navbar > div:first-child {
   display: flex;
   align-items: center;
-  gap: $pad-xl;
+  gap: $pad-xxl;
 
   h2 {
     color: white;
@@ -36,7 +36,7 @@
   ul {
     list-style-type: none;
     display: flex;
-    gap: $pad-xl;
+    gap: $pad-xxxxl;
     justify-content: flex-end;
     flex-wrap: wrap;
     align-items: center;
@@ -45,7 +45,7 @@
       color: white;
       font-size: 24px;
       cursor: pointer;
-      width: 160px;
+      max-width: 120px;
       text-align: right;
 
       &:hover {
@@ -73,4 +73,19 @@
     flex-direction: column;
     gap: 3px
   }
+}
+
+.navbarBottom {
+  padding: $pad-xl $pad-xxxxxxl;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: $primary-color;
+}
+
+.callUs {
+  display: flex;
+  gap: $pad-m;
+  align-items: center;
+  color: white;
 }

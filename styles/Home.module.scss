@@ -1,11 +1,12 @@
 @use './variables' as *;
 
 .mainSection {
-  height: 90vh;
+  height: calc(100vh - 200px);
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
+  margin-bottom: $pad-xxxxxl;
   
   @media (max-width: $mobile) {
     align-items: unset;
@@ -15,26 +16,32 @@
 }
 
 .mainSection > div:first-child {
-  padding: 6%;
-  padding-bottom: 0;
-  width: 32%;
+  width: calc(50% - $pad-xxxxxl);
+  padding-left: 5vw;
 
   @media (max-width: $mobile) {
     width: unset;
     margin-top: 60vh;
   }
 
-  h2 {
-    margin-bottom: $pad-xxl;
+  & > div {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin-bottom: $pad-xl;
   }
 
   p {
-    margin-bottom: $pad-xxxl;
     color: $black-grey-color;
+    width: 80%;
+    min-width: 360px;
+    font-weight: 700;
   }
 
   @media (max-width: $mobile) {
-    h2 {
+    h1 {
       font-size: 28px;
     }
 
@@ -48,7 +55,7 @@
   position: absolute;
   right: 0;
   height: 100%;
-  width: 66%;
+  width: 60%;
   overflow: hidden;
 
   @media (max-width: $mobile) {
@@ -76,27 +83,30 @@
 }
 
 .galeriSection {
-  padding: 10% 0;
+  padding: $pad-xxxxxl 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  h1 {
-    margin-bottom: $pad-xxxxl;
+  h2 {
+    margin-bottom: $pad-xxxxxl;
   }
 }
 
-.galeriCardWrapper {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: $pad-xxxl;
-  flex-wrap: wrap;
+.galeriCarousel {
+  width: 100%;
+  padding: 0 $pad-xxxxxxl;
+
+  .galeriWrapper {
+    & > div {
+      margin: 0 auto;
+    }
+  }
 }
 
 .profileSection {
-  padding: 2.5%;
+  padding: $pad-xxxxxl;
 
   & > * {
     text-align: center;
@@ -116,17 +126,17 @@
     margin: 0 auto;
     padding: 2.5% 0;
 
-    h1, p {
-      margin-bottom: $pad-xxxxl;
+    h2, p {
+      margin-bottom: $pad-xxxl;
     }
   }
 
   .kurikulumWrapper {
-    max-width: 1200px;
+    max-width: 1000px;
+    margin: 0 auto $pad-xxxxl;
     display: flex;
-    margin: 0 auto 5%;
-    justify-content: space-evenly;
-    gap: $pad-xl;
+    justify-content: center;
+    gap: $pad-xxxxxl;
     flex-wrap: wrap;
     align-items: flex-start;
     
@@ -144,15 +154,19 @@
       display: flex;
       flex-direction: column;
       gap: $pad-xl;
-      width: 160px;
+      width: 180px;
+
+      p {
+        font-size: 16px;
+      }
     }
   } 
 
   .linksWrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: $pad-xxxxl;
+    flex-direction: column;
+    gap: $pad-xxxl;
   }
 
   .link {
@@ -164,6 +178,7 @@
     padding: $pad-m 0;
     border-radius: 24px;
     border-top-left-radius: 0;
+    font-size: 16px;
 
     @media (max-width: $mobile) {
       width: 130px;
@@ -182,106 +197,117 @@
 }
 
 .quoteSection {
-  padding: 7.5% 5vw;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: $pad-xxxxxl $pad-xxxl;
+  text-align: center;
+  color: $black-grey-color;
 
-  .quoteWrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: $pad-xxxl;
+  // .quoteWrapper {
+  //   max-width: 1200px;
+  //   margin: 0 auto;
+  //   position: relative;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   flex-wrap: wrap;
+  //   gap: $pad-xxxl;
 
-    .imageWrapper {
-      width: clamp(360px, 50vw, 500px);
-      aspect-ratio: 1.1 / 1;
+  //   .imageWrapper {
+  //     width: clamp(360px, 50vw, 500px);
+  //     aspect-ratio: 1.1 / 1;
 
-      @media (max-width: $mobile) {
-        height: unset;
-        width: 80vw;
-        aspect-ratio: 1 / 1;
-        padding: 5%;
-      }
-    }
+  //     @media (max-width: $mobile) {
+  //       height: unset;
+  //       width: 80vw;
+  //       aspect-ratio: 1 / 1;
+  //       padding: 5%;
+  //     }
+  //   }
 
-    .quote {
-      max-width: 467px;
-      text-align: justify;
-      text-justify: inter-word;
+  //   .quote {
+  //     max-width: 467px;
+  //     text-align: justify;
+  //     text-justify: inter-word;
 
-      @media (max-width: $mobile) {
-        text-align: center;
+  //     @media (max-width: $mobile) {
+  //       text-align: center;
 
-        ol {
-          text-align: left;
-        }
-      }
+  //       ol {
+  //         text-align: left;
+  //       }
+  //     }
 
-      p, div {
-        line-height: 1.33;
-        color: $black-grey-color;
-        font-size: 20px;
-        margin-bottom: $pad-xxxl;
+  //     p, div {
+  //       line-height: 1.33;
+  //       color: $black-grey-color;
+  //       font-size: 20px;
+  //       margin-bottom: $pad-xxxl;
 
-        @media (max-width: $mobile) {
-          font-size: 11px;
-        }
+  //       @media (max-width: $mobile) {
+  //         font-size: 11px;
+  //       }
   
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
+  //       &:last-child {
+  //         margin-bottom: 0;
+  //       }
+  //     }
       
-      h4 {
-        margin-bottom: $pad-xxl;
-      }
-    }
-  }
+  //     h4 {
+  //       margin-bottom: $pad-xxl;
+  //     }
+  //   }
+  // }
 }
 
 .fasilitasSection {
-  padding: 2.5% 0 7.5%;
+  padding: $pad-xxxxxxl;
 
   & > h2 {
     text-align: center;
-    margin-bottom: $pad-xxxxl;
+    margin-bottom: $pad-xxxxxl;
   }
 
   .fasilitasWrapper {
     width: 100%;
+    display: flex;
+    gap: $pad-xxxxxl;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .fasilitasContent {
-    aspect-ratio: 11 / 4;
+    width: 306px;
     position: relative;
+    text-align: center;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    overflow: hidden;
+    background-color: $primary-light-color;
 
     .fasilitasImageWrapper {
       position: relative;
-      height: 100%;
+      height: 205px;
       width: 100%;
-      clip-path: polygon(0 0, 85% 0, 60% 100%, 0% 100%);
-      min-height: 40vh;
 
-      .dropShadow {
-        z-index: 1;
-        position: absolute;
-        height: 100%;
-        top: 0;
-        right: 0;
-        width: 100%;
-        background-color: rgba(255, 255, 255, .75);
-        clip-path: polygon(calc(85% - 40px) 0, 85% 0, 60% 100%, calc(60% - 40px) 100%);
-      }
+      // .dropShadow {
+      //   z-index: 1;
+      //   position: absolute;
+      //   height: 100%;
+      //   top: 0;
+      //   right: 0;
+      //   width: 100%;
+      //   background-color: rgba(255, 255, 255, .75);
+      //   clip-path: polygon(calc(85% - 40px) 0, 85% 0, 60% 100%, calc(60% - 40px) 100%);
+      // }
 
-      @media (max-width: $mobile) {
-        clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+      // @media (max-width: $mobile) {
+      //   clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
 
-        .dropShadow {
-          clip-path: polygon(calc(100% - 20px) 0, 100% 0, 60% 100%, calc(60% - 20px) 100%);
-        }
-      }
+      //   .dropShadow {
+      //     clip-path: polygon(calc(100% - 20px) 0, 100% 0, 60% 100%, calc(60% - 20px) 100%);
+      //   }
+      // }
 
       img {
         object-fit: cover;
@@ -303,10 +329,16 @@
       }
     }
   }
+
+  p {
+    text-align: center;
+    padding: $pad-xxxl;
+    font-weight: 600;
+  }
 }
 
 .videoSection {
-  padding: 5% 5% 10%;
+  padding: $pad-xxxxxxl;
 
   h2 {
     text-align: center;
@@ -320,41 +352,35 @@
     justify-content: center;
     gap: $pad-xxxxl;
     max-width: 1100px;
-
-    & > * {
-      flex: 0 0 50%;
-    }
-
-    @media (max-width: 768px) {
-      flex-wrap: wrap-reverse;
-
-      & > * {
-        flex: 0 0 100%;
-      }
-    }
-
-    p {
-      padding-top: $pad-l;
-      font-size: 27px;
-      color: $black-grey-color;
-
-      @media (max-width: $mobile) {
-        font-size: 11px;
-        padding: 0;
-        text-align: center;
-      }
-    }
+    flex-wrap: wrap;
 
     .videoContent {
-      aspect-ratio: 3 / 2;
+      flex: 0 0 calc(50% - $pad-xxxxl / 2);
+      min-width: 360px;
       border-top-right-radius: 40px;
       border-bottom-left-radius: 40px;
-      overflow: hidden;
+      background-color: $primary-light-color;
 
-      @media (max-width: $mobile) {
-        width: 80%;
-        padding: 0;
-        flex: none;
+      .videoImage {
+        width: 100%;
+        margin: 0 auto;
+        aspect-ratio: 1.76 / 1;
+        border-top-right-radius: 40px;
+        border-bottom-left-radius: 40px;
+        overflow: hidden;
+
+        .iframe {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      p {
+        color: black;
+        text-align: center;
+        font-size: 16px;
+        padding: $pad-xxxl;
+        font-weight: 700;
       }
     }
   }

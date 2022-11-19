@@ -19,23 +19,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 42px;
+  font-size: 40px;
 }
 
 h2 {
-  font-size: 35px;
+  font-size: 32px;
 }
 
 h3 {
-  font-size: 30px;
-}
-
-h4 {
   font-size: 24px;
 }
 
-p, div {
-  font-size: 22px;
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 12px;
+}
+
+p, div, li {
+  font-size: 20px;
 }
 
 @media (max-width: $mobile) {
