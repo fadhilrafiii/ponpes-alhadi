@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { memo } from 'react';
 
 import PropTypes from 'prop-types';
@@ -9,6 +11,8 @@ import styles from './index.module.scss';
 import logo from 'public/images/logo-192.png';
 
 const Navbar = memo(({ showNavbarBottom }) => {
+  const { pathname } = useRouter();
+
   return (
     <header className={styles.navbarContainer}>
       <div className={styles.navbar}>
@@ -30,10 +34,18 @@ const Navbar = memo(({ showNavbarBottom }) => {
         </div>
         <div className={styles.menu}>
           <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Akademik</li>
-            <li>Penerimaan Murid Baru</li>
+            <li className={'/' === pathname ? styles.activeMenu : ''}>
+              <Link href="/">Home</Link>
+            </li>
+            <li className={'/tentang-kami' === pathname ? styles.activeMenu : ''}>
+              <Link href="/tentang-kami">Tentang Kami</Link>
+            </li>
+            <li className={'/akademik' === pathname ? styles.activeMenu : ''}>
+              <Link href="/akademik">Akademik</Link>
+            </li>
+            <li className={'/penerimaan' === pathname ? styles.activeMenu : ''}>
+              <Link href="/penerimaan">Penerimaan Murid Baru</Link>
+            </li>
           </ul>
         </div>
         <div className={styles.hamburger}>

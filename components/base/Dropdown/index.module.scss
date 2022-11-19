@@ -1,3 +1,5 @@
+@use '/styles/variables' as *;
+
 .dropdown {
   position: relative;
   transition: all 1s;
@@ -5,20 +7,22 @@
   overflow: hidden;
 }
 
-.dropdownItemContainer {
+.dropdownMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown > .dropdownItemContainer {
   height: 0;
   opacity: 0;
+  padding: 0;
   transition: all .2s;
-  padding-left: var(--space-l);
 }
 
-.dropdownOpen .dropdownItemContainer {
+.dropdownOpen > .dropdownItemContainer {
   height: auto;
   opacity: 1;
-}
-
-.dropdownItemContainer * {
-  font-size: .92em;
 }
 
 .dropdownItemContainer > * {
@@ -34,14 +38,14 @@
   padding-bottom: 6px;
 }
 
-.dropdownOpen .dropdownButton {
+.dropdownOpen > .dropdownMain > .dropdownButton {
   transform: rotate(180deg);
 }
 
 .arrowDropdown {
   width: 10px;
   height: 10px;
-  border-top: 1px solid var(--color-secondary);
-  border-right: 1px solid var(--color-secondary);
+  border-top: 2px solid black;
+  border-right: 2px solid black;
   transform: rotate(135deg);
 }

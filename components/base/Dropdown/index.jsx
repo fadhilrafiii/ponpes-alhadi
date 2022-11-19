@@ -1,13 +1,19 @@
 import { useState } from 'react';
 
-import { Grid } from '@mui/material';
-
 import PropTypes from 'prop-types';
 
-import classes from './index.module.css';
+import classes from './index.module.scss';
 
-const Dropdown = ({ text, children, className, textClassName, containerClassName, ...props }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Dropdown = ({
+  isOpenInitially,
+  text,
+  children,
+  className,
+  textClassName,
+  containerClassName,
+  ...props
+}) => {
+  const [isOpen, setIsOpen] = useState(isOpenInitially);
 
   const actionToggleDropdown = () => setIsOpen((prev) => !prev);
 
@@ -17,19 +23,14 @@ const Dropdown = ({ text, children, className, textClassName, containerClassName
 
   return (
     <div className={classNames.join(' ')} {...props}>
-      <Grid
-        container
-        className={classes.dropdownMain}
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <Grid item className={[classes.dropdownText, textClassName].join(' ')}>
+      <div className={classes.dropdownMain}>
+        <div item className={[classes.dropdownText, textClassName].join(' ')}>
           {text}
-        </Grid>
-        <Grid item className={classes.dropdownButton} role="button" onClick={actionToggleDropdown}>
+        </div>
+        <div item className={classes.dropdownButton} role="button" onClick={actionToggleDropdown}>
           <span className={classes.arrowDropdown} />
-        </Grid>
-      </Grid>
+        </div>
+      </div>
       <div className={[classes.dropdownItemContainer, containerClassName].join(' ')}>
         {children}
       </div>
@@ -44,12 +45,14 @@ Dropdown.propTypes = {
     .isRequired,
   textClassName: PropTypes.string,
   containerClassName: PropTypes.string,
+  isOpenInitially: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
   className: '',
   textClassName: '',
   containerClassName: '',
+  isOpenInitially: false,
 };
 
 export default Dropdown;

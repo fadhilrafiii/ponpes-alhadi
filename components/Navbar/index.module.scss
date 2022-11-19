@@ -42,20 +42,31 @@
     align-items: center;
 
     li {
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      max-width: 120px;
+      max-width: 135px;
       text-align: right;
 
-      &:hover {
-        text-decoration: underline;
+      a {
+        color: white;
+        cursor: pointer;
+        font-size: 24px;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
 
   @media (max-width: $mobile) {
     display: none;
+  }
+}
+
+.activeMenu {
+  a {
+    text-decoration: underline !important;
+    pointer-events: none;
   }
 }
 
