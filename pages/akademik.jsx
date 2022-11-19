@@ -126,7 +126,7 @@ const Akademik = () => {
         <section id="ekstrakurikuler" className={styles.ekstrakurikuler}>
           <h2>KEGIATAN EKSTRAKURIKULER</h2>
           <div className={styles.ekstrakurikulerWrapper}>
-            <Carousel config={{ slidesToShow: 4, fade: false, arrows: true }}>
+            <Carousel config={{ slidesToShow: 3, fade: false, arrows: true }}>
               {ekstrakurikulers.map(({ image, title, body, to }, idx) => (
                 <div className={styles.ekstrakurikulerCard} key={idx}>
                   <div className={styles.imageWrapper}>
