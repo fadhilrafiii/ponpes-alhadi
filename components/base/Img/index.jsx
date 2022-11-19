@@ -5,22 +5,25 @@ import PropTypes from 'prop-types';
 
 import classes from './index.module.css';
 
-const Img = forwardRef(({ className, src, alt, sizes, layout, usePlaceholder, ...props }, ref) => {
-  return (
-    <div ref={ref} className={[classes.container, className].join(' ')}>
-      <Image
-        layout={layout}
-        src={src}
-        alt={alt}
-        sizes={sizes}
-        blurDataURL={usePlaceholder && '/images/placeholder.jpg'}
-        objectFit="cover"
-        objectPosition="center"
-        {...props}
-      />
-    </div>
-  );
-});
+const Img = forwardRef(
+  ({ className, src, alt, sizes, layout, usePlaceholder, priority, ...props }, ref) => {
+    return (
+      <div ref={ref} className={[classes.container, className].join(' ')}>
+        <Image
+          layout={layout}
+          src={src}
+          alt={alt}
+          sizes={sizes}
+          blurDataURL={usePlaceholder && '/images/placeholder.jpg'}
+          objectFit="cover"
+          objectPosition="center"
+          priority={priority}
+          {...props}
+        />
+      </div>
+    );
+  },
+);
 
 Img.propTypes = {
   className: PropTypes.string,
@@ -29,12 +32,14 @@ Img.propTypes = {
   sizes: PropTypes.string,
   layout: PropTypes.string,
   usePlaceholder: PropTypes.bool,
+  priority: PropTypes.bool,
 };
 
 Img.defaulProps = {
   className: '',
   layout: 'fill',
   usePlaceholder: false,
+  priority: false,
 };
 
 export default Img;
