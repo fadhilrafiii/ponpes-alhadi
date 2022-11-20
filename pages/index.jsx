@@ -15,7 +15,8 @@ import styles from 'styles/Home.module.scss';
 // import fotoBersamaPutraHivePic from 'public/images/foto-bersama-putra-hive.png';
 import fotoBersamaPutriPic from 'public/images/foto-bersama-putri.jpg';
 
-const Home = () => {
+const Home = ({ data }) => {
+  console.log(data);
   return (
     <div>
       <Head>
@@ -269,6 +270,13 @@ const Home = () => {
       </PageLayout>
     </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  const res = await fetch(process.env.NEXT_URL + '/api/hello');
+  const data = await res.json();
+
+  return { props: { data } };
 };
 
 export default Home;
