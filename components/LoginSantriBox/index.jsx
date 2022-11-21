@@ -10,7 +10,6 @@ const LoginSiswaBox = () => {
     username: '',
     password: '',
   });
-  const [error] = useState('');
 
   const handleChangeLoginData = (e) => {
     const { name, value } = e.target;
@@ -49,7 +48,6 @@ const LoginSiswaBox = () => {
         name="password"
         onChange={handleChangeLoginData}
       />
-      <div>{error}</div>
       <button onClick={submitData}>Login</button>
     </div>
   );
