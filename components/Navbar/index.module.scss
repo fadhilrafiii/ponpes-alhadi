@@ -27,8 +27,9 @@
   align-items: center;
   gap: $pad-xxl;
 
-  h2 {
+  h3 {
     color: white;
+    max-width: 303px;
   }
 }
 
@@ -36,19 +37,20 @@
   ul {
     list-style-type: none;
     display: flex;
-    gap: $pad-xxxxl;
+    gap: $pad-xl $pad-xxxxl;
     justify-content: flex-end;
     flex-wrap: wrap;
     align-items: center;
 
     li {
-      max-width: 135px;
+      max-width: 128px;
       text-align: right;
+      text-transform: uppercase;
 
       a {
         color: white;
         cursor: pointer;
-        font-size: 24px;
+        font-size: 20px;
         text-decoration: none;
 
         &:hover {
@@ -70,28 +72,19 @@
   }
 }
 
-.hamburger {
-  display: none;
-
-  span {
-    background-color: white;
-    width: 24px;
-    height: 3px;
-  }
-
-  @media (max-width: $mobile) {
-    display: flex;
-    flex-direction: column;
-    gap: 3px
-  }
-}
-
 .navbarBottom {
   padding: $pad-xl $pad-xxxxxxl;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background-color: $primary-color;
+}
+
+.loginButton {
+  min-width: 120px;
+  background-color: $secondary-color;
+  padding: $pad-m $pad-xxxxl;
+  border-radius: 20px;
 }
 
 .callUs {

@@ -21,16 +21,13 @@ const Navbar = memo(({ showNavbarBottom }) => {
             <Img
               layout="fixed"
               src={logo}
-              alt="Ponpes Al Hadi"
+              alt="Pondok Pesantren Al Hadi Sungkai Langka"
               width={50}
               height={50}
               usePlaceholder
             />
           </div>
-          <h2>
-            PONDOK PESANTREN AL- HADI
-            <br /> SUNGAI LANGKA
-          </h2>
+          <h3>PONDOK PESANTREN AL- HADI SUNGAI LANGKA</h3>
         </div>
         <div className={styles.menu}>
           <ul>
@@ -46,18 +43,25 @@ const Navbar = memo(({ showNavbarBottom }) => {
             <li className={'/penerimaan' === pathname ? styles.activeMenu : ''}>
               <Link href="/penerimaan">Penerimaan Murid Baru</Link>
             </li>
+            <li>
+              <Link href="/login">
+                <a className={styles.loginButton}>LOGIN</a>
+              </Link>
+            </li>
           </ul>
-        </div>
-        <div className={styles.hamburger}>
-          <span />
-          <span />
-          <span />
         </div>
       </div>
       {showNavbarBottom && (
         <div className={styles.navbarBottom}>
           <div className={styles.callUs}>
-            <Img src="/icons/call.svg" layout="fixed" width={32} height={32} priority />
+            <Img
+              src="/icons/call.svg"
+              alt="Hubungi Kami"
+              layout="fixed"
+              width={32}
+              height={32}
+              priority
+            />
             <div>Hubungi Kami</div>
           </div>
         </div>

@@ -1,0 +1,58 @@
+@use './variables' as *;
+
+.bannerSection {
+  height: 60vh;
+
+  .bannerWrapper {
+    position: relative;
+    height: 100% !important;
+
+    .imageWrapper {
+      height: 100%;
+
+      span {
+        height: 100% !important;
+      }
+    }
+  }
+
+  .bannerText {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    max-width: 740px;
+
+    p {
+      font-weight: 700;
+      margin-bottom: $pad-xxxxxl;
+    }
+
+    h1 {
+      font-size: 56px;
+    }
+  }
+}
+
+.loginSection {
+  padding: $pad-xxxxxxl;
+
+  .loginBoxWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: $pad-xxxxxxl;
+
+    & > * {
+      flex: 0 0 clamp(360px, calc(50% - $pad-xxxxxxl), 400px);
+    }
+  }
+}

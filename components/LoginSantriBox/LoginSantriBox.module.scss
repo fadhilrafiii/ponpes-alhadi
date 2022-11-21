@@ -1,0 +1,26 @@
+@use '/styles/variables' as *;
+
+.box {
+  width: min(100%, 400px);
+  display: flex;
+  flex-direction: column;
+  gap: $pad-xl;
+  background-color: $primary-color;
+  border-radius: 20px;
+  padding: $pad-xxxl;
+
+  h2 { color: white}
+  
+  input {
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    padding: $pad-xxl $pad-xl;
+
+    &::placeholder {
+      color: $black-grey-color;
+    }
+  }
+}

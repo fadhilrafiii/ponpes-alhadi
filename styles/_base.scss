@@ -74,7 +74,11 @@ p, div, li {
   }
 }
 
-p, span, button, div, a {
+p, span, button, div, a, input {
   font-family: $ff-paragraph;
   margin: 0;
+}
+
+a {
+  display: inline-block;
 }

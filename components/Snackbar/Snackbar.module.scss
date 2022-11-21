@@ -1,0 +1,49 @@
+@use '/styles/variables' as *;
+
+.snackbar {
+  position: fixed;
+  top: $pad-xxxl;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(360px, 70vw, 640px);
+  padding: $pad-xl;
+  text-align: center;
+  box-shadow: 2px 2px 5px -1px black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  z-index: 999;
+
+  &.success {
+    background-color: $primary-color;
+  }
+
+  &.info {
+    background-color: $secondary-color;
+  }
+
+  &.error {
+    background-color: $red-color;
+  }
+
+  .message {
+    color: white;
+  }
+
+  .close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: white;
+    border-radius: 100%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($black-grey-color, 0.5);
+    }
+
+  }
+}
