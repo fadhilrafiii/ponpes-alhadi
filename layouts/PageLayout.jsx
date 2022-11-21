@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Footer from 'components/Footer';
 import Navbar from 'components/Navbar';
 
-const PageLayout = ({ children, showNavbarBottom }) => {
+const PageLayout = ({ children, showNavbarBottom, withFooter }) => {
   return (
     <div>
       <Navbar showNavbarBottom={showNavbarBottom} />
       {children}
-      <Footer />
+      {withFooter && <Footer />}
     </div>
   );
 };
@@ -16,10 +16,12 @@ const PageLayout = ({ children, showNavbarBottom }) => {
 PageLayout.propTypes = {
   showNavbarBottom: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  withFooter: PropTypes.bool,
 };
 
 PageLayout.defaultProps = {
   showNavbarBottom: false,
+  withFooter: false,
 };
 
 export default PageLayout;

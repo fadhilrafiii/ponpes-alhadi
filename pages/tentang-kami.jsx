@@ -23,7 +23,7 @@ const TentangKami = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageLayout>
+      <PageLayout withFooter>
         <section id="tentang-kami-banner" className={styles.bannerSection}>
           <div className={styles.imageWrapper}>
             <Img

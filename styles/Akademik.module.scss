@@ -76,7 +76,7 @@
     padding-top: 0;
     text-align: center;
     color: $black-grey-color;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -106,17 +106,23 @@
       overflow: hidden;
     }
 
-    h5 {
+    & > div:last-child {
+      padding-right: $pad-xxxxxl;
+    }
+
+    h4 {
       margin-bottom: $pad-xxxl;
+      text-align: justify;
     }
 
     ol {
       padding-inline-start: $pad-xl;
+      text-align: justify;
     }
 
     li {
-      font-size: 16px;
-      margin-bottom: $pad-m;
+      font-size: 18px;
+      margin-bottom: $pad-l;
     }
   }
 }

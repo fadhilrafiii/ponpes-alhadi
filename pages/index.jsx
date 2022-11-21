@@ -15,8 +15,7 @@ import styles from 'styles/Home.module.scss';
 // import fotoBersamaPutraHivePic from 'public/images/foto-bersama-putra-hive.png';
 import fotoBersamaPutriPic from 'public/images/foto-bersama-putri.jpg';
 
-const Home = ({ data }) => {
-  console.log(data);
+const Home = () => {
   return (
     <div>
       <Head>
@@ -28,7 +27,7 @@ const Home = ({ data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PageLayout showNavbarBottom>
+      <PageLayout showNavbarBottom withFooter>
         <section id="main" className={styles.mainSection}>
           <div>
             <div>
@@ -270,13 +269,6 @@ const Home = ({ data }) => {
       </PageLayout>
     </div>
   );
-};
-
-export const getServerSideProps = async () => {
-  const res = await fetch(process.env.NEXT_URL + '/api/hello');
-  const data = await res.json();
-
-  return { props: { data } };
 };
 
 export default Home;

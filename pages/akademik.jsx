@@ -25,7 +25,7 @@ const Akademik = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageLayout>
+      <PageLayout withFooter>
         <section id="akademik-banner" className={styles.bannerSection}>
           <div className={styles.imageWrapper}>
             <Img
@@ -94,10 +94,10 @@ const Akademik = () => {
               />
             </div>
             <div>
-              <h5>
+              <h4>
                 Lulusan pondok pesantren Al Hadi setingkat SMP/MTs diharapkan memiliki kompetansi
                 sebagai berikut :
-              </h5>
+              </h4>
               <ol>
                 <li>Memiliki hafalan Alquran minimal 20 juz dan bisa menterjemahkan lafdziyyah</li>
                 <li>Hafal hadist Arba’in nawawiyyah dan terjemahannya</li>
@@ -106,7 +106,7 @@ const Akademik = () => {
                 <li>Menggunakan bahasa arab dan inggris percakapan harian dan tulisan</li>
                 <li>Menguasai teknologi informatika menengah</li>
                 <li>Menguasai ilmu pengetahuan umum setingkat Tsanawiyah</li>
-                <li>Berakhlak mulia, bersemangat dalam mengembangkan ilmu dan menyampaiknnya</li>
+                <li>Berakhlak mulia, bersemangat dalam mengembangkan ilmu dan menyampaikannya</li>
               </ol>
             </div>
           </div>

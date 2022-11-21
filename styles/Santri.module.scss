@@ -1,0 +1,27 @@
+@use './variables' as *;
+
+.container {
+  padding: $pad-xxxxxxl;
+  min-height: calc(100% - 98px);
+
+  .menuWrapper {
+    display: flex;
+    justify-content: center;
+    gap: $pad-xxxl;
+    flex-wrap: wrap;
+  }
+}
+
+.menu {
+  background-color: $primary-light-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: $pad-xl;
+  flex: 0 0 calc(33% - $pad-xxxl);
+  min-width: 340px;
+  aspect-ratio: 1.49 / 1;
+  border-radius: 20px;
+  cursor: pointer;
+}
