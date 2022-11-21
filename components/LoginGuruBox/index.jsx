@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { postLoginSantriAPI } from 'Client/auth';
+import { postLoginSantriAPI } from 'client/auth';
 import { isEmail } from 'utils/string';
 
 import styles from './LoginGuruBox.module.scss';
