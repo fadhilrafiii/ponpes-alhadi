@@ -32,6 +32,7 @@ const Akademik = () => {
               src={kbmPic}
               alt="Halaman Pondok Pesantren Al Hadi"
               priority
+              placeholder="blur"
               sizes="(max-width: 560px) 560px, (max-width: 768px0 768px, (max-width: 1200px) 1000px, 1200px"
             />
             <h1>AKADEMIK</h1>

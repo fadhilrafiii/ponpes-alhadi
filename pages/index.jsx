@@ -83,6 +83,7 @@ const Home = () => {
                 width={70}
                 height={85}
                 placeholder="empty"
+                priority
               />
               <p>Kurikulum Nasional Setingkat SMP/ Tsanawivah</p>
             </div>
@@ -93,6 +94,7 @@ const Home = () => {
                 width={70}
                 height={85}
                 placeholder="empty"
+                priority
               />
               <p>Kurikulum Madrasah Diniyyah</p>
             </div>
@@ -176,7 +178,7 @@ const Home = () => {
                     layout="fill"
                     src={fasilitas.image.src}
                     alt={fasilitas.image.alt}
-                    priority={idx === 0}
+                    priority
                     sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
                   />
                 </div>

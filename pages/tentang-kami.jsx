@@ -29,8 +29,9 @@ const TentangKami = () => {
             <Img
               src={halamanPic}
               alt="Halaman Pondok Pesantren Al Hadi"
-              priority
               sizes="(max-width: 560px) 560px, (max-width: 768px0 768px, (max-width: 1200px) 1000px, 1200px"
+              placeholder="blur"
+              priority
             />
             <h1>TENTANG KAMI</h1>
           </div>
@@ -70,7 +71,7 @@ const TentangKami = () => {
                     layout="fill"
                     src={fasilitas.image.src}
                     alt={fasilitas.image.alt}
-                    priority={idx === 0}
+                    priority
                     sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
                   />
                 </div>
