@@ -43,6 +43,9 @@ const Navbar = memo(({ showNavbarBottom }) => {
             <li className={'/penerimaan' === pathname ? styles.activeMenu : ''}>
               <Link href="/penerimaan">Penerimaan Murid Baru</Link>
             </li>
+            <li className={'/santri' === pathname ? styles.activeMenu : ''}>
+              <Link href="/santri">Santri</Link>
+            </li>
             <li>
               <Link href="/login">
                 <a className={styles.loginButton}>LOGIN</a>

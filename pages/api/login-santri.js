@@ -1,11 +1,14 @@
 import { compareSync } from 'bcrypt';
-import connectDB from 'db';
-import Santri from 'db/models/Santri';
+import cookie from 'cookie';
 import Joi from 'joi';
 import jwt from 'jsonwebtoken';
-import { errorHandlerMiddleware } from 'middlewares/error-handler';
 import joi from 'utils/joi';
 import response from 'utils/response';
+
+import connectDB from 'db';
+import Santri from 'db/models/Santri';
+
+import { errorHandlerMiddleware } from 'middlewares/error-handler';
 
 const loginSchema = joi
   .object()
@@ -34,13 +37,22 @@ const handler = async (req, res) => {
       message: 'Password salah, Coba diingat kembali atau lebih teliti dalam memasukkan password!',
     });
 
-  const { _id, name, fullName } = santri;
-  const token = jwt.sign({ _id, nisn, name, fullName }, process.env.JWT_SECRET_KEY);
+  delete santri.password;
+  const token = jwt.sign({ ...santri.toObject(), type: 'Santri' }, process.env.JWT_SECRET_KEY);
 
+  res.setHeader(
+    'Set-Cookie',
+    cookie.serialize('auth-token', 'Bearer ' + token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== 'production' ? false : true,
+      sameSite: 'strict',
+      maxAge: 3600 * 24,
+      path: '/',
+    }),
+  );
   return response(res, {
     status: 200,
     message: 'Login Santri berhasil!',
-    data: { _id, name, nisn, fullName, token, userType: 'Santri' },
   });
 };
 

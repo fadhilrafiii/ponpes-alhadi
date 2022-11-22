@@ -1,10 +1,13 @@
-import PageLayout from 'layouts/PageLayout';
+import { getAuthenticateAPI } from 'client/auth';
+import { redirectServerTo } from 'utils/redirect';
 
 import Img from 'components/base/Img';
 import LoginGuruBox from 'components/LoginGuruBox';
 import LoginSiswaBox from 'components/LoginSantriBox';
 
 import styles from 'styles/Login.module.scss';
+
+import PageLayout from 'layouts/PageLayout';
 
 import welcomeBlurPic from 'public/images/welcome-blur.jpg';
 
@@ -48,6 +51,22 @@ const LoginPage = () => {
       </section>
     </PageLayout>
   );
+};
+
+export const getServerSideProps = async (ctx) => {
+  const cookie = ctx.req?.headers.cookie;
+
+  const { status, data } = await getAuthenticateAPI({ headers: { cookie } });
+  if (cookie && status === 200) {
+    return {
+      props: {},
+      redirect: {
+        destination: `/${data.type.toLowerCase()}`,
+      },
+    };
+  }
+
+  return { props: {} };
 };
 
 export default LoginPage;

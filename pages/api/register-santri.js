@@ -1,10 +1,13 @@
 import bcrypt from 'bcrypt';
-import connectDB from 'db';
-import Santri from 'db/models/Santri';
+import cookie from 'cookie';
 import jwt from 'jsonwebtoken';
-import { errorHandlerMiddleware } from 'middlewares/error-handler';
 import Joi from 'utils/joi';
 import response from 'utils/response';
+
+import connectDB from 'db';
+import Santri from 'db/models/Santri';
+
+import { errorHandlerMiddleware } from 'middlewares/error-handler';
 
 const registerSchema = Joi.object().keys({
   name: Joi.string().required(),
@@ -40,6 +43,16 @@ const handler = async (req, res) => {
   const { _id, name, fullName } = await Santri.create(validatedPayload);
   const token = jwt.sign({ _id, nisn, name, fullName }, process.env.JWT_SECRET_KEY);
 
+  res.setHeader(
+    'Set-Cookie',
+    cookie.serialize('auth-token', 'Bearer ' + token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== 'production' ? false : true,
+      sameSite: 'strict',
+      maxAge: 3600 * 24,
+      path: '/',
+    }),
+  );
   return response(res, {
     status: 200,
     message: 'Pendaftaran Santri berhasil!',

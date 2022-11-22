@@ -1,39 +1,39 @@
-import Santri from 'db/models/Santri';
-import Teacher from 'db/models/Teacher';
 import { verify } from 'jsonwebtoken';
 import response from 'utils/response';
 
-export const authenticate = (fn, type) => async (req, res) => {
-  const BearerToken = req.headers.authorization;
+import connectDB from 'db';
+import Santri from 'db/models/Santri';
+import Teacher from 'db/models/Teacher';
+
+export const authenticate = (fn) => async (req, res) => {
+  await connectDB();
+  const BearerToken = req.cookies['auth-token'];
+
   if (!BearerToken)
     return response(res, {
       message: 'Anda belum masuk sebagai santri atau guru! Silakan login terlebih dahulu.',
       status: 401,
     });
 
-  const userType = req.headers['ponpes-alhadi-user-type'];
   const [Bearer, Token] = BearerToken.split(' ');
 
-  if (Bearer !== 'Bearer' || !userType || !Token) {
+  if (Bearer !== 'Bearer' || !Token) {
     return response(res, {
       message: 'Anda belum masuk sebagai santri atau guru! Silakan login terlebih dahulu.',
       status: 401,
     });
   }
 
-  if (type && userType !== type)
-    return response(res, { message: type + ' tidak diizinkan mengakses data ini!', status: 403 });
-
-  verify(Token, process.env.JWT_SECRET_KEY, async (err, decoded) => {
+  return verify(Token, process.env.JWT_SECRET_KEY, async (err, decoded) => {
     if (!err && decoded) {
-      if (userType === 'Santri') {
+      if (decoded.type === 'Santri') {
         const santri = await Santri.findOne({ _id: decoded._id });
         if (!santri)
           return response(res, {
             message: 'Santri tidak ditemukan! Silakan login kembali.',
             status: 401,
           });
-      } else if (userType === 'Teacher') {
+      } else if (decoded.type === 'Teacher') {
         const teacher = await Teacher.findOne({ _id: decoded._id });
         if (!teacher)
           return response(res, {
@@ -46,6 +46,7 @@ export const authenticate = (fn, type) => async (req, res) => {
           status: 401,
         });
 
+      req.user = decoded;
       return fn(req, res);
     }
 

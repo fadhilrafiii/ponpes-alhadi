@@ -24,10 +24,8 @@ const Dropdown = ({
   return (
     <div className={classNames.join(' ')} {...props}>
       <div className={classes.dropdownMain}>
-        <div item className={[classes.dropdownText, textClassName].join(' ')}>
-          {text}
-        </div>
-        <div item className={classes.dropdownButton} role="button" onClick={actionToggleDropdown}>
+        <div className={[classes.dropdownText, textClassName].join(' ')}>{text}</div>
+        <div className={classes.dropdownButton} role="button" onClick={actionToggleDropdown}>
           <span className={classes.arrowDropdown} />
         </div>
       </div>

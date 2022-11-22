@@ -15,6 +15,7 @@ const Footer = () => {
             <Img
               layout="fixed"
               src={WhatsappIcon}
+              alt="Whatsapp"
               width={28}
               height={28}
               placeholder="empty"
@@ -28,6 +29,7 @@ const Footer = () => {
             <Img
               layout="fixed"
               src={InstagramIcon}
+              alt="Instagram"
               width={28}
               height={28}
               placeholder="empty"
@@ -43,6 +45,7 @@ const Footer = () => {
               src={FacebookIcon}
               width={28}
               height={28}
+              alt="Facebook"
               placeholder="empty"
               priority
             />

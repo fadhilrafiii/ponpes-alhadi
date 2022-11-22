@@ -1,6 +1,9 @@
+import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
 
 import { postLoginSantriAPI } from 'client/auth';
+import { useDispatch } from 'react-redux';
+import { showSnackbar } from 'redux/slices/snackbar-slice';
 import { isEmail } from 'utils/string';
 
 import LoadingSpinner from 'components/base/LoadingSpinner';
@@ -10,6 +13,8 @@ import { COLORS } from 'constants/colors';
 import styles from './LoginGuruBox.module.scss';
 
 const LoginGuruBox = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const [loginData, setLoginData] = useState({
     username: '',
     password: '',
@@ -33,10 +38,14 @@ const LoginGuruBox = () => {
       password,
     };
 
-    const data = await postLoginSantriAPI(loginPayload);
+    const { success, message } = await postLoginSantriAPI(loginPayload);
+    if (!success) return;
+
+    dispatch(showSnackbar({ message, type: 'success' }));
     setIsLoadingSubmit(false);
-    console.log(data);
-  }, [loginData]);
+
+    router.push('/guru');
+  }, [dispatch, loginData, router]);
 
   return (
     <div className={styles.box}>

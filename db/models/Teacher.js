@@ -6,6 +6,12 @@ const TeacherSchema = new Schema(
       type: String,
       required: true,
     },
+    gender: {
+      type: String,
+      require: true,
+      enum: ['Laki-laki', 'Perempuan'],
+      default: 'Laki-laki'
+    },
     name: {
       type: String,
       required: true,
