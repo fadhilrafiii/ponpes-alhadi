@@ -33,7 +33,7 @@ const handler = async (req, res) => {
   if (!isPasswordValid)
     return response(res, {
       status: 400,
-      message: 'Password salah, Coba diingat kembali atau lebih teliti dalam memasukkan password!',
+      message: 'Password salah, Coba lagi!',
     });
 
   delete santri.password;

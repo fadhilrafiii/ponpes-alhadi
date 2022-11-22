@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import { showSnackbar } from 'redux/slices/snackbar-slice';
 import { removeUserProfile } from 'redux/slices/user-slice';
 
-import Dropdown from 'components/base/Dropdown';
 import Img from 'components/base/Img';
 
 import styles from './index.module.scss';
@@ -93,21 +92,9 @@ const AuthenticatedNavbar = ({ userProfile }) => {
             <Link href="/akademik">
               <h4>Akademik</h4>
             </Link>
-            <Dropdown
-              containerClassName={styles.santriDropdown}
-              text={
-                <Link href="/santri">
-                  <h4>Santri</h4>
-                </Link>
-              }
-            >
-              <Link href="/santri/status">
-                <h4>Status Santri</h4>
-              </Link>
-              <Link href="/santri/kurikulum">
-                <h4>Kurikulum</h4>
-              </Link>
-            </Dropdown>
+            <Link href="/santri">
+              <h4>Santri</h4>
+            </Link>
           </div>
         </div>
       </div>
