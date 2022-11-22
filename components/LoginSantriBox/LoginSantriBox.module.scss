@@ -17,10 +17,23 @@
     border: none;
     font-size: 24px;
     font-weight: 700;
-    padding: $pad-xxl $pad-xl;
+    padding: $pad-xl;
+    border: 3px solid $primary-light-color;
 
     &::placeholder {
       color: $black-grey-color;
     }
+  }
+
+  .loginButton {
+    align-self: flex-end; 
+    min-width: 142px;
+    padding: $pad-l 0;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: white;
+    border: 3px solid $primary-light-color;
+    border-radius: 15px;
+    margin-top: $pad-xxxl;
   }
 }

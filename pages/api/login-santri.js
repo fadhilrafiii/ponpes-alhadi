@@ -40,7 +40,7 @@ const handler = async (req, res) => {
   return response(res, {
     status: 200,
     message: 'Login Santri berhasil!',
-    data: { _id, name, nisn, fullName, token },
+    data: { _id, name, nisn, fullName, token, userType: 'Santri' },
   });
 };
 

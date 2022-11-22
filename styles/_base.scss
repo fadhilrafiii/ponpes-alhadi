@@ -82,3 +82,10 @@ p, span, button, div, a, input {
 a {
   display: inline-block;
 }
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

@@ -3,6 +3,10 @@ import { useCallback, useState } from 'react';
 import { postLoginSantriAPI } from 'client/auth';
 import { isEmail } from 'utils/string';
 
+import LoadingSpinner from 'components/base/LoadingSpinner';
+
+import { COLORS } from 'constants/colors';
+
 import styles from './LoginSantriBox.module.scss';
 
 const LoginSiswaBox = () => {
@@ -10,6 +14,7 @@ const LoginSiswaBox = () => {
     username: '',
     password: '',
   });
+  const [isLoadingSubmit, setIsLoadingSubmit] = useState(false);
 
   const handleChangeLoginData = (e) => {
     const { name, value } = e.target;
@@ -21,6 +26,7 @@ const LoginSiswaBox = () => {
   };
 
   const submitData = useCallback(async () => {
+    setIsLoadingSubmit(true);
     const { username, password } = loginData;
     const loginPayload = {
       [isEmail(username) ? 'email' : 'nisn']: username,
@@ -28,6 +34,8 @@ const LoginSiswaBox = () => {
     };
 
     const data = await postLoginSantriAPI(loginPayload);
+    setIsLoadingSubmit(false);
+
     console.log(data);
   }, [loginData]);
 
@@ -48,7 +56,9 @@ const LoginSiswaBox = () => {
         name="password"
         onChange={handleChangeLoginData}
       />
-      <button onClick={submitData}>Login</button>
+      <button className={styles.loginButton} onClick={submitData} disabled={isLoadingSubmit}>
+        {isLoadingSubmit ? <LoadingSpinner width={20} color={COLORS.Primary} /> : 'Login'}
+      </button>
     </div>
   );
 };
