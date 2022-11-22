@@ -19,6 +19,7 @@ const LoginPage = () => {
               alt="Selamat Datang di Pondok Pesantren Al Hadi Sungkai Langka"
               sizes="(max-width: 560px) 600px, 1200px"
               priority
+              placeholder="blur"
               quality={100}
             />
           </div>
