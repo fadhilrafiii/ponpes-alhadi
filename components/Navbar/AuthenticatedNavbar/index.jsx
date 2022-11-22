@@ -73,12 +73,17 @@ const AuthenticatedNavbar = ({ userProfile }) => {
           />
           <h3 className={styles.currentMenu}>{menuName.toUpperCase()}</h3>
         </div>
-        <div className={styles.menuDropdownWrapper} tabIndex={0} onBlur={handleToggleMenuDropdown}>
+        <div className={styles.menuDropdownWrapper}>
           <div role="button" className={styles.menuSelect} onClick={handleToggleMenuDropdown}>
             <h3>Menu</h3>
             <span className={styles.triangle} />
           </div>
-          <div ref={menuDropdownRef} className={styles.menuDropdown}>
+          <div
+            ref={menuDropdownRef}
+            className={styles.menuDropdown}
+            tabIndex={0}
+            onBlur={handleToggleMenuDropdown}
+          >
             <Link href="/">
               <h4>Home</h4>
             </Link>
@@ -107,7 +112,7 @@ const AuthenticatedNavbar = ({ userProfile }) => {
         </div>
       </div>
       <div className={styles.navRight}>
-        <div className={styles.profileWrapper} tabIndex={0} onBlur={handleToggleProfileDropdown}>
+        <div className={styles.profileWrapper}>
           <Img
             priority
             src={avatarIcon}
@@ -118,7 +123,12 @@ const AuthenticatedNavbar = ({ userProfile }) => {
           />
           <h3 className={styles.name}>{userProfile?.fullName || 'Guest'}</h3>
           <span className={styles.triangle} role="button" onClick={handleToggleProfileDropdown} />
-          <div ref={profileDropdownRef} className={styles.menuDropdown}>
+          <div
+            ref={profileDropdownRef}
+            className={styles.menuDropdown}
+            tabIndex={0}
+            onBlur={handleToggleProfileDropdown}
+          >
             <h4 role="button" onClick={handleLogout}>
               Logout
             </h4>
