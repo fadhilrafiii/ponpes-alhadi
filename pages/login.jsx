@@ -1,5 +1,4 @@
 import { getAuthenticateAPI } from 'client/auth';
-import { redirectServerTo } from 'utils/redirect';
 
 import Img from 'components/base/Img';
 import LoginGuruBox from 'components/LoginGuruBox';
