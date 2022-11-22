@@ -1,7 +1,21 @@
 @use './variables' as *;
 
+.goToMobile {
+  display: none;
+  text-align: center;
+  padding: 35vh $pad-xxxl;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
 .bannerSection {
   height: 60vh;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   .bannerWrapper {
     position: relative;
@@ -43,6 +57,10 @@
 
 .loginSection {
   padding: $pad-xxxxxxl;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   .loginBoxWrapper {
     display: flex;

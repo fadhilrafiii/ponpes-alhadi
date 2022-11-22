@@ -8,7 +8,6 @@ import Teacher from 'db/models/Teacher';
 export const authenticate = (fn) => async (req, res) => {
   await connectDB();
   const BearerToken = req.cookies['auth-token'];
-
   if (!BearerToken)
     return response(res, {
       message: 'Anda belum masuk sebagai santri atau guru! Silakan login terlebih dahulu.',

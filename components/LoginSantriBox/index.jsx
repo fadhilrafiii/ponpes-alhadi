@@ -38,11 +38,13 @@ const LoginSiswaBox = () => {
       password,
     };
 
-    const { success, message } = await postLoginSantriAPI(loginPayload);
+    const { success, message, data } = await postLoginSantriAPI(loginPayload);
+    setIsLoadingSubmit(false);
+
     if (!success) return;
 
     dispatch(showSnackbar({ message, type: 'success' }));
-    setIsLoadingSubmit(false);
+    localStorage.setItem('ponpes-alhadi-profil', JSON.stringify(data));
 
     router.push('/santri');
   }, [dispatch, loginData, router]);

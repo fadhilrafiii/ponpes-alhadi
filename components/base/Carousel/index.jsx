@@ -10,7 +10,13 @@ import classes from './index.module.scss';
 const NextArrow = ({ onClick }) => {
   return (
     <span className={classes.nextArrow} onClick={onClick}>
-      <Img src="/icons/chevron-right.svg" placeholder="empty" width={32} height={32} />
+      <Img
+        src="/icons/chevron-right.svg"
+        placeholder="empty"
+        alt="right-arrow"
+        width={32}
+        height={32}
+      />
     </span>
   );
 };
@@ -18,7 +24,13 @@ const NextArrow = ({ onClick }) => {
 const PrevArrow = ({ onClick }) => {
   return (
     <span className={classes.prevArrow} onClick={onClick}>
-      <Img src="/icons/chevron-left.svg" placeholder="empty" width={32} height={32} />
+      <Img
+        src="/icons/chevron-left.svg"
+        placeholder="empty"
+        alt="left-arrow"
+        width={32}
+        height={32}
+      />
     </span>
   );
 };

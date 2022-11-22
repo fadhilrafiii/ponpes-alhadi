@@ -1,0 +1,131 @@
+@use '/styles/variables' as *;
+
+.authenticatedNav {
+  background-color: $primary-dark-color;
+  display: flex;
+  padding: $pad-xxl $pad-xxxxxxl;
+  align-items: center;
+  justify-content: space-between;
+
+  .navLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logoWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid white;
+
+      .currentMenu {
+        color: white;
+        padding: $pad-m $pad-xxl;
+      }
+    }
+
+    .menuDropdownWrapper {
+      position: relative;
+
+      .menuSelect {
+        cursor: pointer;
+        position: relative;
+        padding: $pad-m $pad-xxl;
+        padding-right: $pad-xxxxl;
+        color: white;
+
+        .triangle {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          width: 0; 
+          height: 0; 
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-top: 8px solid white;
+        }
+      }
+
+      .menuDropdown {
+        outline: none;
+        display: none;
+        position: absolute;
+        z-index: 10;
+        left: $pad-m;
+        top: 100%;
+        flex-direction: column;
+        background-color: $primary-light-color;
+        padding: calc($pad-xl - $pad-m) $pad-xxxl;
+        box-shadow: 2px 2px 5px -1px $black-grey-color;
+        min-width: 196px;
+
+        .santriDropdown {
+          display: flex;
+          flex-direction: column;
+          padding-left: $pad-l;
+        }
+        
+
+        & h4 {
+          min-width: max-content;
+          display: block;
+          text-decoration: none;
+          padding: $pad-m 0;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .navRight {
+    .profileWrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: white;
+      gap: $pad-xl;
+
+      .avatarIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .triangle {
+        cursor: pointer;
+        width: 0; 
+        height: 0; 
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid white;
+      }
+
+      .menuDropdown {
+        outline: none;
+        position: absolute;
+        z-index: 10;
+        display: none;
+        right: 0;
+        top: 100%;
+        padding: $pad-xl $pad-xxxl;
+        min-width: 196px;
+        background-color: $primary-light-color;
+        color: black;
+        box-shadow: 2px 2px 5px -1px $black-grey-color;
+
+        h4 {
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
 import { compareSync } from 'bcrypt';
 import cookie from 'cookie';
-import Joi from 'joi';
 import jwt from 'jsonwebtoken';
 import joi from 'utils/joi';
 import response from 'utils/response';
@@ -13,9 +12,9 @@ import { errorHandlerMiddleware } from 'middlewares/error-handler';
 const loginSchema = joi
   .object()
   .keys({
-    nisn: Joi.string(),
-    email: Joi.string(),
-    password: Joi.string().required(),
+    nisn: joi.string(),
+    email: joi.string(),
+    password: joi.string().required(),
   })
   .xor('email', 'nisn');
 
@@ -43,7 +42,7 @@ const handler = async (req, res) => {
   res.setHeader(
     'Set-Cookie',
     cookie.serialize('auth-token', 'Bearer ' + token, {
-      httpOnly: true,
+      httpOnly: false,
       secure: process.env.NODE_ENV !== 'production' ? false : true,
       sameSite: 'strict',
       maxAge: 3600 * 24,
@@ -53,6 +52,7 @@ const handler = async (req, res) => {
   return response(res, {
     status: 200,
     message: 'Login Santri berhasil!',
+    data: santri,
   });
 };
 

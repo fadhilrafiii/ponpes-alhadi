@@ -3,6 +3,8 @@ import store from 'redux/store';
 
 export const failedResponseInterceptor = (response) => {
   const { data = {} } = response.response || {};
+  if (data.status === 401) return data;
+
   store.dispatch(
     showSnackbar({
       message:
