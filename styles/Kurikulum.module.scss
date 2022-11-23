@@ -1,0 +1,49 @@
+@use './variables' as *;
+
+.kurikulumSection {
+  padding: $pad-xxxxxxl;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 30;
+    font-weight: 400;
+    margin-bottom: $pad-xxxxxl;
+    color: $primary-dark-color;
+  }
+
+  .semesterWrapper {
+    display: flex;
+    justify-content: space-between;
+  
+    .kurikulumtable {
+      width: calc(50% + $pad-xxxxl);
+      padding: $pad-xl $pad-xxxxl;
+      margin: calc(-1 * $pad-xl) calc(-1 * $pad-xxxxl);
+
+      h4 {
+        background-color: white;
+        padding: $pad-s $pad-xxxxl;
+        width: calc(100% + 2 * $pad-xxxxl);
+        margin: calc(-1 * $pad-xl) calc(-1 * $pad-xxxxl) 0;
+      }
+
+      &:first-child {
+        margin-right: 0;
+      }
+
+      &:last-child {
+        margin-left: 0;
+      }
+
+      th {
+        font-weight: 600;
+      }
+
+      th:first-child, td:first-child {
+        padding-right: $pad-xxxxxxl;
+      }
+    }
+  }
+}
+
