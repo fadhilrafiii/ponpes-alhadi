@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
 import cookie from 'cookie';
 import jwt from 'jsonwebtoken';
-import Joi from 'utils/joi';
-import response from 'utils/response';
+import Joi from 'shared/utils/joi';
+import response from 'shared/utils/response';
 
 import connectDB from 'db';
 import Santri from 'db/models/Santri';
@@ -40,8 +40,9 @@ const handler = async (req, res) => {
   const hashedPassword = await bcrypt.hashSync(validatedPayload.password, 10);
   validatedPayload.password = hashedPassword;
 
-  const { _id, name, fullName } = await Santri.create(validatedPayload);
-  const token = jwt.sign({ _id, nisn, name, fullName }, process.env.JWT_SECRET_KEY);
+  const santri = await Santri.create(validatedPayload);
+  delete santri.password;
+  const token = jwt.sign({ ...santri.toObject(), type: 'Santri' }, process.env.JWT_SECRET_KEY);
 
   res.setHeader(
     'Set-Cookie',
@@ -56,7 +57,7 @@ const handler = async (req, res) => {
   return response(res, {
     status: 200,
     message: 'Pendaftaran Santri berhasil!',
-    data: { _id, name, nisn, fullName, token },
+    data: santri,
   });
 };
 

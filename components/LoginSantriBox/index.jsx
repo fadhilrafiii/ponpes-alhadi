@@ -3,12 +3,13 @@ import { useCallback, useState } from 'react';
 
 import { postLoginSantriAPI } from 'client/auth';
 import { useDispatch } from 'react-redux';
-import { showSnackbar } from 'redux/slices/snackbar-slice';
-import { isEmail } from 'utils/string';
 
 import LoadingSpinner from 'components/base/LoadingSpinner';
 
 import { COLORS } from 'constants/colors';
+
+import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
+import { isEmail } from 'shared/utils/string';
 
 import styles from './LoginSantriBox.module.scss';
 
@@ -49,6 +50,10 @@ const LoginSiswaBox = () => {
     router.push('/santri');
   }, [dispatch, loginData, router]);
 
+  const actionPressEnter = (e) => {
+    if (e.charCode === 13) submitData();
+  };
+
   return (
     <div className={styles.box}>
       <h2>Siswa</h2>
@@ -66,7 +71,12 @@ const LoginSiswaBox = () => {
         name="password"
         onChange={handleChangeLoginData}
       />
-      <button className={styles.loginButton} onClick={submitData} disabled={isLoadingSubmit}>
+      <button
+        className={styles.loginButton}
+        onClick={submitData}
+        onKeyPress={actionPressEnter}
+        disabled={isLoadingSubmit}
+      >
         {isLoadingSubmit ? <LoadingSpinner width={20} color={COLORS.Primary} /> : 'Login'}
       </button>
     </div>

@@ -1,14 +1,13 @@
 import Head from 'next/head';
 
 import { getAuthenticateAPI } from 'client/auth';
+import PageLayout from 'shared/layouts/PageLayout';
 
 import Img from 'components/base/Img';
 import LoginGuruBox from 'components/LoginGuruBox';
 import LoginSiswaBox from 'components/LoginSantriBox';
 
 import styles from 'styles/Login.module.scss';
-
-import PageLayout from 'layouts/PageLayout';
 
 import welcomeBlurPic from 'public/images/welcome-blur.jpg';
 

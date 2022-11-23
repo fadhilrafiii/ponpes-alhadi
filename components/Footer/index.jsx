@@ -29,6 +29,7 @@ const Footer = () => {
             <Img
               layout="fixed"
               src={InstagramIcon}
+              className={styles.contactIcon}
               alt="Instagram"
               width={28}
               height={28}
@@ -43,6 +44,7 @@ const Footer = () => {
             <Img
               layout="fixed"
               src={FacebookIcon}
+              className={styles.contactIcon}
               width={28}
               height={28}
               alt="Facebook"

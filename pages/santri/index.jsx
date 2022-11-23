@@ -1,13 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import withAuth from 'hocs/withAuth';
-
 import Img from 'components/base/Img';
 
 import styles from 'styles/Santri.module.scss';
 
-import PageLayout from 'layouts/PageLayout';
+import withAuth from 'shared/hocs/withAuth';
+import PageLayout from 'shared/layouts/PageLayout';
 
 const SiswaPage = () => {
   return (

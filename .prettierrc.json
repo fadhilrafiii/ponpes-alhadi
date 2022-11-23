@@ -16,6 +16,7 @@
     "^db",
     "^layouts",
     "^middlewares",
+    "^shared",
     "^[../](.*)(?<!.css)$",
     "^[./](.*)(?<!.scss)$",
     "(.*)scss$",

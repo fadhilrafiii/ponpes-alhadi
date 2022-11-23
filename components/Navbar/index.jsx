@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { selectUserProfile } from 'redux/slices/user-slice';
+import { selectUserProfile } from 'shared/redux/slices/user-slice';
 
 import Img from 'components/base/Img';
 

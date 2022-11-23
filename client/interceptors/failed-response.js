@@ -1,5 +1,5 @@
-import { showSnackbar } from 'redux/slices/snackbar-slice';
-import store from 'redux/store';
+import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
+import store from 'shared/redux/store';
 
 export const failedResponseInterceptor = (response) => {
   const { data = {} } = response.response || {};

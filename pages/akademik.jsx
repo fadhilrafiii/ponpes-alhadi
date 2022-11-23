@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import PageLayout from 'layouts/PageLayout';
+import PageLayout from 'shared/layouts/PageLayout';
 
 import Carousel from 'components/base/Carousel';
 import Img from 'components/base/Img';

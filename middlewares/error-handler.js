@@ -1,4 +1,4 @@
-import response from 'utils/response';
+import response from 'shared/utils/response';
 
 export const errorHandlerMiddleware = (fn) => async (req, res) => {
   try {

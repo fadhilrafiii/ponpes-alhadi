@@ -1,5 +1,5 @@
 import cookie from 'cookie';
-import response from 'utils/response';
+import response from 'shared/utils/response';
 
 import { errorHandlerMiddleware } from 'middlewares/error-handler';
 

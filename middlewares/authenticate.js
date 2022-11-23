@@ -1,5 +1,5 @@
 import { verify } from 'jsonwebtoken';
-import response from 'utils/response';
+import response from 'shared/utils/response';
 
 import connectDB from 'db';
 import Santri from 'db/models/Santri';

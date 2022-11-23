@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import PageLayout from 'layouts/PageLayout';
+import PageLayout from 'shared/layouts/PageLayout';
 
 import Dropdown from 'components/base/Dropdown';
 import Img from 'components/base/Img';

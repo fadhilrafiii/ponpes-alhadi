@@ -1,6 +1,7 @@
-import SnackbarProvider from 'layouts/SnackbarProvider';
 import { Provider } from 'react-redux';
-import store from 'redux/store';
+
+import SnackbarProvider from 'shared/layouts/SnackbarProvider';
+import store from 'shared/redux/store';
 
 import '../styles/globals.scss';
 

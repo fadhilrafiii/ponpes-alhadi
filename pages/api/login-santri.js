@@ -1,8 +1,8 @@
 import { compareSync } from 'bcrypt';
 import cookie from 'cookie';
 import jwt from 'jsonwebtoken';
-import joi from 'utils/joi';
-import response from 'utils/response';
+import joi from 'shared/utils/joi';
+import response from 'shared/utils/response';
 
 import connectDB from 'db';
 import Santri from 'db/models/Santri';

@@ -5,10 +5,11 @@ import { useCallback, useRef } from 'react';
 import { postLogoutAPI } from 'client/auth';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { showSnackbar } from 'redux/slices/snackbar-slice';
-import { removeUserProfile } from 'redux/slices/user-slice';
 
 import Img from 'components/base/Img';
+
+import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
+import { removeUserProfile } from 'shared/redux/slices/user-slice';
 
 import styles from './index.module.scss';
 
@@ -70,7 +71,7 @@ const AuthenticatedNavbar = ({ userProfile }) => {
             width={48}
             height={36}
           />
-          <h3 className={styles.currentMenu}>{menuName.toUpperCase()}</h3>
+          <h3 className={styles.currentMenu}>{menuName.replace('-', ' ').toUpperCase()}</h3>
         </div>
         <div className={styles.menuDropdownWrapper}>
           <div role="button" className={styles.menuSelect} onClick={handleToggleMenuDropdown}>
@@ -91,6 +92,13 @@ const AuthenticatedNavbar = ({ userProfile }) => {
             </Link>
             <Link href="/akademik">
               <h4>Akademik</h4>
+            </Link>
+            <Link href="/penerimaan">
+              <h4>
+                Penerimaan
+                <br />
+                Murid Baru
+              </h4>
             </Link>
             <Link href="/santri">
               <h4>Santri</h4>

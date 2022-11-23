@@ -1,0 +1,57 @@
+@use '/styles/variables' as *;
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $primary-dark-color;
+
+
+  .loadingDotsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $pad-xxl;
+    margin-bottom: $pad-xxxl;
+
+    span {
+      width: clamp(12px, 1.5vw, 18px);
+      height: clamp(12px, 1.5vw, 18px);
+      border-radius: 50%;
+      animation: bounce 1.25s linear infinite alternate;
+      box-shadow: 3px 3px 2px black;
+
+      &:nth-child(2n) {
+        background-color: $primary-light-color;
+      }
+
+      &:nth-child(2n + 1) {
+        background-color: white;
+      }
+
+      @each $i in 1, 2, 3, 4, 5 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{calc(0.25 * $i)}s;
+        }
+      }
+    }
+  }
+
+  .loadingText {
+    font-size: clamp(24px, 5vw, 40px);
+    text-align: center;
+    color: white;
+    filter: drop-shadow(3px 3px 2px black);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  } 50% {
+    transform: translateY(-24px);
+  }
+}

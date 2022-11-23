@@ -3,8 +3,8 @@ import { useCallback, useState } from 'react';
 
 import { postLoginSantriAPI } from 'client/auth';
 import { useDispatch } from 'react-redux';
-import { showSnackbar } from 'redux/slices/snackbar-slice';
-import { isEmail } from 'utils/string';
+import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
+import { isEmail } from 'shared/utils/string';
 
 import LoadingSpinner from 'components/base/LoadingSpinner';
 

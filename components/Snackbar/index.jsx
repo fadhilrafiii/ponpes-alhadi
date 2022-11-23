@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { hideSnackbar, selectSnackbar } from 'redux/slices/snackbar-slice';
+import { hideSnackbar, selectSnackbar } from 'shared/redux/slices/snackbar-slice';
 
 import styles from './Snackbar.module.scss';
 
