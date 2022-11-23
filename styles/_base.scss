@@ -80,7 +80,17 @@ p, span, button, div, a, input {
 }
 
 a {
+  color: black;
   display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+canvas {
+  width: 100% !important;
 }
 
 button {

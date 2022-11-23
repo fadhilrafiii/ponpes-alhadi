@@ -1,0 +1,19 @@
+@use '/styles/variables' as *;
+
+.tableBox {
+  overflow: hidden;
+  background-color: $primary-light-color;
+  width: 100%;
+  border-radius: 8px;
+
+  .tableBoxHeader {
+    background-color: $primary-color;
+    color: white;
+    padding: $pad-l $pad-xxxl;
+    border-radius: 8px;
+  }
+
+  .tableBoxBody {
+    padding: $pad-xl $pad-xxxxl;
+  }
+}

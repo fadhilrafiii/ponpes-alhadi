@@ -1,0 +1,77 @@
+@use './variables' as *;
+
+.statusSantriSection {
+  padding: $pad-xxxxxxl;
+
+  h1 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: $pad-xxxxxl;
+    color: $primary-color;
+  }
+
+  .statusSantriWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $pad-xxxl;
+    align-items: flex-start;
+
+    & > * {
+      flex: 1 0 calc(50% - $pad-xxxl/2);
+      width: 100%;
+      min-width: 360px;
+    }
+
+    .statusSantriLeft {
+      display: flex;
+      flex-direction: column;
+      gap: $pad-xxxl;
+
+      .statusSantri {
+        display: flex;
+        gap: $pad-xl;
+        padding: $pad-xxl 0;
+        align-items: flex-start;
+
+        & > *:first-child {
+          flex: 0 0 27%;
+        }
+
+        & > *:last-child {
+          display: table;
+          flex: 1 0 73%;
+
+          td {
+            padding: $pad-s;
+          }
+        }
+
+        .santriImageWrapper {
+          aspect-ratio: 3 / 4;
+
+          & > * {
+            height: 100%;
+
+            span { height: 100% !important }
+          }
+        }
+      }
+
+      tr > td:first-child {
+        font-weight: 700;
+      }
+
+      
+      .link:first-child {
+        margin-bottom: $pad-l;
+      }
+    }
+
+    .santriPerformance {
+      margin: $pad-xxl;
+      min-height: 340px;
+      height: 50vh;
+      max-height: 400px;
+    }
+  }
+}

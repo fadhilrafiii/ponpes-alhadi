@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import { selectClientState } from 'shared/redux/slices/client-state-slice';
 import { hideSnackbar, selectSnackbar } from 'shared/redux/slices/snackbar-slice';
 
 import styles from './Snackbar.module.scss';
@@ -8,6 +10,7 @@ import styles from './Snackbar.module.scss';
 const Snackbar = () => {
   const dispatch = useDispatch();
   const { isOpen, message, type } = useSelector(selectSnackbar);
+  const { isClientReady } = useSelector(selectClientState);
 
   useEffect(() => {
     if (isOpen) {
@@ -15,7 +18,7 @@ const Snackbar = () => {
     }
   }, [dispatch, isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !isClientReady) return null;
 
   return (
     <div className={[styles.snackbar, styles[type]].join(' ')}>
