@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useMemo } from 'react';
 
 import { useSelector } from 'react-redux';
 
