@@ -34,12 +34,12 @@
         align-items: flex-start;
 
         & > *:first-child {
-          flex: 0 0 27%;
+          flex: 0 0 20%;
         }
 
         & > *:last-child {
           display: table;
-          flex: 1 0 73%;
+          flex: 1 0 80%;
 
           td {
             padding: $pad-s;
@@ -69,9 +69,9 @@
 
     .santriPerformance {
       margin: $pad-xxl;
-      min-height: 340px;
+      min-height: 300px;
       height: 50vh;
-      max-height: 400px;
+      max-height: 350px;
     }
   }
 }

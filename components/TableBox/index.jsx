@@ -6,7 +6,7 @@ const TableBox = ({ title, children }) => {
   return (
     <div className={styles.tableBox}>
       <div className={styles.tableBoxHeader}>
-        <h3>{title}</h3>
+        <h4>{title}</h4>
       </div>
       <div className={styles.tableBoxBody}>{children}</div>
     </div>
