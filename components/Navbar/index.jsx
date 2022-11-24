@@ -2,9 +2,10 @@ import { memo } from 'react';
 
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { selectUserProfile } from 'shared/redux/slices/user-slice';
 
 import Img from 'components/base/Img';
+
+import { selectUserProfile } from 'shared/redux/slices/user-slice';
 
 import AuthenticatedNavbar from './AuthenticatedNavbar';
 import UnauthenticatedNavbar from './UnauthenticatedNavbar';
@@ -15,6 +16,7 @@ const Navbar = memo(({ showNavbarBottom }) => {
   const userProfile = useSelector(selectUserProfile);
 
   const isAuthenticated = Object.keys(userProfile).length > 0;
+  console.log(isAuthenticated);
 
   return (
     <header className={styles.navbarContainer}>

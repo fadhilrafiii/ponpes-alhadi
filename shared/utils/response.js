@@ -3,7 +3,7 @@ const response = (res, { message = '', status = 200, data, detail }) => {
     message,
     data,
     status,
-    success: Math.floor(status / 100) === 2,
+    success: !(Math.floor(status / 100) === 4 || Math.floor(status / 100) === 5),
     detail,
   };
 

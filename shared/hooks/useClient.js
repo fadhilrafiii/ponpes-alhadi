@@ -15,19 +15,19 @@ export const useClient = () => {
 
   useEffect(() => {
     const start = () => {
-      console.log('Start Error Fetching Page from Server Side');
+      console.log('Start Fetching Page from Server Side');
       dispatch(setClientLoading(true));
     };
     const end = () => {
       console.log('Finished Fetching Page from Server Side');
       dispatch(setClientLoading(false));
-      setIsClientReady(true);
+      dispatch(setIsClientReady(true));
     };
 
     const error = () => {
       console.log('Error Fetching Page from Server Side');
       dispatch(setClientLoading(false));
-      setIsClientReady(false);
+      dispatch(setIsClientReady(false));
     };
 
     Router.events.on('routeChangeStart', start);
