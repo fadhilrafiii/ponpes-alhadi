@@ -16,7 +16,6 @@ const Navbar = memo(({ showNavbarBottom }) => {
   const userProfile = useSelector(selectUserProfile);
 
   const isAuthenticated = Object.keys(userProfile).length > 0;
-  console.log(isAuthenticated);
 
   return (
     <header className={styles.navbarContainer}>

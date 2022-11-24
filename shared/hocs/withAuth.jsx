@@ -3,13 +3,14 @@ import { getAuthenticateAPI } from 'client/auth';
 const withAuth = (gssp) => {
   return async (ctx) => {
     const component = await gssp(ctx);
+    const sourceUrl = ctx.req?.url;
 
     const cookie = ctx.req?.headers.cookie;
     if (!cookie) {
       return {
         props: component.props,
         redirect: {
-          destination: '/login',
+          destination: `/login${sourceUrl ? `?from=${sourceUrl}` : ''}`,
         },
       };
     }
@@ -24,7 +25,7 @@ const withAuth = (gssp) => {
       return {
         props: component.props,
         redirect: {
-          destination: '/login',
+          destination: `/login${sourceUrl ? `?from=${sourceUrl}` : ''}`,
         },
       };
     }

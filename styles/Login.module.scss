@@ -57,9 +57,24 @@
 
 .loginSection {
   padding: $pad-xxxxxxl;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   @media (max-width: 768px) {
     display: none;
+  }
+
+  .pleaseLoginFirst {
+    text-align: center;
+    padding: $pad-l $pad-xxxl;
+    font-weight: 500;
+    margin-bottom: $pad-xxxxl;
+    background-color: $secondary-color;
+    display: inline-block;
+    align-self: center;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px -1px $black-grey-color;
   }
 
   .loginBoxWrapper {

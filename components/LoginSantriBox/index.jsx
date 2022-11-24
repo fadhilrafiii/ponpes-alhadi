@@ -1,19 +1,20 @@
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
 
-import { postLoginSantriAPI } from 'client/auth';
+import { COLORS } from 'constants/colors';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 import LoadingSpinner from 'components/base/LoadingSpinner';
 
-import { COLORS } from 'constants/colors';
+import { postLoginSantriAPI } from 'client/auth';
 
 import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
 import { isEmail } from 'shared/utils/string';
 
 import styles from './LoginSantriBox.module.scss';
 
-const LoginSiswaBox = () => {
+const LoginSantriBox = ({ redirectTo }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [loginData, setLoginData] = useState({
@@ -47,8 +48,8 @@ const LoginSiswaBox = () => {
     dispatch(showSnackbar({ message, type: 'success' }));
     localStorage.setItem('ponpes-alhadi-profil', JSON.stringify(data));
 
-    router.push('/santri');
-  }, [dispatch, loginData, router]);
+    router.push(redirectTo || '/santri');
+  }, [dispatch, loginData, redirectTo, router]);
 
   const actionPressEnter = (e) => {
     if (e.charCode === 13) submitData();
@@ -83,4 +84,12 @@ const LoginSiswaBox = () => {
   );
 };
 
-export default LoginSiswaBox;
+LoginSantriBox.propTypes = {
+  redirectTo: PropTypes.string,
+};
+
+LoginSantriBox.defaultProps = {
+  redirectTo: '',
+};
+
+export default LoginSantriBox;

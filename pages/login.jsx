@@ -1,17 +1,23 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { getAuthenticateAPI } from 'client/auth';
-import PageLayout from 'shared/layouts/PageLayout';
 
 import Img from 'components/base/Img';
 import LoginGuruBox from 'components/LoginGuruBox';
-import LoginSiswaBox from 'components/LoginSantriBox';
+import LoginSantriBox from 'components/LoginSantriBox';
 
 import styles from 'styles/Login.module.scss';
+
+import PageLayout from 'shared/layouts/PageLayout';
 
 import welcomeBlurPic from 'public/images/welcome-blur.jpg';
 
 const LoginPage = () => {
+  const {
+    query: { from: sourceUrl },
+  } = useRouter();
+
   return (
     <div>
       <Head>
@@ -52,12 +58,13 @@ const LoginPage = () => {
           </div>
         </section>
         <section id="login-box" className={styles.loginSection}>
+          {sourceUrl && <h4 className={styles.pleaseLoginFirst}>Silakan login terlebih dahulu</h4>}
           <div className={styles.loginBoxWrapper}>
             <div>
-              <LoginSiswaBox />
+              <LoginSantriBox redirectTo={sourceUrl} />
             </div>
             <div>
-              <LoginGuruBox />
+              <LoginGuruBox redirectTo={sourceUrl} />
             </div>
           </div>
         </section>
