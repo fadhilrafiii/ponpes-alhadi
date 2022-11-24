@@ -18,7 +18,7 @@ const handler = async (req, res) => {
     }),
   );
   return response(res, {
-    status: 200,
+    status: 302,
     message: 'Logout Santri berhasil!',
   });
 };

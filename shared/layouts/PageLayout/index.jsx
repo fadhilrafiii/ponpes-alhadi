@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
+import { postLogoutAPI } from 'client/auth';
 import cookie from 'js-cookie';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
@@ -9,17 +10,26 @@ import LoadingPage from 'components/LoadingPage';
 import Navbar from 'components/Navbar';
 
 import { useClient } from 'shared/hooks/useClient';
-import { setUserProfile } from 'shared/redux/slices/user-slice';
+import { removeUserProfile, setUserProfile } from 'shared/redux/slices/user-slice';
 
 const PageLayout = ({ children, showNavbarBottom, withFooter }) => {
   const dispatch = useDispatch();
   const { isClientLoading } = useClient();
 
-  useEffect(() => {
+  const checkUserSession = useCallback(async () => {
     const userProfile = localStorage.getItem('ponpes-alhadi-profil');
-    if (userProfile) dispatch(setUserProfile(JSON.parse(userProfile)));
-    else cookie.remove('auth-token');
+    const token = cookie.get('auth-token');
+    if (userProfile && token) dispatch(setUserProfile(JSON.parse(userProfile)));
+    else {
+      await postLogoutAPI();
+      dispatch(removeUserProfile());
+      cookie.remove('auth-token');
+    }
   }, [dispatch]);
+
+  useEffect(() => {
+    checkUserSession();
+  }, [checkUserSession]);
 
   if (isClientLoading) return <LoadingPage />;
 
