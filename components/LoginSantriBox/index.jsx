@@ -64,6 +64,7 @@ const LoginSantriBox = ({ redirectTo }) => {
         value={loginData.username}
         name="username"
         onChange={handleChangeLoginData}
+        onKeyPress={actionPressEnter}
       />
       <input
         type="password"
@@ -71,6 +72,7 @@ const LoginSantriBox = ({ redirectTo }) => {
         value={loginData.password}
         name="password"
         onChange={handleChangeLoginData}
+        onKeyPress={actionPressEnter}
       />
       <button
         className={styles.loginButton}
