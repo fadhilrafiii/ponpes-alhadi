@@ -240,6 +240,10 @@ const Home = () => {
                 <iframe
                   className={styles.iframe}
                   src="https://www.youtube.com/embed/tC5PmHTEZzE"
+                  srcDoc={
+                    // eslint-disable-next-line quotes
+                    "<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/tC5PmHTEZzE/?autoplay=1><img src=https://img.youtube.com/vi/tC5PmHTEZzE/hqdefault.jpg alt='Kata Babe Haikal Hasan Tentang Pondok Pesantren Al-Hadi'><span>▶</span></a>"
+                  }
                   title="Kata Babe Haikal Hasan Tentang Pondok Pesantren Al-Hadi"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   frameBorder={0}
@@ -252,7 +256,11 @@ const Home = () => {
               <div className={styles.videoImage}>
                 <iframe
                   className={styles.iframe}
-                  src="https://www.youtube.com/embed/3cWiO2ftjNs"
+                  // eslint-disable-next-line max-len
+                  srcDoc={
+                    // eslint-disable-next-line quotes
+                    "<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/3cWiO2ftjNs/?autoplay=1><img src=https://img.youtube.com/vi/3cWiO2ftjNs/hqdefault.jpg alt='Sekolah atau Pesantren'><span>▶</span></a>"
+                  }
                   title="Sekolah atau Pesantren | Ustad Khalid Basalamah"
                   frameBorder={0}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
