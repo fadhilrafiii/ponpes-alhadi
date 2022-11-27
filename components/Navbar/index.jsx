@@ -35,7 +35,7 @@ const Navbar = memo(({ showNavbarBottom }) => {
               height={32}
               priority
             />
-            <div>Hubungi Kami</div>
+            <p>Hubungi Kami</p>
           </div>
         </div>
       )}

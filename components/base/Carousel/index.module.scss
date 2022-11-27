@@ -16,11 +16,20 @@
   height: 48px;
   display: inline-block;
 
+  @media (max-width: $tab) {
+    width: 24px;
+    height: 24px;
+
+    img {
+      width: 16px !important;
+      height: 16px !important;
+    }
+  }
+
   & > div {
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
 }
 

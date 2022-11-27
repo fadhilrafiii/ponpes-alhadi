@@ -1,14 +1,14 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import PageLayout from 'shared/layouts/PageLayout';
+import { fasilitasList, galleryCardList } from 'constants/home';
 
 import Carousel from 'components/base/Carousel';
 import Img from 'components/base/Img';
 // import MyButton from 'components/base/MyButton';
 import GaleriCard from 'components/GaleriCard';
 
-import { fasilitasList, galleryCardList } from 'constants/home';
+import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/Home.module.scss';
 
@@ -31,7 +31,7 @@ const Home = () => {
         <section id="main" className={styles.mainSection}>
           <div>
             <div>
-              <h1>PONDOK PESANTREN BERBASIS TAHFIDZUL QURAN DAN ULUMIYYAH</h1>
+              <h1>PONDOK MODERN BERBASIS TAHFIDZUL QURAN DAN ULUMIYYAH</h1>
               <p>
                 Melahirkan generasi “Penjaga Al Quran dan Sunnah” yang tangguh dalam menghadapi
                 tatangan masa depan
@@ -45,14 +45,14 @@ const Home = () => {
               layout="fill"
               src={fotoBersamaPutriPic}
               alt="Foto Bersama Putri Pondok Pesantren Al-Hadi"
-              sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 60vw"
               priority
             />
           </div>
         </section>
         <section id="profile" className={styles.profileSection}>
           <div className={styles.profileWrapper}>
-            <h2>PONDOK PESANTREN AL-HADI</h2>
+            <h2>PONDOK PESANTREN AL-HADI SUNGAI LANGKA</h2>
             <p>
               Pondok Modern berbasis Tahfidhzul Quran dan Ulumiyyah yang terintegrasi dengan Ilmu{' '}
               Pengetahuan dan Teknologi sehinga akan melahirkan generasi “Penjaga Al Quran dan
@@ -71,7 +71,6 @@ const Home = () => {
                 alt="Kurikulum Pondok Pesantren Al Hadi Icon"
                 width={70}
                 height={85}
-                placeholder="empty"
                 priority
               />
               <p>Kurikulum Pondok Tahfidzul Qur&rsquo;an</p>
@@ -82,7 +81,6 @@ const Home = () => {
                 alt="Kurikulum Pondok Pesantren Al Hadi Icon"
                 width={70}
                 height={85}
-                placeholder="empty"
                 priority
               />
               <p>Kurikulum Nasional Setingkat SMP/ Tsanawivah</p>
@@ -93,7 +91,6 @@ const Home = () => {
                 alt="Kurikulum Pondok Pesantren Al Hadi Icon"
                 width={70}
                 height={85}
-                placeholder="empty"
                 priority
               />
               <p>Kurikulum Madrasah Diniyyah</p>
@@ -114,7 +111,6 @@ const Home = () => {
             className={styles.galeriCarousel}
             config={{
               fade: false,
-              centerMode: true,
               autoplay: false,
               arrows: true,
             }}
@@ -178,8 +174,7 @@ const Home = () => {
                     layout="fill"
                     src={fasilitas.image.src}
                     alt={fasilitas.image.alt}
-                    priority
-                    sizes="(max-width: 560px) 600px, (max-width: 1200px) 800px, 1200px"
+                    sizes="(max-width: 768px) 196px, 306px"
                   />
                 </div>
                 <p>{fasilitas.desc}</p>

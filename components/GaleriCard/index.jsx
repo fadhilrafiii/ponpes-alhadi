@@ -14,8 +14,7 @@ const GaleriCard = ({ image, title, body, to }) => {
           layout="fill"
           src={image}
           alt={title}
-          sizes="360px"
-          usePlaceholder
+          sizes="(max-width: 1200px) 40vw, 480px"
           placeholder="blur"
           priority
         />

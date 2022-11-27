@@ -3,11 +3,15 @@
 .galeriCard {
   display: flex;
   background-color: $primary-light-color;
-  border-bottom-left-radius: 40px;
-  border-top-right-radius: 40px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
   overflow: hidden;
-  width: clamp(360px, 64vw, 800px);
+  width: clamp(340px, 64vw, 800px);
   aspect-ratio: 2.55 / 1;
+
+  @media (max-width: $tab) {
+    aspect-ratio: 2.55 / 1.2;
+  }
 }
 
 .galeriCardContent {
@@ -17,8 +21,9 @@
   flex-direction: column;
   justify-content: center;
 
-  @media(max-width: $mobile) {
-    padding: $pad-xl $pad-xxl;
+  @media(max-width: $tab) {
+    padding: $pad-l $pad-xl;
+    flex: 0 0 55%;
   }
 
   h4 {
@@ -30,8 +35,8 @@
     font-size: 16px;
     max-width: 240px;
 
-    @media(max-width: $mobile) {
-      font-size: 12px;
+    @media(max-width: $tab) {
+      font-size: 10px;
     }
   }
 
@@ -64,4 +69,8 @@
 
 .imageWrapper {
   flex: 0 0 60%;
+
+  @media (max-width: $tab) {
+    flex: 0 0 45%;
+  }
 }

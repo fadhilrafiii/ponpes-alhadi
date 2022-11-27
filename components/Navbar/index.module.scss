@@ -7,16 +7,16 @@
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: $mobile) {
-    padding: $pad-xl;
+  @media (max-width: $tab) {
+    padding: $pad-xl $pad-xxl;
     flex-wrap: wrap;
   }
 
   .imageWrapper {
     span {
       @media (max-width: $mobile) {
-        width: 28px !important;
-        height: 26px !important;
+        width: 36px !important;
+        height: 34px !important;
       }
     }
   }
@@ -26,6 +26,10 @@
   display: flex;
   align-items: center;
   gap: $pad-xxl;
+
+  @media (max-width: $tab) {
+    gap: $pad-m;
+  }
 
   h3 {
     color: white;
@@ -78,6 +82,10 @@
   justify-content: flex-end;
   align-items: center;
   background-color: $primary-color;
+
+  @media (max-width: $tab) {
+    padding: $pad-m $pad-xxl;
+  }
 }
 
 .loginButton {
@@ -92,4 +100,17 @@
   gap: $pad-m;
   align-items: center;
   color: white;
+
+  @media (max-width: $tab) {
+    gap: $pad-s;
+
+    p {
+      font-size: 14px;
+    }
+
+    span {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
 }
