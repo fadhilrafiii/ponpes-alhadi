@@ -1,0 +1,10 @@
+@use './variables' as *;
+
+.pendaftaranTitle {
+  padding: $pad-xxxxl;
+  text-align: center;
+}
+
+.pendaftaranContainer {
+  padding: $pad-xxxxl 72px;
+}

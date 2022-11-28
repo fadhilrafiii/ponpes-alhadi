@@ -1,0 +1,28 @@
+@use '/styles/variables' as *;
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+
+  .inputLabel {
+    margin-bottom: $pad-m;
+    font-size: 16px;
+
+    .required {
+      color: red;
+    }
+  }
+
+  .input {
+    border-radius: 8px;
+    font-size: 16px;
+    padding: $pad-m $pad-xxxl;
+    outline: none;
+    border: none;
+    background-color: $primary-light-color;
+
+    &::placeholder {
+      color: $black-grey-color;
+    }
+  }
+}

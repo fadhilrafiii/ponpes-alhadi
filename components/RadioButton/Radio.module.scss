@@ -1,0 +1,64 @@
+@use '/styles/variables' as *;
+
+.inputContainer{
+  display: flex;
+  flex-direction: column;
+
+  .inputLabel {
+    margin-bottom: $pad-l;
+    font-size: 16px;
+
+    .required {
+      color: red;
+    }
+  }
+
+  .optionWrapper {
+    display: flex;
+    gap: $pad-l;
+    margin-bottom: $pad-m;
+  }
+
+  .optionLabel {
+    position: relative;
+    cursor: pointer;
+
+    .input {
+      margin-top: 2px;
+      opacity: 0;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    &:hover > .checkMark {
+      background-color: rgba($primary-light-color, 0.5);
+    }
+
+    .checkMark {
+      position: relative;
+      display: block;
+      width: 18px;
+      height: 18px;
+      border: 2px solid $primary-color;
+      border-radius: 100%;
+    }
+
+    .input:checked ~ .checkMark::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      display: block;
+      background-color: $primary-color;
+      border-radius: 100%;
+      left: 2px;
+      top: 2px;
+    }
+
+    font-size: 16px;
+    display: flex;
+    gap: $pad-m;
+    align-items: center;
+    vertical-align: middle;
+  }
+}

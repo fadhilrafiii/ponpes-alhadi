@@ -1,0 +1,116 @@
+@use '/styles/variables' as *;
+
+.container {
+  h3 {
+    padding: $pad-xxxl 0;
+  }
+
+  .blank {
+    font-size: 16px;
+    color: $black-grey-color;
+    margin-bottom: $pad-xxxl;
+  }
+
+  .formGroup {
+    margin-bottom: $pad-xxxxl;
+  }
+
+  hr {
+    margin-bottom: $pad-xxxl;
+  }
+  
+  .fieldContainer {
+    margin-bottom: $pad-xxxl;
+    position: relative;
+  }
+  
+  .twoColumnInputWrapper {
+    display: flex;
+    column-gap: $pad-xxxxl;
+    flex-wrap: wrap;
+  
+    & > * {
+      flex: 1 1 calc(50% - $pad-xxxxl);
+      min-width: 360px;
+    }
+  }
+
+  .labelUpload {
+    display: block;
+    font-size: 16px;
+    margin-bottom: $pad-m;
+
+    .required { color: red; }
+  }
+
+  .uploadPrestasiContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $pad-xxxxl;
+    background-color: $primary-light-color;
+    border-radius: 8px;
+
+    span {
+      font-weight: 700;
+      text-align: center;
+      margin-top: $pad-l;
+    }
+
+    .maxFile {
+      color: $black-grey-color;
+      font-size: 16px;
+      margin-top: $pad-s;
+    }
+
+    .uploadPrestasi {
+      color: $primary-color;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+    column-gap: $pad-m;
+    font-size: 16px;
+    margin-bottom: $pad-xxxxl;
+
+    span {
+      display: flex;
+      vertical-align: middle;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 22px;
+      font-weight: 700;
+      border: 2px solid black;
+      padding-bottom: 2px;
+    }
+  }
+
+  .buttonMinus {
+    @extend .button;
+    margin-left: auto;
+  }
+
+  .dragAndDrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+}
