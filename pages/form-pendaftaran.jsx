@@ -1,18 +1,24 @@
 import Head from 'next/head';
 import { useState } from 'react';
 
+import { COLORS } from 'constants/colors';
+
+import Img from 'components/base/Img';
 import {
   FormAsalSekolah,
   FormNilaiPesertaDidik,
+  FormOrangTua,
   FormPesertaDidik,
+  FormPrestasiPesertaDidik,
+  FormWali,
 } from 'components/FormPendaftaran';
-import FormPrestasiPesertaDidik from 'components/FormPendaftaran/FormPrestasiPesertaDidik';
 
 import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/FormPenerimaan.module.scss';
 
 const FormPenerimaan = () => {
+  const [currentPage, setCurrentPage] = useState(1);
   const [form, setForm] = useState({
     calonPesertaDidik: {
       name: '',
@@ -43,6 +49,42 @@ const FormPenerimaan = () => {
       score: null,
     },
     prestasi: [],
+    father: {
+      name: '',
+      isAlive: 'Ya',
+      specialNeeds: '',
+      birthPlace: '',
+      birthDate: null,
+      address: '',
+      lastStudy: null,
+      job: '',
+      income: '',
+      addressPhone: '',
+      phone: '',
+    },
+    mother: {
+      name: '',
+      isAlive: 'Ya',
+      specialNeeds: '',
+      birthPlace: '',
+      birthDate: null,
+      address: '',
+      lastStudy: null,
+      job: '',
+      income: '',
+      addressPhone: '',
+      phone: '',
+    },
+    wali: {
+      name: '',
+      specialNeeds: '',
+      birthPlace: '',
+      birthDate: null,
+      address: '',
+      lastStudy: null,
+      addressPhone: '',
+      phone: '',
+    },
   });
 
   const handleSubmit = () => console.log(form);
@@ -54,6 +96,16 @@ const FormPenerimaan = () => {
       [section]: {
         ...prevState[section],
         [key]: value,
+      },
+    }));
+  };
+
+  const actionClickSameAddressWithSantri = (who) => {
+    setForm((prevState) => ({
+      ...prevState,
+      [who]: {
+        ...prevState[who],
+        address: prevState.calonPesertaDidik.address,
       },
     }));
   };
@@ -138,7 +190,10 @@ const FormPenerimaan = () => {
     }));
   };
 
-  console.log(form);
+  const handleChangePage = (page) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 91);
+  };
 
   return (
     <div>
@@ -154,29 +209,119 @@ const FormPenerimaan = () => {
         <h2 className={styles.pendaftaranTitle}>Formulir Pendaftaran</h2>
         <div className={styles.pendaftaranContainer}>
           <form className={styles.form} onSubmit={handleSubmit}>
-            <h3>DATA DIRI PESERTA DIDIK</h3>
-            <FormPesertaDidik
-              form={form.calonPesertaDidik}
-              handleInputTextChange={handleInputTextChange}
-              handleSelectChange={handleSelectChange}
-            />
-            <FormAsalSekolah
-              form={form.schoolOrigin}
-              handleInputTextChange={handleInputTextChange}
-            />
-            <FormNilaiPesertaDidik
-              form={form.calonPesertaDidikScore}
-              handleSelectChange={handleSelectChange}
-            />
-            <FormPrestasiPesertaDidik
-              form={form.prestasi}
-              handleAddPrestasi={handleAddPrestasi}
-              handleRemovePrestasi={handleRemovePrestasi}
-              handleInputTextChange={handlePrestasiInputTextChange}
-              handleSelectChange={handleSelectChange}
-              handleUploadPrestasi={handleUploadPrestasi}
-            />
+            {currentPage === 1 && (
+              <>
+                <h3>DATA DIRI PESERTA DIDIK</h3>
+                <FormPesertaDidik
+                  form={form.calonPesertaDidik}
+                  handleInputTextChange={handleInputTextChange}
+                  handleSelectChange={handleSelectChange}
+                />
+                <FormAsalSekolah
+                  form={form.schoolOrigin}
+                  handleInputTextChange={handleInputTextChange}
+                />
+                <FormNilaiPesertaDidik
+                  form={form.calonPesertaDidikScore}
+                  handleSelectChange={handleSelectChange}
+                />
+                <FormPrestasiPesertaDidik
+                  form={form.prestasi}
+                  handleAddPrestasi={handleAddPrestasi}
+                  handleRemovePrestasi={handleRemovePrestasi}
+                  handleInputTextChange={handlePrestasiInputTextChange}
+                  handleSelectChange={handleSelectChange}
+                  handleUploadPrestasi={handleUploadPrestasi}
+                />
+              </>
+            )}
+            {currentPage === 2 && (
+              <>
+                <h3 style={{ marginBottom: 24 }}>DATA DIRI ORANG TUA/WALI</h3>
+                <h3>V. Data Orang Tua</h3>
+                <FormOrangTua
+                  label="father"
+                  form={form.father}
+                  handleInputTextChange={handleInputTextChange}
+                  handleSelectChange={handleSelectChange}
+                  actionClickSameAddressWithSantri={() =>
+                    actionClickSameAddressWithSantri('father')
+                  }
+                />
+                <FormOrangTua
+                  label="mother"
+                  form={form.mother}
+                  handleInputTextChange={handleInputTextChange}
+                  handleSelectChange={handleSelectChange}
+                  actionClickSameAddressWithSantri={() =>
+                    actionClickSameAddressWithSantri('mother')
+                  }
+                />
+                <FormWali
+                  label="wali"
+                  form={form.wali}
+                  handleInputTextChange={handleInputTextChange}
+                  actionClickSameAddressWithSantri={() => actionClickSameAddressWithSantri('wali')}
+                />
+                <button type="submit" className={styles.submitButton}>
+                  Submit
+                </button>
+              </>
+            )}
           </form>
+          <div
+            style={{
+              margin: '36px 0 24px',
+              textAlign: 'right',
+              fontWeight: 700,
+              color: COLORS.BlackGrey,
+            }}
+          >
+            Halaman
+          </div>
+          <div className={styles.pagination}>
+            <span
+              role="button"
+              onClick={() => handleChangePage(1)}
+              className={styles.page}
+              style={{ opacity: currentPage === 1 ? 0 : 1 }}
+            >
+              <Img
+                src="/icons/chevron-left-green.svg"
+                alt="Previous Page"
+                layout="fixed"
+                width={24}
+                height={36}
+                priority
+              />
+            </span>
+            <span
+              role="button"
+              onClick={() => handleChangePage(1)}
+              className={currentPage === 1 ? styles.activePage : styles.page}
+            >
+              1
+            </span>
+            <span
+              role="button"
+              onClick={() => handleChangePage(2)}
+              className={currentPage === 2 ? styles.activePage : styles.page}
+            >
+              2
+            </span>
+            {currentPage === 1 && (
+              <span role="button" onClick={() => handleChangePage(2)} className={styles.page}>
+                <Img
+                  src="/icons/chevron-right-green.svg"
+                  alt="Next Page"
+                  layout="fixed"
+                  width={24}
+                  height={36}
+                  priority
+                />
+              </span>
+            )}
+          </div>
         </div>
       </PageLayout>
     </div>

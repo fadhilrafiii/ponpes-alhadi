@@ -8,3 +8,52 @@
 .pendaftaranContainer {
   padding: $pad-xxxxl 72px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: $pad-l;
+}
+
+.page {
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background-color: $primary-light-color;
+  border-radius: $pad-l;
+  color: $primary-color;
+  cursor: pointer;
+
+  & > div {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.activePage {
+  @extend .page;
+  color: white;
+  background-color: $primary-color;
+}
+
+.waliSectionForm {
+  display: none
+}
+
+.submitButton {
+  font-size: 20px;
+  padding: $pad-xl $pad-xxxxl;
+  background-color: $primary-color;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  color: white;
+  font-weight: 700;
+  margin: $pad-xxxxl auto;
+}

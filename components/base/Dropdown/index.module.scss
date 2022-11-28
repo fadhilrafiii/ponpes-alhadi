@@ -23,6 +23,7 @@
 .dropdownOpen > .dropdownItemContainer {
   height: auto;
   opacity: 1;
+  display: block;
 }
 
 .dropdownItemContainer > * {
