@@ -11,7 +11,7 @@ const FormNilaiPesertaDidik = ({ form, handleSelectChange }) => {
       <h3>III. Data Nilai Calon Peserta Didik</h3>
       <div className={styles.fieldContainer}>
         <Select
-          value={form.addressType}
+          value={form.score}
           onChange={(val) => handleSelectChange('calonPesertaDidikScore-score', val)}
           name="calonPesertaDidikScore-score"
           label="Hafalan Al-Quran yang dimiliki"

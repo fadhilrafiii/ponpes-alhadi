@@ -90,6 +90,7 @@ const FormPenerimaan = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (currentPage === 1) {
+      window.scrollTo(0, 91);
       setCurrentPage(2);
     } else console.log(form);
   };
@@ -130,7 +131,7 @@ const FormPenerimaan = () => {
       ...prevState,
       [section]: {
         ...prevState[section],
-        [key]: value,
+        [key]: value.toUpperCase(),
       },
     }));
   };
@@ -163,7 +164,7 @@ const FormPenerimaan = () => {
         if (prestasiIdx === parseInt(idx)) {
           return {
             ...prestasi,
-            [key]: value,
+            [key]: value.toUpperCase(),
           };
         }
 

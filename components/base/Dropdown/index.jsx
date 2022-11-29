@@ -31,7 +31,7 @@ const Dropdown = ({
         </div>
       </div>
       <di1v className={[classes.dropdownItemContainer, containerClassName].join(' ')}>
-        {!shouldRemoveDropdownContent ? children : <div />}
+        {!shouldRemoveDropdownContent ? children : isOpen ? children : <div />}
       </di1v>
     </div>
   );

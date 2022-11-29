@@ -36,7 +36,7 @@ const Radio = ({ value, onChange, label, name, required, options }) => {
               name={name}
               onChange={handleChange}
               value={opt.value}
-              checked={opt.value === value}
+              checked={opt.value.toLowerCase() === value?.toLowerCase()}
               required={required}
               onFocus={idx === 0 ? handleFocusParent : () => {}}
             />
