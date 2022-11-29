@@ -11,12 +11,19 @@ const Select = ({ isDisabled, defaultValue, name, label, required, options, valu
     () => ({
       menu: (styles) => ({ ...styles, backgroundColor: COLORS.PrimaryLight }),
       dropdownIndicator: (styles) => ({ ...styles, color: COLORS.PrimaryDark }),
-      control: (styles) => ({
+      control: (styles, { isFocused, hasValue }) => ({
         ...styles,
         backgroundColor: COLORS.PrimaryLight,
-        border: 'none',
+        border: isFocused
+          ? !hasValue
+            ? '3px solid red'
+            : '3px solid ' + COLORS.Primary
+          : '3px solid transparent',
         boxShadow: 'none',
         borderRadius: 8,
+        ':hover': {
+          border: '3px solid transparent',
+        },
       }),
       placeholder: () => ({ display: 'none' }),
       input: (styles) => ({ ...styles, fontSize: 16, paddingLeft: 16 }),
@@ -58,11 +65,13 @@ const Select = ({ isDisabled, defaultValue, name, label, required, options, valu
         </label>
       )}
       <ReactSelect
+        id="react-select-3-live-region"
         className={styles.select}
         defaultValue={options.find((opt) => opt.value === defaultValue)}
         isDisabled={isDisabled}
         name={name}
         options={options}
+        required={required}
         value={options.find((opt) => opt.value === value)}
         onChange={({ value }) => onChange(value)}
         styles={colourStyles}

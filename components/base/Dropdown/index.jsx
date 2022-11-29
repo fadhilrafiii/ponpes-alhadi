@@ -6,6 +6,7 @@ import classes from './index.module.scss';
 
 const Dropdown = ({
   isOpenInitially,
+  shouldRemoveDropdownContent,
   text,
   children,
   className,
@@ -29,9 +30,9 @@ const Dropdown = ({
           <span className={classes.arrowDropdown} />
         </div>
       </div>
-      <div className={[classes.dropdownItemContainer, containerClassName].join(' ')}>
-        {children}
-      </div>
+      <di1v className={[classes.dropdownItemContainer, containerClassName].join(' ')}>
+        {!shouldRemoveDropdownContent ? children : <div />}
+      </di1v>
     </div>
   );
 };
@@ -44,6 +45,7 @@ Dropdown.propTypes = {
   textClassName: PropTypes.string,
   containerClassName: PropTypes.string,
   isOpenInitially: PropTypes.bool,
+  shouldRemoveDropdownContent: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
@@ -51,6 +53,7 @@ Dropdown.defaultProps = {
   textClassName: '',
   containerClassName: '',
   isOpenInitially: false,
+  shouldRemoveDropdownContent: false,
 };
 
 export default Dropdown;

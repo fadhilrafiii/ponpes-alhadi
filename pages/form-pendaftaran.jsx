@@ -87,7 +87,12 @@ const FormPenerimaan = () => {
     },
   });
 
-  const handleSubmit = () => console.log(form);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (currentPage === 1) {
+      setCurrentPage(2);
+    } else console.log(form);
+  };
 
   const handleSelectChange = (name, value) => {
     const [section, key] = name.split('-');
@@ -127,6 +132,24 @@ const FormPenerimaan = () => {
         ...prevState[section],
         [key]: value,
       },
+    }));
+  };
+
+  const handlePrestasiSelectChange = (name, value) => {
+    const [section, idx, key] = name.split('-');
+
+    setForm((prevState) => ({
+      ...prevState,
+      [section]: prevState[section].map((prestasi, prestasiIdx) => {
+        if (prestasiIdx === parseInt(idx)) {
+          return {
+            ...prestasi,
+            [key]: value,
+          };
+        }
+
+        return prestasi;
+      }),
     }));
   };
 
@@ -191,8 +214,10 @@ const FormPenerimaan = () => {
   };
 
   const handleChangePage = (page) => {
-    setCurrentPage(page);
-    window.scrollTo(0, 91);
+    if (page !== currentPage) {
+      setCurrentPage(page);
+      window.scrollTo(0, 91);
+    }
   };
 
   return (
@@ -230,7 +255,7 @@ const FormPenerimaan = () => {
                   handleAddPrestasi={handleAddPrestasi}
                   handleRemovePrestasi={handleRemovePrestasi}
                   handleInputTextChange={handlePrestasiInputTextChange}
-                  handleSelectChange={handleSelectChange}
+                  handleSelectChange={handlePrestasiSelectChange}
                   handleUploadPrestasi={handleUploadPrestasi}
                 />
               </>
@@ -263,65 +288,65 @@ const FormPenerimaan = () => {
                   handleInputTextChange={handleInputTextChange}
                   actionClickSameAddressWithSantri={() => actionClickSameAddressWithSantri('wali')}
                 />
-                <button type="submit" className={styles.submitButton}>
+                <button type="submit" value="submit-form" className={styles.submitButton}>
                   Submit
                 </button>
               </>
             )}
-          </form>
-          <div
-            style={{
-              margin: '36px 0 24px',
-              textAlign: 'right',
-              fontWeight: 700,
-              color: COLORS.BlackGrey,
-            }}
-          >
-            Halaman
-          </div>
-          <div className={styles.pagination}>
-            <span
-              role="button"
-              onClick={() => handleChangePage(1)}
-              className={styles.page}
-              style={{ opacity: currentPage === 1 ? 0 : 1 }}
+            <div
+              style={{
+                margin: '36px 0 24px',
+                textAlign: 'right',
+                fontWeight: 700,
+                color: COLORS.BlackGrey,
+              }}
             >
-              <Img
-                src="/icons/chevron-left-green.svg"
-                alt="Previous Page"
-                layout="fixed"
-                width={10}
-                height={20}
-                priority
-              />
-            </span>
-            <span
-              role="button"
-              onClick={() => handleChangePage(1)}
-              className={currentPage === 1 ? styles.activePage : styles.page}
-            >
-              1
-            </span>
-            <span
-              role="button"
-              onClick={() => handleChangePage(2)}
-              className={currentPage === 2 ? styles.activePage : styles.page}
-            >
-              2
-            </span>
-            {currentPage === 1 && (
-              <span role="button" onClick={() => handleChangePage(2)} className={styles.page}>
+              Halaman
+            </div>
+            <div className={styles.pagination}>
+              <button
+                type="button"
+                onClick={() => handleChangePage(1)}
+                className={styles.page}
+                style={{ opacity: currentPage === 1 ? 0 : 1 }}
+              >
                 <Img
-                  src="/icons/chevron-right-green.svg"
-                  alt="Next Page"
+                  src="/icons/chevron-left-green.svg"
+                  alt="Previous Page"
                   layout="fixed"
                   width={10}
                   height={20}
                   priority
                 />
-              </span>
-            )}
-          </div>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleChangePage(1)}
+                className={currentPage === 1 ? styles.activePage : styles.page}
+              >
+                1
+              </button>
+              <button
+                type="submit"
+                value="submit-first-page"
+                className={currentPage === 2 ? styles.activePage : styles.page}
+              >
+                2
+              </button>
+              {currentPage === 1 && (
+                <button value="submit-next-page" type="submit" className={styles.page}>
+                  <Img
+                    src="/icons/chevron-right-green.svg"
+                    alt="Next Page"
+                    layout="fixed"
+                    width={10}
+                    height={20}
+                    priority
+                  />
+                </button>
+              )}
+            </div>
+          </form>
         </div>
       </PageLayout>
     </div>

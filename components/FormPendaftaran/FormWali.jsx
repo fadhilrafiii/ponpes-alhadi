@@ -8,7 +8,11 @@ import styles from './FormPendaftaran.module.scss';
 const FormWali = ({ label, form, handleInputTextChange, actionClickSameAddressWithSantri }) => {
   return (
     <div className={styles.container}>
-      <Dropdown text={<h3>VI. Data Wali</h3>} containerClassName={styles.waliSectionForm}>
+      <Dropdown
+        text={<h3>VI. Data Wali</h3>}
+        containerClassName={styles.waliSectionForm}
+        shouldRemoveDropdownContent
+      >
         <div style={{ marginBottom: 0 }} className={styles.blank}>
           Tutup bagian wali jika tidak tinggal bersama wali
         </div>

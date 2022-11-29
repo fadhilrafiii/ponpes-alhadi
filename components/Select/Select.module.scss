@@ -13,4 +13,8 @@
       color: red;
     }
   }
+
+  input:required:invalid:focus {
+    border: 3px solid red;
+  }
 }

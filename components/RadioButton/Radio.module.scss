@@ -1,6 +1,7 @@
 @use '/styles/variables' as *;
 
 .inputContainer{
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -11,6 +12,16 @@
     .required {
       color: red;
     }
+  }
+
+  &:focus::after {
+    content: 'Wajib diisi!';
+    position: relative;
+    top: 100%;
+    left: 0;
+    padding-top: $pad-m;
+    color: red;
+    font-size: 16px;
   }
 
   .optionWrapper {

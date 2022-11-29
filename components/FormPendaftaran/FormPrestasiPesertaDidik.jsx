@@ -139,9 +139,10 @@ const FormPrestasiPesertaDidik = ({
               <input
                 type="file"
                 id="upload-prestasi"
-                hidden
+                style={{ opacity: 0 }}
                 name={`prestasi-${idx}-file`}
                 accept="application/pdf, image/jpeg"
+                value={formGroup.file?.name ? undefined : ''}
                 onChange={(e) => handleChangeFile(e, idx)}
                 required
               />

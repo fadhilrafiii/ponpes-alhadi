@@ -29,6 +29,8 @@
   border-radius: $pad-l;
   color: $primary-color;
   cursor: pointer;
+  border: none;
+  outline: none;
 
   & > div {
     height: auto;
@@ -42,10 +44,6 @@
   @extend .page;
   color: white;
   background-color: $primary-color;
-}
-
-.waliSectionForm {
-  display: none
 }
 
 .submitButton {
