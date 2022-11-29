@@ -101,7 +101,7 @@ const Home = () => {
               <Link href="/">Download Brosur</Link>
             </div>
             <div className={styles.link}>
-              <Link href="/">Pendaftaran</Link>
+              <Link href="/form-pendaftaran">Pendaftaran</Link>
             </div>
           </div>
         </section>

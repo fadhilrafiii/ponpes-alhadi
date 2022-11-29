@@ -8,8 +8,10 @@ export const failedResponseInterceptor = (response) => {
   store.dispatch(
     showSnackbar({
       message:
-        data.message ||
-        'Suatu kesalahan terjadi! Kami sedang memperbaiki sistem, mohon coba kembali beberapa saat lagi!',
+        data.status === 500
+          ? 'Suatu kesalahan terjadi! Kami sedang memperbaiki sistem, mohon coba kembali beberapa saat lagi!'
+          : data.message ||
+            'Suatu kesalahan terjadi! Kami sedang memperbaiki sistem, mohon coba kembali beberapa saat lagi!',
       type: 'error',
     }),
   );

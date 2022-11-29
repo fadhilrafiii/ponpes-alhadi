@@ -143,6 +143,7 @@ const FormPrestasiPesertaDidik = ({
                 name={`prestasi-${idx}-file`}
                 accept="application/pdf, image/jpeg"
                 onChange={(e) => handleChangeFile(e, idx)}
+                required
               />
               {dragActive && (
                 <div

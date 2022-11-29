@@ -14,6 +14,8 @@ export const useClient = () => {
   const { isClientReady, isClientLoading } = useSelector(selectClientState);
 
   useEffect(() => {
+    dispatch(setIsClientReady(true));
+
     const start = () => {
       console.log('Start Fetching Page from Server Side');
       dispatch(setClientLoading(true));

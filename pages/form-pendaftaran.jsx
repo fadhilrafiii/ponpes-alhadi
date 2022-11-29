@@ -91,7 +91,6 @@ const FormPenerimaan = () => {
 
   const handleSelectChange = (name, value) => {
     const [section, key] = name.split('-');
-    console.log(section, key, value);
     setForm((prevState) => ({
       ...prevState,
       [section]: {

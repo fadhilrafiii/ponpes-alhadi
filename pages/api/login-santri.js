@@ -1,22 +1,28 @@
 import { compareSync } from 'bcrypt';
 import cookie from 'cookie';
 import jwt from 'jsonwebtoken';
-import joi from 'shared/utils/joi';
-import response from 'shared/utils/response';
 
 import connectDB from 'db';
 import Santri from 'db/models/Santri';
 
 import { errorHandlerMiddleware } from 'middlewares/error-handler';
 
+import joi from 'shared/utils/joi';
+import response from 'shared/utils/response';
+
 const loginSchema = joi
   .object()
   .keys({
     nisn: joi.string(),
     email: joi.string(),
-    password: joi.string().required(),
+    password: joi.string().required().messages({
+      'string.empty': 'Password tidak boleh kosong!',
+    }),
   })
-  .xor('email', 'nisn');
+  .xor('email', 'nisn')
+  .messages({
+    'string.empty': 'NISN/Email tidak boleh kosong!',
+  });
 
 const handler = async (req, res) => {
   const { method } = req;

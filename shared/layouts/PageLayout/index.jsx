@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from 'react';
 
-import { postLogoutAPI } from 'client/auth';
 import cookie from 'js-cookie';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
@@ -8,6 +7,8 @@ import { useDispatch } from 'react-redux';
 import Footer from 'components/Footer';
 import LoadingPage from 'components/LoadingPage';
 import Navbar from 'components/Navbar';
+
+import { postLogoutAPI } from 'client/auth';
 
 import { useClient } from 'shared/hooks/useClient';
 import { removeUserProfile, setUserProfile } from 'shared/redux/slices/user-slice';
@@ -21,7 +22,7 @@ const PageLayout = ({ children, showNavbarBottom, withFooter }) => {
     const token = cookie.get('auth-token');
     if (userProfile && token) dispatch(setUserProfile(JSON.parse(userProfile)));
     else {
-      await postLogoutAPI();
+      if (token) await postLogoutAPI();
       dispatch(removeUserProfile());
       cookie.remove('auth-token');
     }

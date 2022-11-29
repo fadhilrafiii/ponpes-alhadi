@@ -5,7 +5,7 @@ export const errorHandlerMiddleware = (fn) => async (req, res) => {
     await fn(req, res);
   } catch (err) {
     return response(res, {
-      status: 500,
+      status: err && err._original ? 422 : 500,
       message:
         err?.message ||
         'Suatu kesalahan terjadi! Kami sedang memperbaiki sistem, mohon coba kembali beberapa saat lagi!',
