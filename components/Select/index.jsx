@@ -59,12 +59,12 @@ const Select = ({ isDisabled, defaultValue, name, label, required, options, valu
       )}
       <ReactSelect
         className={styles.select}
-        defaultValue={defaultValue}
+        defaultValue={options.find((opt) => opt.value === defaultValue)}
         isDisabled={isDisabled}
         name={name}
         options={options}
-        value={value}
-        onChange={onChange}
+        value={options.find((opt) => opt.value === value)}
+        onChange={({ value }) => onChange(value)}
         styles={colourStyles}
         noOptionsMessage={() => 'Tidak ada pilihan tersebut!'}
       />
@@ -74,10 +74,7 @@ const Select = ({ isDisabled, defaultValue, name, label, required, options, valu
 
 Select.propTypes = {
   isDisabled: PropTypes.bool,
-  defaultValue: PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.string,
-  }),
+  defaultValue: PropTypes.string,
   name: PropTypes.string.isRequired,
   label: PropTypes.string,
   required: PropTypes.bool,
@@ -87,10 +84,7 @@ Select.propTypes = {
       value: PropTypes.string,
     }),
   ),
-  value: PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.string,
-  }),
+  value: PropTypes.string,
   onChange: PropTypes.func,
 };
 

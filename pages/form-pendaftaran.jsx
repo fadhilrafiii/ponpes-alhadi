@@ -91,6 +91,7 @@ const FormPenerimaan = () => {
 
   const handleSelectChange = (name, value) => {
     const [section, key] = name.split('-');
+    console.log(section, key, value);
     setForm((prevState) => ({
       ...prevState,
       [section]: {
@@ -290,8 +291,8 @@ const FormPenerimaan = () => {
                 src="/icons/chevron-left-green.svg"
                 alt="Previous Page"
                 layout="fixed"
-                width={24}
-                height={36}
+                width={10}
+                height={20}
                 priority
               />
             </span>
@@ -315,8 +316,8 @@ const FormPenerimaan = () => {
                   src="/icons/chevron-right-green.svg"
                   alt="Next Page"
                   layout="fixed"
-                  width={24}
-                  height={36}
+                  width={10}
+                  height={20}
                   priority
                 />
               </span>

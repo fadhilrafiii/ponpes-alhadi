@@ -28,8 +28,22 @@
     border: none;
     background-color: $primary-light-color;
 
+    &[type=number]::-webkit-inner-spin-button, 
+    &[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+
     &::placeholder {
       color: $black-grey-color;
+    }
+
+    &:required:invalid:focus {
+      border: 1.5px solid red;
     }
   }
 }

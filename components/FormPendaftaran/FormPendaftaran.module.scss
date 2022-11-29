@@ -101,6 +101,11 @@
   .buttonMinus {
     @extend .button;
     margin-left: auto;
+    color: red;
+
+    span  {
+      border: 2px solid red;
+    }
   }
 
   .dragAndDrop {

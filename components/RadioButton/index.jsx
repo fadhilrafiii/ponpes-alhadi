@@ -23,6 +23,7 @@ const Radio = ({ value, onChange, label, name, required, options }) => {
               onChange={onChange}
               value={opt.value}
               checked={opt.value === value}
+              required={required}
             />
             <span className={styles.checkMark} />
             {opt.label}

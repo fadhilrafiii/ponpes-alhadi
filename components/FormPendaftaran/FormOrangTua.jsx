@@ -80,7 +80,7 @@ const FormOrangTua = ({
       </div>
       <div className={styles.fieldContainer}>
         <Select
-          value={form.job}
+          value={form.lastStudy}
           onChange={(val) => handleSelectChange(`${label}-lastStudy`, val)}
           name={`${label}-lastStudy`}
           label="Pendidikan Terakhir"
@@ -99,7 +99,7 @@ const FormOrangTua = ({
       </div>
       <div className={styles.fieldContainer}>
         <Select
-          value={form.job}
+          value={form.income}
           onChange={(val) => handleSelectChange(`${label}-income`, val)}
           name={`${label}-income`}
           label="Penghasilan Per Bulan"
@@ -110,6 +110,7 @@ const FormOrangTua = ({
       <div className={styles.twoColumnInputWrapper}>
         <div className={styles.fieldContainer}>
           <Input
+            type="number"
             value={form.addressPhone}
             onChange={handleInputTextChange}
             name={`${label}-addressPhone`}
@@ -118,6 +119,7 @@ const FormOrangTua = ({
         </div>
         <div className={styles.fieldContainer}>
           <Input
+            type="number"
             value={form.phone}
             required
             onChange={handleInputTextChange}

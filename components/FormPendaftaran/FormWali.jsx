@@ -67,6 +67,7 @@ const FormWali = ({ label, form, handleInputTextChange, actionClickSameAddressWi
         <div className={styles.twoColumnInputWrapper}>
           <div className={styles.fieldContainer}>
             <Input
+              type="number"
               value={form.addressPhone}
               onChange={handleInputTextChange}
               name={`${label}-addressPhone`}
@@ -75,6 +76,7 @@ const FormWali = ({ label, form, handleInputTextChange, actionClickSameAddressWi
           </div>
           <div className={styles.fieldContainer}>
             <Input
+              type="number"
               value={form.phone}
               required
               onChange={handleInputTextChange}
@@ -92,7 +94,6 @@ FormWali.propTypes = {
   label: PropTypes.string,
   form: PropTypes.shape().isRequired,
   handleInputTextChange: PropTypes.func.isRequired,
-  handleSelectChange: PropTypes.func.isRequired,
   actionClickSameAddressWithSantri: PropTypes.func.isRequired,
 };
 

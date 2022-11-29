@@ -123,16 +123,16 @@ const FormPrestasiPesertaDidik = ({
                     </span>
                   ) : (
                     <span>
-                      Drag and Drop Here <br /> or
+                      Seret dan Lepas disini <br /> atau
                     </span>
                   )}
                 </span>
                 {!formGroup.file && (
                   <>
                     <label htmlFor="upload-prestasi" className={styles.uploadPrestasi}>
-                      Browse file <br />
+                      Unggah berkas <br />
                     </label>
-                    <span className={styles.maxFile}>PDF/JPG file max 1MB</span>
+                    <span className={styles.maxFile}>berkas PDF/JPG maksimum 1MB</span>
                   </>
                 )}
               </div>

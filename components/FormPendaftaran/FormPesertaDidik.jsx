@@ -32,6 +32,7 @@ const FormPendaftaran = ({ form, handleInputTextChange, handleSelectChange }) =>
       </div>
       <div className={styles.fieldContainer}>
         <Input
+          type="number"
           value={form.nisn}
           required
           onChange={handleInputTextChange}
@@ -41,6 +42,7 @@ const FormPendaftaran = ({ form, handleInputTextChange, handleSelectChange }) =>
       </div>
       <div className={styles.fieldContainer}>
         <Input
+          type="number"
           value={form.nis}
           required
           onChange={handleInputTextChange}
@@ -59,6 +61,7 @@ const FormPendaftaran = ({ form, handleInputTextChange, handleSelectChange }) =>
       </div>
       <div className={styles.fieldContainer}>
         <Input
+          type="number"
           value={form.nik}
           required
           onChange={handleInputTextChange}
@@ -159,6 +162,7 @@ const FormPendaftaran = ({ form, handleInputTextChange, handleSelectChange }) =>
       <div className={styles.twoColumnInputWrapper}>
         <div className={styles.fieldContainer}>
           <Input
+            type="number"
             value={form.addressPhone}
             onChange={handleInputTextChange}
             name="calonPesertaDidik-addressPhone"
@@ -167,6 +171,7 @@ const FormPendaftaran = ({ form, handleInputTextChange, handleSelectChange }) =>
         </div>
         <div className={styles.fieldContainer}>
           <Input
+            type="number"
             value={form.phone}
             required
             onChange={handleInputTextChange}
@@ -177,6 +182,7 @@ const FormPendaftaran = ({ form, handleInputTextChange, handleSelectChange }) =>
       </div>
       <div className={styles.fieldContainer}>
         <Input
+          type="email"
           value={form.email}
           required
           onChange={handleInputTextChange}
