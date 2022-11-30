@@ -12,6 +12,8 @@ import UnauthenticatedNavbar from './UnauthenticatedNavbar';
 
 import styles from './index.module.scss';
 
+import CallIcon from 'public/icons/call.svg';
+
 const Navbar = memo(({ showNavbarBottom }) => {
   const userProfile = useSelector(selectUserProfile);
 
@@ -27,14 +29,7 @@ const Navbar = memo(({ showNavbarBottom }) => {
       {showNavbarBottom && (
         <div className={styles.navbarBottom}>
           <div className={styles.callUs}>
-            <Img
-              src="/icons/call.svg"
-              alt="Hubungi Kami"
-              layout="fixed"
-              width={32}
-              height={32}
-              priority
-            />
+            <Img src={CallIcon} alt="Hubungi Kami" layout="fixed" width={32} height={32} priority />
             <p>Hubungi Kami</p>
           </div>
         </div>

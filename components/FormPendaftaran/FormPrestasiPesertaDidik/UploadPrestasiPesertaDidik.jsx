@@ -4,6 +4,8 @@ import { convertBytes } from 'shared/utils/file';
 
 import styles from '../FormPendaftaran.module.scss';
 
+import DeleteIcon from 'public/icons/delete-icon.svg';
+
 const UploadPrestasiPesertaDidik = ({
   file,
   name,
@@ -11,6 +13,7 @@ const UploadPrestasiPesertaDidik = ({
   handleDragFile,
   handleDropFile,
   handleChangeFile,
+  handleDeleteFile,
 }) => {
   return (
     <div className={styles.fieldContainer} onDragEnter={handleDragFile}>
@@ -18,6 +21,9 @@ const UploadPrestasiPesertaDidik = ({
         Lampiran Piagam/Sertifikat <span className={styles.required}>*</span>
       </label>
       <div className={styles.uploadPrestasiContainer}>
+        <span role="button" className={styles.deleteButton} onClick={handleDeleteFile}>
+          <Img src={DeleteIcon} alt="Delete File" layout="fixed" width={24} height={24} />
+        </span>
         <Img
           src={file ? '/icons/file.svg' : '/icons/upload.svg'}
           layout="fixed"

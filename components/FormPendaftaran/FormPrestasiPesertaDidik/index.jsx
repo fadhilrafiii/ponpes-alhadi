@@ -26,6 +26,7 @@ const FormPrestasiPesertaDidik = ({
   handleInputTextChange,
   handleSelectChange,
   handleUploadPrestasi,
+  handleDeletePrestasiFile,
 }) => {
   const dispatch = useDispatch();
   const [dragActive, setDragActive] = useState(false);
@@ -128,6 +129,7 @@ const FormPrestasiPesertaDidik = ({
                 handleDragFile={handleDragFile}
                 handleDropFile={(e) => handleDropFile(e, idx)}
                 handleChangeFile={(e) => handleChangeFile(e, idx)}
+                handleDeleteFile={() => handleDeletePrestasiFile(idx)}
               />
             </div>
             <button
@@ -157,6 +159,7 @@ FormPrestasiPesertaDidik.propTypes = {
   handleInputTextChange: PropTypes.func.isRequired,
   handleSelectChange: PropTypes.func.isRequired,
   handleUploadPrestasi: PropTypes.func.isRequired,
+  handleDeleteFile: PropTypes.func.isRequired,
 };
 
 export default FormPrestasiPesertaDidik;

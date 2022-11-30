@@ -12,7 +12,7 @@ import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/Home.module.scss';
 
-// import fotoBersamaPutraHivePic from 'public/images/foto-bersama-putra-hive.png';
+import AssignmentIcon from 'public/icons/assignment.svg';
 import fotoBersamaPutriPic from 'public/images/foto-bersama-putri.jpg';
 
 const Home = () => {
@@ -67,7 +67,7 @@ const Home = () => {
           <div className={styles.kurikulumWrapper}>
             <div className={styles.kurikulumItem}>
               <Img
-                src="/icons/assignment.svg"
+                src={AssignmentIcon}
                 alt="Kurikulum Pondok Pesantren Al Hadi Icon"
                 width={70}
                 height={85}
@@ -77,7 +77,7 @@ const Home = () => {
             </div>
             <div className={styles.kurikulumItem}>
               <Img
-                src="/icons/assignment.svg"
+                src={AssignmentIcon}
                 alt="Kurikulum Pondok Pesantren Al Hadi Icon"
                 width={70}
                 height={85}
@@ -87,7 +87,7 @@ const Home = () => {
             </div>
             <div className={styles.kurikulumItem}>
               <Img
-                src="/icons/assignment.svg"
+                src={AssignmentIcon}
                 alt="Kurikulum Pondok Pesantren Al Hadi Icon"
                 width={70}
                 height={85}

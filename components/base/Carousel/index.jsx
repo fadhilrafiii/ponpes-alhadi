@@ -7,16 +7,13 @@ import Img from '../Img';
 
 import classes from './index.module.scss';
 
+import ChevronLeftIcon from 'public/icons/chevron-left.svg';
+import ChevronRightIcon from 'public/icons/chevron-right.svg';
+
 const NextArrow = ({ onClick }) => {
   return (
     <span className={classes.nextArrow} onClick={onClick}>
-      <Img
-        src="/icons/chevron-right.svg"
-        placeholder="empty"
-        alt="right-arrow"
-        width={32}
-        height={32}
-      />
+      <Img src={ChevronRightIcon} placeholder="empty" alt="right-arrow" width={32} height={32} />
     </span>
   );
 };
@@ -24,13 +21,7 @@ const NextArrow = ({ onClick }) => {
 const PrevArrow = ({ onClick }) => {
   return (
     <span className={classes.prevArrow} onClick={onClick}>
-      <Img
-        src="/icons/chevron-left.svg"
-        placeholder="empty"
-        alt="left-arrow"
-        width={32}
-        height={32}
-      />
+      <Img src={ChevronLeftIcon} placeholder="empty" alt="left-arrow" width={32} height={32} />
     </span>
   );
 };

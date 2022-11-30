@@ -1,15 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import PageLayout from 'shared/layouts/PageLayout';
+import { ekstrakurikulers } from 'constants/akademik';
 
 import Carousel from 'components/base/Carousel';
 import Img from 'components/base/Img';
 
-import { ekstrakurikulers } from 'constants/akademik';
+import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/Akademik.module.scss';
 
+import AssignmentIcon from 'public/icons/assignment.svg';
 import kbmPic from 'public/images/kbm-putra-2.jpg';
 import kelasPic from 'public/images/kelas.jpg';
 import keseharianPic from 'public/images/keseharian.jpg';
@@ -43,7 +44,7 @@ const Akademik = () => {
           <div className={styles.kurikulumWrapper}>
             <div className={styles.kurikulumItem}>
               <Img
-                src="/icons/assignment.svg"
+                src={AssignmentIcon}
                 alt="Kurikulum Pondok Pesantren Al Hadi Icon"
                 width={70}
                 height={85}
@@ -54,7 +55,7 @@ const Akademik = () => {
             </div>
             <div className={styles.kurikulumItem}>
               <Img
-                src="/icons/assignment.svg"
+                src={AssignmentIcon}
                 alt="Kurikulum Pondok Pesantren Al Hadi Icon"
                 width={70}
                 height={85}
@@ -64,7 +65,7 @@ const Akademik = () => {
             </div>
             <div className={styles.kurikulumItem}>
               <Img
-                src="/icons/assignment.svg"
+                src={AssignmentIcon}
                 alt="Kurikulum Pondok Pesantren Al Hadi Icon"
                 width={70}
                 height={85}

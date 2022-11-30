@@ -17,6 +17,9 @@ import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/FormPenerimaan.module.scss';
 
+import ChevronLeftGreen from 'public/icons/chevron-left-green.svg';
+import ChevronRightGreen from 'public/icons/chevron-right-green.svg';
+
 const FormPenerimaan = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [form, setForm] = useState({
@@ -100,6 +103,15 @@ const FormPenerimaan = () => {
         addressPhone: '',
         phone: '',
       },
+    }));
+  };
+
+  const handleDeletePrestasiFile = (deletedIdx) => {
+    setForm((prev) => ({
+      ...prev,
+      prestasi: prev.prestasi.map((pres, idx) =>
+        idx === deletedIdx ? { ...pres, file: null } : pres,
+      ),
     }));
   };
 
@@ -272,6 +284,7 @@ const FormPenerimaan = () => {
                   handleInputTextChange={handlePrestasiInputTextChange}
                   handleSelectChange={handlePrestasiSelectChange}
                   handleUploadPrestasi={handleUploadPrestasi}
+                  handleDeletePrestasiFile={handleDeletePrestasiFile}
                 />
               </>
             )}
@@ -327,7 +340,7 @@ const FormPenerimaan = () => {
                 style={{ opacity: currentPage === 1 ? 0 : 1 }}
               >
                 <Img
-                  src="/icons/chevron-left-green.svg"
+                  src={ChevronLeftGreen}
                   alt="Previous Page"
                   layout="fixed"
                   width={10}
@@ -352,7 +365,7 @@ const FormPenerimaan = () => {
               {currentPage === 1 && (
                 <button value="submit-next-page" type="submit" className={styles.page}>
                   <Img
-                    src="/icons/chevron-right-green.svg"
+                    src={ChevronRightGreen}
                     alt="Next Page"
                     layout="fixed"
                     width={10}

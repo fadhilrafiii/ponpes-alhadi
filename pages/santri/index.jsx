@@ -3,10 +3,13 @@ import Link from 'next/link';
 
 import Img from 'components/base/Img';
 
-import styles from 'styles/Santri.module.scss';
-
 import withAuth from 'shared/hocs/withAuth';
 import PageLayout from 'shared/layouts/PageLayout';
+
+import styles from 'styles/Santri.module.scss';
+
+import PaperIcon from 'public/icons/paper.svg';
+import ProfileIcon from 'public/icons/profile.svg';
 
 const SiswaPage = () => {
   return (
@@ -26,7 +29,7 @@ const SiswaPage = () => {
               <div className={styles.menu}>
                 <div className={styles.imageWrapper}>
                   <Img
-                    src="/icons/profile.svg"
+                    src={ProfileIcon}
                     layout="fixed"
                     width={67}
                     height={67}
@@ -41,7 +44,7 @@ const SiswaPage = () => {
               <div className={styles.menu}>
                 <div className={styles.imageWrapper}>
                   <Img
-                    src="/icons/paper.svg"
+                    src={PaperIcon}
                     alt="Kurikulum"
                     layout="fixed"
                     width={56}
