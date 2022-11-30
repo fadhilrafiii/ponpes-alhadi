@@ -47,6 +47,7 @@
     padding: $pad-xxxxl;
     background-color: $primary-light-color;
     border-radius: 8px;
+    margin-bottom: calc(-1 * $pad-xxxl);
 
     span {
       font-weight: 700;

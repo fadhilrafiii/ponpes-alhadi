@@ -87,6 +87,22 @@ const FormPenerimaan = () => {
     },
   });
 
+  const handleResetFormWali = () => {
+    setForm((prev) => ({
+      ...prev,
+      wali: {
+        name: '',
+        specialNeeds: '',
+        birthPlace: '',
+        birthDate: null,
+        address: '',
+        lastStudy: null,
+        addressPhone: '',
+        phone: '',
+      },
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (currentPage === 1) {
@@ -177,6 +193,7 @@ const FormPenerimaan = () => {
     setForm((prev) => ({
       ...prev,
       prestasi: [
+        ...prev.prestasi,
         {
           type: null,
           level: null,
@@ -184,17 +201,14 @@ const FormPenerimaan = () => {
           activity: '',
           file: null,
         },
-        ...prev.prestasi,
       ],
     }));
   };
 
-  const handleRemovePrestasi = () => {
-    if (form.prestasi.length < 1) return;
-
+  const handleRemovePrestasi = (deletedIdx) => {
     setForm((prev) => ({
       ...prev,
-      prestasi: prev.prestasi.slice(0, -1),
+      prestasi: prev.prestasi.filter((pres, idx) => idx !== deletedIdx),
     }));
   };
 
@@ -288,6 +302,7 @@ const FormPenerimaan = () => {
                   form={form.wali}
                   handleInputTextChange={handleInputTextChange}
                   actionClickSameAddressWithSantri={() => actionClickSameAddressWithSantri('wali')}
+                  onHideFormWali={handleResetFormWali}
                 />
                 <button type="submit" value="submit-form" className={styles.submitButton}>
                   Submit

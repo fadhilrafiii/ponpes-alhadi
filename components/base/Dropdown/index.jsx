@@ -6,6 +6,7 @@ import classes from './index.module.scss';
 
 const Dropdown = ({
   isOpenInitially,
+  onHideDropdown,
   shouldRemoveDropdownContent,
   text,
   children,
@@ -16,7 +17,10 @@ const Dropdown = ({
 }) => {
   const [isOpen, setIsOpen] = useState(isOpenInitially);
 
-  const actionToggleDropdown = () => setIsOpen((prev) => !prev);
+  const actionToggleDropdown = () => {
+    if (isOpen) onHideDropdown();
+    setIsOpen((prev) => !prev);
+  };
 
   const classNames = [classes.dropdown, className];
 
@@ -30,9 +34,9 @@ const Dropdown = ({
           <span className={classes.arrowDropdown} />
         </div>
       </div>
-      <di1v className={[classes.dropdownItemContainer, containerClassName].join(' ')}>
+      <div className={[classes.dropdownItemContainer, containerClassName].join(' ')}>
         {!shouldRemoveDropdownContent ? children : isOpen ? children : <div />}
-      </di1v>
+      </div>
     </div>
   );
 };
@@ -46,6 +50,7 @@ Dropdown.propTypes = {
   containerClassName: PropTypes.string,
   isOpenInitially: PropTypes.bool,
   shouldRemoveDropdownContent: PropTypes.bool,
+  onHideDropdown: PropTypes.func,
 };
 
 Dropdown.defaultProps = {
@@ -54,6 +59,7 @@ Dropdown.defaultProps = {
   containerClassName: '',
   isOpenInitially: false,
   shouldRemoveDropdownContent: false,
+  onHideDropdown: () => {},
 };
 
 export default Dropdown;

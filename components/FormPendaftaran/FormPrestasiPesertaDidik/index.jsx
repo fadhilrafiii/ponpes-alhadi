@@ -6,13 +6,18 @@ import {
   prestasiTypeOptions,
 } from 'constants/form';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 import Input from 'components/Input';
 import Select from 'components/Select';
 
+import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
+
 import UploadPrestasiPesertaDidik from './UploadPrestasiPesertaDidik';
 
 import styles from '../FormPendaftaran.module.scss';
+
+const VALID_PRESTASI_FILE_EXTENSION = ['pdf', 'jpg', 'jpeg'];
 
 const FormPrestasiPesertaDidik = ({
   form,
@@ -22,6 +27,7 @@ const FormPrestasiPesertaDidik = ({
   handleSelectChange,
   handleUploadPrestasi,
 }) => {
+  const dispatch = useDispatch();
   const [dragActive, setDragActive] = useState(false);
 
   const handleDragFile = (e) => {
@@ -39,15 +45,32 @@ const FormPrestasiPesertaDidik = ({
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      handleUploadPrestasi(e.dataTransfer.files[0], idx);
+
+    const { files = [] } = e.dataTransfer;
+    if (files[0]) {
+      const file = files[0];
+
+      if (file.size > 1000000)
+        return dispatch(showSnackbar({ message: 'Berkas melebihi 1MB!', type: 'error' }));
+      if (!VALID_PRESTASI_FILE_EXTENSION.includes(file.name.split('.').pop()))
+        return dispatch(
+          showSnackbar({ message: 'Berkas harus berformat PDF atau JPG!', type: 'error' }),
+        );
+
+      handleUploadPrestasi(files[0], idx);
     }
   };
 
   const handleChangeFile = (e, idx) => {
     e.preventDefault();
-    if (e.target.files && e.target.files[0]) {
-      handleUploadPrestasi(e.target.files[0], idx);
+    const { files = [] } = e.target;
+    if (files[0]) {
+      const file = files[0];
+
+      if (file.size > 1000000)
+        return dispatch(showSnackbar({ message: 'Berkas melebihi 1MB!', type: 'error' }));
+
+      handleUploadPrestasi(files[0], idx);
     }
   };
 
@@ -55,10 +78,6 @@ const FormPrestasiPesertaDidik = ({
     <div className={styles.container}>
       <h3>IV. Prestasi Calon Peserta Didik</h3>
       <div className={styles.blank}>Kosongkan jika tidak memiliki prestasi</div>
-      <button type="button" onClick={handleAddPrestasi} className={styles.button}>
-        <span>+</span>
-        Tambah Data Prestasi
-      </button>
       {form.map((formGroup, idx) => {
         return (
           <React.Fragment key={idx}>
@@ -111,16 +130,22 @@ const FormPrestasiPesertaDidik = ({
                 handleChangeFile={(e) => handleChangeFile(e, idx)}
               />
             </div>
+            <button
+              type="button"
+              onClick={() => handleRemovePrestasi(idx)}
+              className={styles.buttonMinus}
+            >
+              <span>&#8211;</span>
+              Hapus Data Prestasi
+            </button>
             {idx !== form.length - 1 && <hr />}
           </React.Fragment>
         );
       })}
-      {form.length > 0 && (
-        <button type="button" onClick={handleRemovePrestasi} className={styles.buttonMinus}>
-          <span>&#8211;</span>
-          Hapus Data Prestasi
-        </button>
-      )}
+      <button type="button" onClick={handleAddPrestasi} className={styles.button}>
+        <span>+</span>
+        Tambah Data Prestasi
+      </button>
     </div>
   );
 };

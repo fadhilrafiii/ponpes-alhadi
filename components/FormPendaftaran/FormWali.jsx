@@ -5,13 +5,20 @@ import Input from 'components/Input';
 
 import styles from './FormPendaftaran.module.scss';
 
-const FormWali = ({ label, form, handleInputTextChange, actionClickSameAddressWithSantri }) => {
+const FormWali = ({
+  label,
+  form,
+  handleInputTextChange,
+  actionClickSameAddressWithSantri,
+  onHideFormWali,
+}) => {
   return (
     <div className={styles.container}>
       <Dropdown
         text={<h3>VI. Data Wali</h3>}
         containerClassName={styles.waliSectionForm}
         shouldRemoveDropdownContent
+        onHideDropdown={onHideFormWali}
       >
         <div style={{ marginBottom: 0 }} className={styles.blank}>
           Tutup bagian wali jika tidak tinggal bersama wali
@@ -99,6 +106,7 @@ FormWali.propTypes = {
   form: PropTypes.shape().isRequired,
   handleInputTextChange: PropTypes.func.isRequired,
   actionClickSameAddressWithSantri: PropTypes.func.isRequired,
+  onHideFormWali: PropTypes.func.isRequired,
 };
 
 export default FormWali;

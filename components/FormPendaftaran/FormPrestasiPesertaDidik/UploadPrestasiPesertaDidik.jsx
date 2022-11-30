@@ -53,6 +53,7 @@ const UploadPrestasiPesertaDidik = ({
           id="upload-prestasi"
           style={{ opacity: 0, height: 0 }}
           name={name}
+          value={file ? undefined : ''}
           accept="application/pdf, image/jpeg"
           onChange={handleChangeFile}
           required
