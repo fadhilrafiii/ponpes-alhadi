@@ -22,20 +22,10 @@ const post = async (req, res) => {
   });
 };
 
-const mkdirp = (dir) => {
-  if (fs.existsSync(dir)) return true;
-
-  const dirname = path.dirname(dir);
-  mkdirp(dirname);
-  fs.mkdirSync(dir);
-};
-
 const saveFile = async (file) => {
   const data = fs.readFileSync(file.filepath);
 
-  const dirPath = path.join(process.cwd(), 'public/data/sertifikat');
-
-  mkdirp(dirPath);
+  const dirPath = path.join(process.cwd());
 
   const fullPath = `${dirPath}/${file.originalFilename}`;
   fs.writeFileSync(fullPath, data);
