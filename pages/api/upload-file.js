@@ -22,15 +22,20 @@ const post = async (req, res) => {
   });
 };
 
+const mkdirp = (dir) => {
+  if (fs.existsSync(dir)) return true;
+
+  const dirname = path.dirname(dir);
+  mkdirp(dirname);
+  fs.mkdirSync(dir);
+};
+
 const saveFile = async (file) => {
   const data = fs.readFileSync(file.filepath);
 
   const dirPath = path.join(process.cwd(), 'public/data/sertifikat');
-  const isDirExists = fs.existsSync(dirPath);
 
-  if (!isDirExists) {
-    fs.mkdirSync(dirPath, { recursive: true });
-  }
+  mkdirp(dirPath, { recursive: true });
 
   const fullPath = `${dirPath}/${file.originalFilename}`;
   fs.writeFileSync(fullPath, data);
