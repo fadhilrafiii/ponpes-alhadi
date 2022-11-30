@@ -248,6 +248,8 @@ const FormPenerimaan = () => {
     setIsUploading(idx);
     const res = await uploadFile(file);
 
+    if (!res.success) return setIsUploading(null);
+
     setForm((prevState) => ({
       ...prevState,
       prestasi: prevState.prestasi.map((prestasi, prestasiIdx) => {
