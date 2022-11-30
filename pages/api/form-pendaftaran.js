@@ -103,7 +103,7 @@ const pendaftaranSchema = joi
         birthDate: joi
           .date()
           .allow('', null)
-          .format('DD/MM/YYYY')
+          .format('YYYY-MM-DD')
           .raw()
           .optional()
           .label('Tanggal Lahir Wali'),

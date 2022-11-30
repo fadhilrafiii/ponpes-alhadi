@@ -135,8 +135,10 @@ const FormPenerimaan = () => {
       setIsSubmitting(true);
       const res = await postPendaftaranAPI(form);
 
-      if (res.success) dispatch(showSnackbar({ message: res.message, type: 'success' }));
-      router.push('/');
+      if (res.success) {
+        dispatch(showSnackbar({ message: res.message, type: 'success' }));
+        router.push('/');
+      }
       setIsSubmitting(false);
     }
   };
