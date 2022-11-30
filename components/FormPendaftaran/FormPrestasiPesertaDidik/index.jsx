@@ -27,6 +27,7 @@ const FormPrestasiPesertaDidik = ({
   handleSelectChange,
   handleUploadPrestasi,
   handleDeletePrestasiFile,
+  isUploading,
 }) => {
   const dispatch = useDispatch();
   const [dragActive, setDragActive] = useState(false);
@@ -85,9 +86,9 @@ const FormPrestasiPesertaDidik = ({
             <div className={styles.formGroup}>
               <div className={styles.fieldContainer}>
                 <Select
-                  value={formGroup.type}
-                  onChange={(val) => handleSelectChange(`prestasi-${idx}-type`, val)}
-                  name={`prestasi-${idx}-type`}
+                  value={formGroup.tipe}
+                  onChange={(val) => handleSelectChange(`prestasi-${idx}-tipe`, val)}
+                  name={`prestasi-${idx}-tipe`}
                   label="Jenis Prestasi"
                   required
                   options={prestasiTypeOptions}
@@ -130,6 +131,7 @@ const FormPrestasiPesertaDidik = ({
                 handleDropFile={(e) => handleDropFile(e, idx)}
                 handleChangeFile={(e) => handleChangeFile(e, idx)}
                 handleDeleteFile={() => handleDeletePrestasiFile(idx)}
+                isUploading={idx === isUploading}
               />
             </div>
             <button
@@ -159,7 +161,8 @@ FormPrestasiPesertaDidik.propTypes = {
   handleInputTextChange: PropTypes.func.isRequired,
   handleSelectChange: PropTypes.func.isRequired,
   handleUploadPrestasi: PropTypes.func.isRequired,
-  handleDeleteFile: PropTypes.func.isRequired,
+  handleDeletePrestasiFile: PropTypes.func.isRequired,
+  isUploading: PropTypes.number,
 };
 
 export default FormPrestasiPesertaDidik;

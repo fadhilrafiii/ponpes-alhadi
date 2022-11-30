@@ -184,7 +184,6 @@ const FormPendaftaran = ({ form, handleInputTextChange, handleSelectChange }) =>
         <Input
           type="email"
           value={form.email}
-          required
           onChange={handleInputTextChange}
           name="calonPesertaDidik-email"
           label="Email Pribadi"

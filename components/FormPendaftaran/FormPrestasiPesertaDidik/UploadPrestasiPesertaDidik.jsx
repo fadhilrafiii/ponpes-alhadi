@@ -1,4 +1,5 @@
 import Img from 'components/base/Img';
+import LoadingSpinner from 'components/base/LoadingSpinner';
 
 import { convertBytes } from 'shared/utils/file';
 
@@ -14,6 +15,7 @@ const UploadPrestasiPesertaDidik = ({
   handleDropFile,
   handleChangeFile,
   handleDeleteFile,
+  isUploading,
 }) => {
   return (
     <div className={styles.fieldContainer} onDragEnter={handleDragFile}>
@@ -24,14 +26,18 @@ const UploadPrestasiPesertaDidik = ({
         <span role="button" className={styles.deleteButton} onClick={handleDeleteFile}>
           <Img src={DeleteIcon} alt="Delete File" layout="fixed" width={24} height={24} />
         </span>
-        <Img
-          src={file ? '/icons/file.svg' : '/icons/upload.svg'}
-          layout="fixed"
-          alt="Upload Prestasi"
-          width={32}
-          height={file ? 40 : 32}
-          priority
-        />
+        {isUploading ? (
+          <LoadingSpinner size={32} color="#000" />
+        ) : (
+          <Img
+            src={file ? '/icons/file.svg' : '/icons/upload.svg'}
+            layout="fixed"
+            alt="Upload Prestasi"
+            width={32}
+            height={file ? 40 : 32}
+            priority
+          />
+        )}
         <span>
           {file ? (
             <span>

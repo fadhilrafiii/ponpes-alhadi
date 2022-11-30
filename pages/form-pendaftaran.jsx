@@ -1,9 +1,12 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 import { COLORS } from 'constants/colors';
+import { useDispatch } from 'react-redux';
 
 import Img from 'components/base/Img';
+import LoadingSpinner from 'components/base/LoadingSpinner';
 import {
   FormAsalSekolah,
   FormNilaiPesertaDidik,
@@ -13,7 +16,11 @@ import {
   FormWali,
 } from 'components/FormPendaftaran';
 
+import { postPendaftaranAPI } from 'client/pendaftaran';
+import { uploadFile } from 'client/upload-file';
+
 import PageLayout from 'shared/layouts/PageLayout';
+import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
 
 import styles from 'styles/FormPenerimaan.module.scss';
 
@@ -21,70 +28,74 @@ import ChevronLeftGreen from 'public/icons/chevron-left-green.svg';
 import ChevronRightGreen from 'public/icons/chevron-right-green.svg';
 
 const FormPenerimaan = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
+  const [isUploading, setIsUploading] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     calonPesertaDidik: {
-      name: '',
-      gender: null,
-      nisn: '',
-      nis: '',
+      name: '1234',
+      gender: 'Laki-laki',
+      nisn: '1234',
+      nis: '1234',
       ijazahNumber: 'DN-',
-      nik: '',
-      birthPlace: '',
-      birthDate: null,
-      specialNeeds: '',
-      address: '',
-      province: '',
-      district: '',
-      city: '',
-      subdistrict: '',
-      addressType: null,
-      addressPhone: '',
-      phone: '',
+      nik: '1234',
+      birthPlace: '1234',
+      birthDate: '2012-12-12',
+      specialNeeds: '1234',
+      address: '1234',
+      province: '1234',
+      district: '1234',
+      city: '1234',
+      subdistrict: '1234',
+      addressType: 'Lainnya',
+      addressPhone: '1234',
+      phone: '1234',
       email: '',
     },
     schoolOrigin: {
-      name: '',
-      city: '',
-      address: '',
+      name: '1234',
+      city: '1234',
+      address: '1234',
     },
     calonPesertaDidikScore: {
-      score: null,
+      score: 'Kurang dari 1 Juz',
     },
     prestasi: [],
     father: {
-      name: '',
+      name: '1234',
       isAlive: 'Ya',
-      specialNeeds: '',
-      birthPlace: '',
-      birthDate: null,
-      address: '',
-      lastStudy: null,
-      job: '',
-      income: '',
-      addressPhone: '',
-      phone: '',
+      specialNeeds: '1234',
+      birthPlace: '1234',
+      birthDate: '2012-12-12',
+      address: '1234',
+      lastStudy: 'Tidak Sekolah',
+      job: '1234',
+      income: 'Lebih dari Rp10.000.000,00',
+      addressPhone: '1234',
+      phone: '1234',
     },
     mother: {
-      name: '',
+      name: '1234',
       isAlive: 'Ya',
-      specialNeeds: '',
-      birthPlace: '',
-      birthDate: null,
-      address: '',
-      lastStudy: null,
-      job: '',
-      income: '',
-      addressPhone: '',
-      phone: '',
+      specialNeeds: '1234',
+      birthPlace: '1234',
+      birthDate: '2012-12-12',
+      address: '1234',
+      lastStudy: 'Tidak Sekolah',
+      job: '1234',
+      income: 'Lebih dari Rp10.000.000,00',
+      addressPhone: '1234',
+      phone: '1234',
     },
     wali: {
       name: '',
       specialNeeds: '',
       birthPlace: '',
-      birthDate: null,
+      birthDate: '',
       address: '',
-      lastStudy: null,
+      lastStudy: '',
       addressPhone: '',
       phone: '',
     },
@@ -115,12 +126,19 @@ const FormPenerimaan = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (currentPage === 1) {
       window.scrollTo(0, 91);
       setCurrentPage(2);
-    } else console.log(form);
+    } else {
+      setIsSubmitting(true);
+      const res = await postPendaftaranAPI(form);
+
+      if (res.success) dispatch(showSnackbar({ message: res.message, type: 'success' }));
+      router.push('/');
+      setIsSubmitting(false);
+    }
   };
 
   const handleSelectChange = (name, value) => {
@@ -207,7 +225,7 @@ const FormPenerimaan = () => {
       prestasi: [
         ...prev.prestasi,
         {
-          type: null,
+          tipe: null,
           level: null,
           predicate: null,
           activity: '',
@@ -224,20 +242,28 @@ const FormPenerimaan = () => {
     }));
   };
 
-  const handleUploadPrestasi = (file, idx) => {
+  const handleUploadPrestasi = async (file, idx) => {
+    setIsUploading(idx);
+    const res = await uploadFile(file);
+
     setForm((prevState) => ({
       ...prevState,
       prestasi: prevState.prestasi.map((prestasi, prestasiIdx) => {
         if (prestasiIdx === parseInt(idx)) {
           return {
             ...prestasi,
-            file,
+            file: {
+              name: file.name,
+              size: file.size,
+              url: res.data,
+            },
           };
         }
 
         return prestasi;
       }),
     }));
+    setIsUploading(null);
   };
 
   const handleChangePage = (page) => {
@@ -285,6 +311,7 @@ const FormPenerimaan = () => {
                   handleSelectChange={handlePrestasiSelectChange}
                   handleUploadPrestasi={handleUploadPrestasi}
                   handleDeletePrestasiFile={handleDeletePrestasiFile}
+                  isUploading={isUploading}
                 />
               </>
             )}
@@ -317,8 +344,13 @@ const FormPenerimaan = () => {
                   actionClickSameAddressWithSantri={() => actionClickSameAddressWithSantri('wali')}
                   onHideFormWali={handleResetFormWali}
                 />
-                <button type="submit" value="submit-form" className={styles.submitButton}>
-                  Submit
+                <button
+                  type="submit"
+                  value="submit-form"
+                  disabled={isSubmitting}
+                  className={styles.submitButton}
+                >
+                  {isSubmitting ? <LoadingSpinner /> : 'Submit'}
                 </button>
               </>
             )}

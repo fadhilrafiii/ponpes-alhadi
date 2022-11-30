@@ -28,7 +28,7 @@ const handler = async (req, res) => {
   const { method } = req;
   if (method !== 'POST') return response(res, { status: 405, message: 'Method harus "POST"!' });
 
-  const { nisn, email, password } = await loginSchema.validateAsync(req.body);
+  const { nisn, email, password } = await loginSchema.validateAsync(req.body, { abortEarly: true });
 
   await connectDB();
 
