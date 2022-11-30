@@ -23,7 +23,7 @@ const post = async (req, res) => {
 
 const saveFile = async (file) => {
   const data = fs.readFileSync(file.filepath);
-  fs.writeFileSync(`./public/data/sertifikat/${file.originalFilename}`, data);
+  fs.writeFileSync(`/public/data/sertifikat/${file.originalFilename}`, data);
   await fs.unlinkSync(file.filepath);
   return `/public/data/sertifikat/${file.originalFilename}`;
 };
