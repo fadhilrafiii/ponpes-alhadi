@@ -1,6 +1,6 @@
+import aws from 'aws-sdk';
 import formidable from 'formidable';
 import fs from 'fs';
-import path from 'path';
 
 import response from 'shared/utils/response';
 
@@ -12,25 +12,36 @@ export const config = {
 
 const post = async (req, res) => {
   const form = new formidable.IncomingForm();
-  form.parse(req, async (err, fields, files) => {
-    const url = await saveFile(files.file);
-    return response(res, {
-      message: 'Berhasil mengunggah berkas!',
-      status: 201,
-      data: url,
+  return form.parse(req, async (err, fields, files) => {
+    const fileStream = new fs.createReadStream(files.file.filepath);
+
+    const endpoint = new aws.Endpoint('l5q7.fra.idrivee2-26.com');
+    const s3 = new aws.S3({
+      endpoint,
+      region: 'de-fra',
+      credentials: {
+        accessKeyId: 'X8mKbPXr7SXenHfIeQBN',
+        secretAccessKey: '2Tog1WVu3sxMxxECVoGRXGIrLSou4rSim86UgHCP',
+      },
+    });
+
+    var params = {
+      Bucket: 'ponpes-alhadi',
+      Key: 'test',
+      Body: fileStream,
+    };
+
+    // put object call
+    return s3.putObject(params, (err, data) => {
+      if (err) return response(res, { message: 'Gagal mengunggah berkas!', status: 400 });
+      else
+        return response(res, {
+          message: 'Berhasil mengunggah berkas!',
+          status: 200,
+          data: data?.Etag,
+        });
     });
   });
-};
-
-const saveFile = async (file) => {
-  const data = fs.readFileSync(file.filepath);
-
-  const dirPath = path.join(process.cwd());
-
-  const fullPath = `${dirPath}/${file.originalFilename}`;
-  fs.writeFileSync(fullPath, data);
-  await fs.unlinkSync(file.filepath);
-  return fullPath;
 };
 
 export default post;
