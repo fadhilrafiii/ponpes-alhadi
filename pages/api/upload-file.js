@@ -25,8 +25,14 @@ const post = async (req, res) => {
 const saveFile = async (file) => {
   const data = fs.readFileSync(file.filepath);
 
-  const filePath = path.join(process.cwd(), 'public/data/sertifikat');
-  const fullPath = `${filePath}/${file.originalFilename}`;
+  const dirPath = path.join(process.cwd(), 'public/data/sertifikat');
+  const isDirExists = fs.existsSync(dirPath);
+
+  if (!isDirExists) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
+
+  const fullPath = `${dirPath}/${file.originalFilename}`;
   fs.writeFileSync(fullPath, data);
   await fs.unlinkSync(file.filepath);
   return fullPath;
