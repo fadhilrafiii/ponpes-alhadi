@@ -35,7 +35,7 @@ const saveFile = async (file) => {
 
   const dirPath = path.join(process.cwd(), 'public/data/sertifikat');
 
-  mkdirp(dirPath, { recursive: true });
+  mkdirp(dirPath);
 
   const fullPath = `${dirPath}/${file.originalFilename}`;
   fs.writeFileSync(fullPath, data);
