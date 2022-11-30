@@ -27,7 +27,7 @@ const post = async (req, res) => {
 
     var params = {
       Bucket: 'ponpes-alhadi',
-      Key: 'test',
+      Key: 'test.jpg',
       Body: fileStream,
     };
 
