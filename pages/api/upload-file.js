@@ -1,5 +1,6 @@
 import formidable from 'formidable';
 import fs from 'fs';
+import path from 'path';
 
 import response from 'shared/utils/response';
 
@@ -23,9 +24,12 @@ const post = async (req, res) => {
 
 const saveFile = async (file) => {
   const data = fs.readFileSync(file.filepath);
-  fs.writeFileSync(`public/data/sertifikat/${file.originalFilename}`, data);
+
+  const filePath = path.join(process.cwd(), 'public/data/sertifikat');
+  const fullPath = `${filePath}/${file.originalFilename}`;
+  fs.writeFileSync(fullPath, data);
   await fs.unlinkSync(file.filepath);
-  return `/public/data/sertifikat/${file.originalFilename}`;
+  return fullPath;
 };
 
 export default post;
