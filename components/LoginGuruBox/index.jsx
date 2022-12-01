@@ -1,18 +1,20 @@
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
 
-import { postLoginSantriAPI } from 'client/auth';
+import { COLORS } from 'constants/colors';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
-import { isEmail } from 'shared/utils/string';
 
 import LoadingSpinner from 'components/base/LoadingSpinner';
 
-import { COLORS } from 'constants/colors';
+import { postLoginGuruAPI } from 'client/auth';
+
+import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
+import { isEmail } from 'shared/utils/string';
 
 import styles from './LoginGuruBox.module.scss';
 
-const LoginGuruBox = () => {
+const LoginSantriBox = ({ redirectTo }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [loginData, setLoginData] = useState({
@@ -34,28 +36,35 @@ const LoginGuruBox = () => {
     setIsLoadingSubmit(true);
     const { username, password } = loginData;
     const loginPayload = {
-      [isEmail(username) ? 'email' : 'nisn']: username,
+      [isEmail(username) ? 'email' : 'nip']: username,
       password,
     };
 
-    const { success, message } = await postLoginSantriAPI(loginPayload);
+    const { success, message, data } = await postLoginGuruAPI(loginPayload);
+    setIsLoadingSubmit(false);
+
     if (!success) return;
 
     dispatch(showSnackbar({ message, type: 'success' }));
-    setIsLoadingSubmit(false);
+    localStorage.setItem('ponpes-alhadi-profil', JSON.stringify(data));
 
-    router.push('/guru');
-  }, [dispatch, loginData, router]);
+    router.push(redirectTo || '/santri');
+  }, [dispatch, loginData, redirectTo, router]);
+
+  const actionPressEnter = (e) => {
+    if (e.charCode === 13) submitData();
+  };
 
   return (
     <div className={styles.box}>
-      <h2>Guru</h2>
+      <h2>Santri</h2>
       <input
         type="text"
         placeholder="NIP/Email"
         value={loginData.username}
         name="username"
         onChange={handleChangeLoginData}
+        onKeyPress={actionPressEnter}
       />
       <input
         type="password"
@@ -63,12 +72,26 @@ const LoginGuruBox = () => {
         value={loginData.password}
         name="password"
         onChange={handleChangeLoginData}
+        onKeyPress={actionPressEnter}
       />
-      <button className={styles.loginButton} onClick={submitData}>
+      <button
+        className={styles.loginButton}
+        onClick={submitData}
+        onKeyPress={actionPressEnter}
+        disabled={isLoadingSubmit}
+      >
         {isLoadingSubmit ? <LoadingSpinner width={20} color={COLORS.Primary} /> : 'Login'}
       </button>
     </div>
   );
 };
 
-export default LoginGuruBox;
+LoginSantriBox.propTypes = {
+  redirectTo: PropTypes.string,
+};
+
+LoginSantriBox.defaultProps = {
+  redirectTo: '',
+};
+
+export default LoginSantriBox;

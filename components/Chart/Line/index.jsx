@@ -29,6 +29,7 @@ const LineChart = ({ data, xLabel, yLabel }) => {
         data,
         primaryAxis,
         secondaryAxes,
+        tooltip: false,
       }}
     />
   );

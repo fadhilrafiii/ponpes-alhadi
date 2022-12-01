@@ -10,7 +10,7 @@ const TeacherSchema = new Schema(
       type: String,
       require: true,
       enum: ['Laki-laki', 'Perempuan'],
-      default: 'Laki-laki'
+      default: 'Laki-laki',
     },
     name: {
       type: String,
@@ -22,7 +22,12 @@ const TeacherSchema = new Schema(
       required: true,
       unique: true,
     },
-    email: String,
+    entryYear: Number,
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     password: {
       type: String,
       required: true,

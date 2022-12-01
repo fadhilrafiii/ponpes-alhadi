@@ -1,19 +1,18 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
+import { performanceScore } from 'constants/performa';
 import { useSelector } from 'react-redux';
 
 import Img from 'components/base/Img';
 import LineChart from 'components/Chart/Line';
 import TableBox from 'components/TableBox';
 
-import { performanceScore } from 'constants/performa';
-
-import styles from 'styles/StatusSantri.module.scss';
-
 import withAuth from 'shared/hocs/withAuth';
 import PageLayout from 'shared/layouts/PageLayout';
 import { selectUserProfile } from 'shared/redux/slices/user-slice';
+
+import styles from 'styles/StatusSantri.module.scss';
 
 import dummyProfilePic from 'public/images/dummy-profile.webp';
 
@@ -81,7 +80,7 @@ const StatusSantri = () => {
               </TableBox>
             </div>
             <div className={styles.statusSantriRight}>
-              <TableBox title="Links">
+              <TableBox title="Perkembangan Studi">
                 <div className={styles.santriPerformance}>
                   <LineChart
                     data={[

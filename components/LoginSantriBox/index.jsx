@@ -57,7 +57,7 @@ const LoginSantriBox = ({ redirectTo }) => {
 
   return (
     <div className={styles.box}>
-      <h2>Siswa</h2>
+      <h2>Santri</h2>
       <input
         type="text"
         placeholder="NISN/Email"

@@ -35,7 +35,6 @@ const post = async (req, res) => {
     return s3.upload(params, (err, data) => {
       if (err) return response(res, { message: 'Gagal mengunggah berkas!', status: 400 });
       else {
-        console.log(data);
         return response(res, {
           message: 'Berhasil mengunggah berkas!',
           status: 200,

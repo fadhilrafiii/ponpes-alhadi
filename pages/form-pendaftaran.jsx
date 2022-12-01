@@ -78,7 +78,7 @@ const FormPenerimaan = () => {
     },
     mother: {
       name: '',
-      isAlive: '',
+      isAlive: 'Ya',
       specialNeeds: '',
       birthPlace: '',
       birthDate: '',
