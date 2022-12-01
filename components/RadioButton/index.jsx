@@ -27,10 +27,10 @@ const Radio = ({ value, onChange, label, name, required, options }) => {
       )}
       {options.map((opt, idx) => (
         <div key={opt.value} className={styles.optionWrapper}>
-          <label className={styles.optionLabel} htmlFor={opt.value}>
+          <label className={styles.optionLabel} htmlFor={`${name}-${opt.value}`}>
             <input
               className={styles.input}
-              id={opt.value}
+              id={`${name}-${opt.value}`}
               key={opt.label}
               type="radio"
               name={name}

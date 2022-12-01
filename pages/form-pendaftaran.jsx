@@ -324,15 +324,6 @@ const FormPenerimaan = () => {
                 <h3 style={{ marginBottom: 24 }}>DATA DIRI ORANG TUA/WALI</h3>
                 <h3>V. Data Orang Tua</h3>
                 <FormOrangTua
-                  label="father"
-                  form={form.father}
-                  handleInputTextChange={handleInputTextChange}
-                  handleSelectChange={handleSelectChange}
-                  actionClickSameAddressWithSantri={() =>
-                    actionClickSameAddressWithSantri('father')
-                  }
-                />
-                <FormOrangTua
                   label="mother"
                   form={form.mother}
                   handleInputTextChange={handleInputTextChange}
@@ -341,6 +332,16 @@ const FormPenerimaan = () => {
                     actionClickSameAddressWithSantri('mother')
                   }
                 />
+                <FormOrangTua
+                  label="father"
+                  form={form.father}
+                  handleInputTextChange={handleInputTextChange}
+                  handleSelectChange={handleSelectChange}
+                  actionClickSameAddressWithSantri={() =>
+                    actionClickSameAddressWithSantri('father')
+                  }
+                />
+
                 <FormWali
                   label="wali"
                   form={form.wali}
