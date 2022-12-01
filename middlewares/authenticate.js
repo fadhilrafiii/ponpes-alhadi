@@ -1,9 +1,10 @@
 import { verify } from 'jsonwebtoken';
-import response from 'shared/utils/response';
 
 import connectDB from 'db';
 import Santri from 'db/models/Santri';
 import Teacher from 'db/models/Teacher';
+
+import response from 'shared/utils/response';
 
 export const authenticate = (fn) => async (req, res) => {
   await connectDB();
@@ -15,7 +16,6 @@ export const authenticate = (fn) => async (req, res) => {
     });
 
   const [Bearer, Token] = BearerToken.split(' ');
-
   if (Bearer !== 'Bearer' || !Token) {
     return response(res, {
       message: 'Anda belum masuk sebagai santri atau guru! Silakan login terlebih dahulu.',
@@ -32,7 +32,7 @@ export const authenticate = (fn) => async (req, res) => {
             message: 'Santri tidak ditemukan! Silakan login kembali.',
             status: 401,
           });
-      } else if (decoded.type === 'Teacher') {
+      } else if (decoded.type === 'Guru') {
         const teacher = await Teacher.findOne({ _id: decoded._id });
         if (!teacher)
           return response(res, {

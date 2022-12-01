@@ -6,7 +6,18 @@ import ReactSelect from 'react-select';
 
 import styles from './Select.module.scss';
 
-const Select = ({ isDisabled, defaultValue, name, label, required, options, value, onChange }) => {
+const Select = ({
+  isDisabled,
+  defaultValue,
+  name,
+  label,
+  required,
+  options,
+  value,
+  onChange,
+  customPlaceholder,
+  ...props
+}) => {
   const colourStyles = useMemo(
     () => ({
       menu: (styles) => ({ ...styles, backgroundColor: COLORS.PrimaryLight }),
@@ -67,7 +78,14 @@ const Select = ({ isDisabled, defaultValue, name, label, required, options, valu
       <ReactSelect
         id="react-select-3-live-region"
         className={styles.select}
-        defaultValue={options.find((opt) => opt.value === defaultValue)}
+        defaultValue={
+          customPlaceholder
+            ? {
+                label: customPlaceholder,
+                value: customPlaceholder,
+              }
+            : options.find((opt) => opt.value === defaultValue)
+        }
         isDisabled={isDisabled}
         name={name}
         options={options}
@@ -76,6 +94,7 @@ const Select = ({ isDisabled, defaultValue, name, label, required, options, valu
         onChange={({ value }) => onChange(value)}
         styles={colourStyles}
         noOptionsMessage={() => 'Tidak ada pilihan tersebut!'}
+        {...props}
       />
     </div>
   );

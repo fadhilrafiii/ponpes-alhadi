@@ -1,11 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { performanceScore } from 'constants/performa';
 import { useSelector } from 'react-redux';
 
 import Img from 'components/base/Img';
-import LineChart from 'components/Chart/Line';
 import TableBox from 'components/TableBox';
 
 import withAuth from 'shared/hocs/withAuth';
@@ -14,26 +12,26 @@ import { selectUserProfile } from 'shared/redux/slices/user-slice';
 
 import styles from 'styles/Status.module.scss';
 
-import dummyProfilePic from 'public/images/dummy-profile.webp';
+import dummyProfilePic from 'public/images/dummy-profile-guru.jpg';
 
-const StatusSantri = () => {
+const StatusGuru = () => {
   const userProfile = useSelector(selectUserProfile);
 
   return (
     <div>
       <Head>
-        <title>Status Santri | Pondok Pesantren Al Hadi</title>
-        <meta name="description" content="Info akademik seputar Santri Pondok Pesantren Al Hadi" />
+        <title>Status Guru | Pondok Pesantren Al Hadi</title>
+        <meta name="description" content="Info akademik seputar Guru Pondok Pesantren Al Hadi" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageLayout>
-        <section id="status-santri" className={styles.statusSection}>
-          <h1>Status Santri</h1>
+        <section id="status-guru" className={styles.statusSection}>
+          <h1>Status Guru</h1>
           <div className={styles.statusWrapper}>
             <div className={styles.statusLeft}>
-              <TableBox title="Status Santri">
+              <TableBox title="Status Guru">
                 <div className={styles.status}>
-                  <div className={styles.ImageWrapper}>
+                  <div className={styles.guruImageWrapper}>
                     <Img
                       src={dummyProfilePic}
                       alt={userProfile.fullName || 'Foto Profil'}
@@ -43,9 +41,9 @@ const StatusSantri = () => {
                   <table>
                     <tbody>
                       <tr>
-                        <td>NISN</td>
+                        <td>NIP</td>
                         <td>:</td>
-                        <td>{userProfile.nisn}</td>
+                        <td>{userProfile.nip}</td>
                       </tr>
                       <tr>
                         <td>Nama</td>
@@ -53,45 +51,29 @@ const StatusSantri = () => {
                         <td>{userProfile.fullName}</td>
                       </tr>
                       <tr>
-                        <td>Kelas</td>
+                        <td>Mata Pelajaran</td>
                         <td>:</td>
-                        <td>{userProfile.class || '-'}</td>
+                        <td>
+                          {userProfile?.lessons?.length > 0 ? userProfile?.lessons.join(', ') : '-'}
+                        </td>
                       </tr>
                       <tr>
                         <td>Tahun Masuk</td>
                         <td>:</td>
                         <td>{userProfile.entryYear}</td>
                       </tr>
-                      <tr>
-                        <td>Wali Kelas</td>
-                        <td>:</td>
-                        <td>{userProfile.homeRoomClass || '-'}</td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
               </TableBox>
+            </div>
+            <div className={styles.statusRight}>
               <TableBox title="Links">
                 <div className={styles.link}>
                   <Link href="/kalender">Kalender Akademik</Link>
                 </div>
                 <div className={styles.link}>
                   <Link href="/transkrip">Transkrip Nilai</Link>
-                </div>
-              </TableBox>
-            </div>
-            <div className={styles.statusRight}>
-              <TableBox title="Perkembangan Studi">
-                <div className={styles.Performance}>
-                  <LineChart
-                    data={[
-                      {
-                        data: performanceScore,
-                      },
-                    ]}
-                    xLabel="semester"
-                    yLabel="score"
-                  />
                 </div>
               </TableBox>
             </div>
@@ -102,8 +84,8 @@ const StatusSantri = () => {
   );
 };
 
-export const getServerSideProps = withAuth('Santri', () => {
+export const getServerSideProps = withAuth('Guru', () => {
   return { props: {} };
 });
 
-export default StatusSantri;
+export default StatusGuru;

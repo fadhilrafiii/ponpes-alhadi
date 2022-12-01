@@ -1,6 +1,6 @@
 @use './variables' as *;
 
-.statusSantriSection {
+.statusSection {
   padding: $pad-xxxxxxl;
   max-width: 1440px;
   margin: 0 auto;
@@ -12,7 +12,7 @@
     color: $primary-dark-color;
   }
 
-  .statusSantriWrapper {
+  .statusWrapper {
     display: flex;
     flex-wrap: wrap;
     gap: $pad-xxxl;
@@ -24,12 +24,12 @@
       min-width: 360px;
     }
 
-    .statusSantriLeft {
+    .statusLeft {
       display: flex;
       flex-direction: column;
       gap: $pad-xxxl;
 
-      .statusSantri {
+      .status {
         display: flex;
         gap: $pad-xl;
         padding: $pad-xxl 0;
@@ -48,7 +48,7 @@
           }
         }
 
-        .santriImageWrapper {
+        .ImageWrapper {
           aspect-ratio: 3 / 4;
 
           & > * {
@@ -62,18 +62,75 @@
       tr > td:first-child {
         font-weight: 700;
       }
-
-      
-      .link:first-child {
-        margin-bottom: $pad-l;
-      }
     }
 
-    .santriPerformance {
+    .Performance {
       margin: $pad-xxl;
       min-height: 300px;
       height: 50vh;
       max-height: 350px;
+    }
+  }
+}
+      
+.link:first-child {
+  margin-bottom: $pad-l;
+}
+
+.inputNilaiContainer {
+
+  .selectWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $pad-xl;
+    margin-bottom: $pad-xxxxl;
+
+    & > * {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+
+  .inputNilaiTable {
+    max-width: 840px;
+    margin: 0 auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th {
+        font-weight: 700;
+        text-align: left;
+        background-color: white;
+        padding: $pad-s;
+      }
+
+      td {
+        padding: $pad-s;
+      }
+
+      tbody {
+        tr:first-child td {
+          padding-top: $pad-xl;
+        }
+      }
+
+      .nilaiField {
+        width: auto;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-start;
+
+        input {
+          max-width: 50px;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          font-size: 20px;
+          text-align: center;
+        }
+      }
     }
   }
 }

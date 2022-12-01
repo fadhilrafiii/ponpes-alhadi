@@ -17,9 +17,9 @@ const SantriSchema = new Schema(
     },
     gender: {
       type: String,
-      require: true,
+      required: true,
       enum: ['Laki-laki', 'Perempuan'],
-      default: 'Laki-laki'
+      default: 'Laki-laki',
     },
     phone: String,
     birthDate: {

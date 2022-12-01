@@ -14,7 +14,7 @@ import { isEmail } from 'shared/utils/string';
 
 import styles from './LoginGuruBox.module.scss';
 
-const LoginSantriBox = ({ redirectTo }) => {
+const LoginGuruBox = ({ redirectTo }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [loginData, setLoginData] = useState({
@@ -48,7 +48,7 @@ const LoginSantriBox = ({ redirectTo }) => {
     dispatch(showSnackbar({ message, type: 'success' }));
     localStorage.setItem('ponpes-alhadi-profil', JSON.stringify(data));
 
-    router.push(redirectTo || '/santri');
+    router.push(redirectTo || '/guru');
   }, [dispatch, loginData, redirectTo, router]);
 
   const actionPressEnter = (e) => {
@@ -57,7 +57,7 @@ const LoginSantriBox = ({ redirectTo }) => {
 
   return (
     <div className={styles.box}>
-      <h2>Santri</h2>
+      <h2>Guru</h2>
       <input
         type="text"
         placeholder="NIP/Email"
@@ -86,12 +86,12 @@ const LoginSantriBox = ({ redirectTo }) => {
   );
 };
 
-LoginSantriBox.propTypes = {
+LoginGuruBox.propTypes = {
   redirectTo: PropTypes.string,
 };
 
-LoginSantriBox.defaultProps = {
+LoginGuruBox.defaultProps = {
   redirectTo: '',
 };
 
-export default LoginSantriBox;
+export default LoginGuruBox;

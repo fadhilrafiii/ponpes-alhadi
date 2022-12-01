@@ -1,8 +1,9 @@
 import TableBox from 'components/TableBox';
 
-import styles from 'styles/Kurikulum.module.scss';
-
+import withAuth from 'shared/hocs/withAuth';
 import PageLayout from 'shared/layouts/PageLayout';
+
+import styles from 'styles/Kurikulum.module.scss';
 
 const Kurikulum = () => {
   return (
@@ -201,5 +202,9 @@ const Kurikulum = () => {
     </PageLayout>
   );
 };
+
+export const getServerSideProps = withAuth(null, () => {
+  return { props: {} };
+});
 
 export default Kurikulum;

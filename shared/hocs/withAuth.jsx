@@ -1,6 +1,8 @@
 import { getAuthenticateAPI } from 'client/auth';
 
-const withAuth = (gssp) => {
+import { getRedirectToBasedOnProfile } from 'shared/utils/auth';
+
+const withAuth = (profileType, gssp) => {
   return async (ctx) => {
     const component = await gssp(ctx);
     const sourceUrl = ctx.req?.url;
@@ -16,6 +18,15 @@ const withAuth = (gssp) => {
     }
 
     const { status, data: user } = await getAuthenticateAPI({ headers: { cookie } });
+    if (user && profileType && profileType !== user?.type) {
+      return {
+        props: component.props,
+        redirect: {
+          destination: getRedirectToBasedOnProfile(profileType),
+        },
+      };
+    }
+
     if (status === 401) {
       ctx.res?.setHeader(
         'Set-Cookie',

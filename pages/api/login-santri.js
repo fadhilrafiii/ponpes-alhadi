@@ -42,8 +42,9 @@ const handler = async (req, res) => {
       message: 'Password salah, Coba lagi!',
     });
 
-  delete santri.password;
-  const token = jwt.sign({ ...santri.toObject(), type: 'Santri' }, process.env.JWT_SECRET_KEY);
+  const santriObject = { ...santri.toObject(), type: 'Santri' };
+  delete santriObject.password;
+  const token = jwt.sign(santriObject, process.env.JWT_SECRET_KEY);
 
   res.setHeader(
     'Set-Cookie',
@@ -58,7 +59,7 @@ const handler = async (req, res) => {
   return response(res, {
     status: 200,
     message: 'Login Santri berhasil!',
-    data: santri,
+    data: santriObject,
   });
 };
 

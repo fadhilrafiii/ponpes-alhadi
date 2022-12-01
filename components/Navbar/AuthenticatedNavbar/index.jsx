@@ -2,11 +2,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback, useRef } from 'react';
 
-import { postLogoutAPI } from 'client/auth';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 import Img from 'components/base/Img';
+
+import { postLogoutAPI } from 'client/auth';
 
 import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
 import { removeUserProfile } from 'shared/redux/slices/user-slice';
@@ -100,9 +101,16 @@ const AuthenticatedNavbar = ({ userProfile }) => {
                 Murid Baru
               </h4>
             </Link>
-            <Link href="/santri">
-              <h4>Santri</h4>
-            </Link>
+            {userProfile?.type === 'Santri' && (
+              <Link href="/santri">
+                <h4>Santri</h4>
+              </Link>
+            )}
+            {userProfile?.type === 'Guru' && (
+              <Link href="/guru">
+                <h4>Guru</h4>
+              </Link>
+            )}
           </div>
         </div>
       </div>

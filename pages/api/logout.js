@@ -1,7 +1,8 @@
 import cookie from 'cookie';
-import response from 'shared/utils/response';
 
 import { errorHandlerMiddleware } from 'middlewares/error-handler';
+
+import response from 'shared/utils/response';
 
 const handler = async (req, res) => {
   const { method } = req;
@@ -19,7 +20,7 @@ const handler = async (req, res) => {
   );
   return response(res, {
     status: 302,
-    message: 'Logout Santri berhasil!',
+    message: 'Logout berhasil!',
   });
 };
 

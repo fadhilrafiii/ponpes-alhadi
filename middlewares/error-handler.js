@@ -4,11 +4,10 @@ export const errorHandlerMiddleware = (fn) => async (req, res) => {
   try {
     await fn(req, res);
   } catch (err) {
-    console.log(err);
     let error;
-    // if (err instanceof Error) {
-    //   error = JSON.parse(err.message);
-    // } else error = err;
+    if (err instanceof Error) {
+      error = JSON.parse(typeof err?.message === 'object' ? err?.message : '{}');
+    } else error = err;
 
     return response(res, {
       status: error && error._original ? 422 : 500,

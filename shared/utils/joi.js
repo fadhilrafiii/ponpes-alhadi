@@ -2,7 +2,6 @@ import JoiDate from '@joi/date';
 import Joi from 'joi';
 
 export const joiErrorHandler = (error) => {
-  console.log(error);
   let errorMsg;
   const errorKey = error.code.split('.').pop();
   if (errorKey === 'required' || errorKey === 'empty') {

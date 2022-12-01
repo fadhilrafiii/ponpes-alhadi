@@ -21,18 +21,18 @@ const loginSchema = joi
   })
   .xor('email', 'nip')
   .messages({
-    'string.empty': 'NISN/Email tidak boleh kosong!',
+    'string.empty': 'NIP/Email tidak boleh kosong!',
   });
 
 const handler = async (req, res) => {
   const { method } = req;
   if (method !== 'POST') return response(res, { status: 405, message: 'Method harus "POST"!' });
 
-  const { nisn, email, password } = await loginSchema.validateAsync(req.body, { abortEarly: true });
+  const { nip, email, password } = await loginSchema.validateAsync(req.body, { abortEarly: true });
 
   await connectDB();
 
-  const teacher = await Teacher.findOne({ $or: [{ email }, { nisn }] });
+  const teacher = await Teacher.findOne({ $or: [{ email }, { nip }] });
   if (!teacher) return response(res, { status: 404, message: 'Akun santri tidak ditemukan' });
 
   const isPasswordValid = compareSync(password, teacher.password);
@@ -42,8 +42,9 @@ const handler = async (req, res) => {
       message: 'Password salah, Coba lagi!',
     });
 
-  delete teacher.password;
-  const token = jwt.sign({ ...teacher.toObject(), type: 'Santri' }, process.env.JWT_SECRET_KEY);
+  const teacherObject = { ...teacher.toObject(), type: 'Guru' };
+  delete teacherObject.password;
+  const token = jwt.sign(teacherObject, process.env.JWT_SECRET_KEY);
 
   res.setHeader(
     'Set-Cookie',
@@ -58,7 +59,7 @@ const handler = async (req, res) => {
   return response(res, {
     status: 200,
     message: 'Login Guru berhasil!',
-    data: teacher,
+    data: teacherObject,
   });
 };
 

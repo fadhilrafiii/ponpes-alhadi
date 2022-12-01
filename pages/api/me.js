@@ -1,6 +1,6 @@
-import response from 'shared/utils/response';
-
 import { authenticate } from 'middlewares/authenticate';
+
+import response from 'shared/utils/response';
 
 const handler = (req, res) => {
   if (req.method !== 'GET')

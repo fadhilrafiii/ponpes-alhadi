@@ -114,3 +114,14 @@
     }
   }
 }
+
+.breadcrumb {
+  padding: $pad-xl $pad-xxxxxxl;
+  background-color: $primary-color;
+  
+  span {
+    color: white;
+    font-weight: 700;
+    margin: 0 $pad-l;
+  }
+}

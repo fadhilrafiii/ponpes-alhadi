@@ -1,26 +1,30 @@
 import bcrypt from 'bcrypt';
 import cookie from 'cookie';
 import jwt from 'jsonwebtoken';
-import Joi from 'shared/utils/joi';
-import response from 'shared/utils/response';
 
 import connectDB from 'db';
 import Santri from 'db/models/Santri';
 
 import { errorHandlerMiddleware } from 'middlewares/error-handler';
 
-const registerSchema = Joi.object().keys({
-  name: Joi.string().required(),
-  fullName: Joi.string().required(),
-  nisn: Joi.string().required(),
-  phone: Joi.string().optional().pattern(new RegExp('^0[7|8][0-9]{8,11}$')),
-  birthDate: Joi.date().raw().format('YYYY-MM-DD'),
-  birthPlace: Joi.string().required(),
-  entryYear: Joi.number().required(),
-  class: Joi.string().hex().length(24),
-  email: Joi.string().email().optional(),
-  password: Joi.string().alphanum().required(),
-});
+import Joi, { joiErrorHandler } from 'shared/utils/joi';
+import response from 'shared/utils/response';
+
+const registerSchema = Joi.object().keys(
+  {
+    name: Joi.string().required(),
+    fullName: Joi.string().required(),
+    gender: Joi.string().required(),
+    nisn: Joi.string().required(),
+    phone: Joi.string().optional().pattern(new RegExp('^0[7|8][0-9]{8,11}$')),
+    birthDate: Joi.date().raw().format('YYYY-MM-DD'),
+    birthPlace: Joi.string().required(),
+    entryYear: Joi.number().required(),
+    class: Joi.string().hex().length(24),
+    email: Joi.string().email().optional(),
+    password: Joi.string().alphanum().required(),
+  }.error(([error]) => joiErrorHandler(error)),
+);
 
 const handler = async (req, res) => {
   const { method } = req;
