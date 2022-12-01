@@ -5,7 +5,13 @@ export const errorHandlerMiddleware = (fn) => async (req, res) => {
     await fn(req, res);
   } catch (err) {
     let error;
-    if (err instanceof Error) {
+
+    if (err.name) {
+      error = {
+        _original: true,
+        message: err.details[0]?.message,
+      };
+    } else if (err instanceof Error) {
       error = JSON.parse(typeof err?.message === 'object' ? err?.message : '{}');
     } else error = err;
 

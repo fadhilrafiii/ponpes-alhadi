@@ -73,7 +73,7 @@ const StatusGuru = () => {
                   <Link href="/kalender">Kalender Akademik</Link>
                 </div>
                 <div className={styles.link}>
-                  <Link href="/transkrip">Transkrip Nilai</Link>
+                  <Link href="/guru/input-nilai">Input Nilai</Link>
                 </div>
               </TableBox>
             </div>

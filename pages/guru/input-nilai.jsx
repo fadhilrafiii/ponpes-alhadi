@@ -16,8 +16,8 @@ import EditIcon from 'public/icons/edit.svg';
 
 const InputNilai = () => {
   const [filter, setFilter] = useState({
-    class: '',
-    subject: '',
+    class: 'VII A',
+    subject: 'Matematika',
   });
   const [selectedNilaiIdx, setSelectedNilaiIdx] = useState(null);
   const editRef = useRef(null);
@@ -73,7 +73,6 @@ const InputNilai = () => {
                 name="class"
                 placeholder="Kelas"
                 defaultValue="Kelas"
-                customPlaceholder="Kelas"
               />
               <Select
                 value={filter.subject}
@@ -81,7 +80,6 @@ const InputNilai = () => {
                 onChange={(val) => handleChangeSelect('subject', val)}
                 name="subject"
                 defaultValue="Mata Pelajaran"
-                customPlaceholder="Mata Pelajaran"
               />
             </div>
             {filter.class && filter.subject && (
