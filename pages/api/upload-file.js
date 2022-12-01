@@ -25,21 +25,23 @@ const post = async (req, res) => {
       },
     });
 
-    var params = {
+    const params = {
+      ContentType: files.file.mimetype,
       Bucket: 'ponpes-alhadi',
-      Key: 'test.jpg',
+      Key: files.file.originalFilename,
       Body: fileStream,
     };
 
-    // put object call
-    return s3.putObject(params, (err, data) => {
+    return s3.upload(params, (err, data) => {
       if (err) return response(res, { message: 'Gagal mengunggah berkas!', status: 400 });
-      else
+      else {
+        console.log(data);
         return response(res, {
           message: 'Berhasil mengunggah berkas!',
           status: 200,
-          data: data?.Etag,
+          data: data.Location,
         });
+      }
     });
   });
 };

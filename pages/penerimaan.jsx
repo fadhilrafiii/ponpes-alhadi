@@ -24,6 +24,7 @@ const Penerimaan = () => {
           </div>
           <div className={styles.brosurRight}>
             <Img
+              layout="fill"
               src={brosurRighImg}
               alt="Brosur Pondok Pesantren Al Hadi Sungkai Langka"
               sizes="66vw"
