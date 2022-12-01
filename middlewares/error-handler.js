@@ -6,7 +6,7 @@ export const errorHandlerMiddleware = (fn) => async (req, res) => {
   } catch (err) {
     let error;
 
-    if (err.name) {
+    if (err.name === 'ValidationError') {
       error = {
         _original: true,
         message: err.details[0]?.message,
