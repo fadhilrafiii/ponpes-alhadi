@@ -98,7 +98,9 @@ const Home = () => {
           </div>
           <div className={styles.linksWrapper}>
             <div className={styles.link}>
-              <Link href="/">Download Brosur</Link>
+              <a href="/data/Brosur-Ponpes-TA-2023-2024.pdf" target="_blank" download>
+                Download Brosur
+              </a>
             </div>
             <div className={styles.link}>
               <Link href="/form-pendaftaran">Pendaftaran</Link>

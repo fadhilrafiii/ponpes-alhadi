@@ -82,9 +82,9 @@ const Penerimaan = () => {
             </table>
           </div>
           <div>
-            <Link href="/">
-              <a>Download Brosur</a>
-            </Link>
+            <a href="/data/Brosur-Ponpes-TA-2023-2024.pdf" target="_blank" download>
+              Download Brosur
+            </a>
             <Link href="/form-pendaftaran">
               <a>Pendaftaran</a>
             </Link>

@@ -1,5 +1,23 @@
 @use './variables' as *;
 
+.goToMobile {
+  display: none;
+  text-align: center;
+  padding: 35vh $pad-xxxl;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.formPendaftaranWrapper {
+  display: block;
+
+  @media (max-width: $tab) {
+    display: none;
+  }
+}
+
 .pendaftaranTitle {
   padding: $pad-xxxxl;
   text-align: center;

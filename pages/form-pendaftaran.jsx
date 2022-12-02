@@ -288,130 +288,137 @@ const FormPenerimaan = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageLayout withFooter>
-        <h2 className={styles.pendaftaranTitle}>Formulir Pendaftaran</h2>
-        <div className={styles.pendaftaranContainer}>
-          <form className={styles.form} onSubmit={handleSubmit}>
-            {currentPage === 1 && (
-              <>
-                <h3>DATA DIRI PESERTA DIDIK</h3>
-                <FormPesertaDidik
-                  form={form.calonPesertaDidik}
-                  handleInputTextChange={handleInputTextChange}
-                  handleSelectChange={handleSelectChange}
-                />
-                <FormAsalSekolah
-                  form={form.schoolOrigin}
-                  handleInputTextChange={handleInputTextChange}
-                />
-                <FormNilaiPesertaDidik
-                  form={form.calonPesertaDidikScore}
-                  handleSelectChange={handleSelectChange}
-                />
-                <FormPrestasiPesertaDidik
-                  form={form.prestasi}
-                  handleAddPrestasi={handleAddPrestasi}
-                  handleRemovePrestasi={handleRemovePrestasi}
-                  handleInputTextChange={handlePrestasiInputTextChange}
-                  handleSelectChange={handlePrestasiSelectChange}
-                  handleUploadPrestasi={handleUploadPrestasi}
-                  handleDeletePrestasiFile={handleDeletePrestasiFile}
-                  isUploading={isUploading}
-                />
-              </>
-            )}
-            {currentPage === 2 && (
-              <>
-                <h3 style={{ marginBottom: 24 }}>DATA DIRI ORANG TUA/WALI</h3>
-                <h3>V. Data Orang Tua</h3>
-                <FormOrangTua
-                  label="father"
-                  form={form.father}
-                  handleInputTextChange={handleInputTextChange}
-                  handleSelectChange={handleSelectChange}
-                  actionClickSameAddressWithSantri={() =>
-                    actionClickSameAddressWithSantri('father')
-                  }
-                />
-                <FormOrangTua
-                  label="mother"
-                  form={form.mother}
-                  handleInputTextChange={handleInputTextChange}
-                  handleSelectChange={handleSelectChange}
-                  actionClickSameAddressWithSantri={() =>
-                    actionClickSameAddressWithSantri('mother')
-                  }
-                />
-                <FormWali
-                  label="wali"
-                  form={form.wali}
-                  handleInputTextChange={handleInputTextChange}
-                  actionClickSameAddressWithSantri={() => actionClickSameAddressWithSantri('wali')}
-                  onHideFormWali={handleResetFormWali}
-                />
-                <button
-                  type="submit"
-                  value="submit-form"
-                  disabled={isSubmitting}
-                  className={styles.submitButton}
-                >
-                  {isSubmitting ? <LoadingSpinner /> : 'Submit'}
-                </button>
-              </>
-            )}
-            <div
-              style={{
-                margin: '36px 0 24px',
-                textAlign: 'right',
-                fontWeight: 700,
-                color: COLORS.BlackGrey,
-              }}
-            >
-              Halaman
-            </div>
-            <div className={styles.pagination}>
-              <button
-                type="button"
-                onClick={() => handleChangePage(1)}
-                className={styles.page}
-                style={{ opacity: currentPage === 1 ? 0 : 1 }}
-              >
-                <Img
-                  src={ChevronLeftGreen}
-                  alt="Previous Page"
-                  layout="fixed"
-                  width={10}
-                  height={20}
-                  priority
-                />
-              </button>
-              <button
-                type="button"
-                onClick={() => handleChangePage(1)}
-                className={currentPage === 1 ? styles.activePage : styles.page}
-              >
-                1
-              </button>
-              <button
-                type="submit"
-                value="submit-first-page"
-                className={currentPage === 2 ? styles.activePage : styles.page}
-              >
-                2
-              </button>
+        <h2 className={styles.goToMobile}>
+          Mohon gunakan laptop atau komputer untuk pendaftaran calon santri!
+        </h2>
+        <div className={styles.formPendaftaranWrapper}>
+          <h2 className={styles.pendaftaranTitle}>Formulir Pendaftaran</h2>
+          <div className={styles.pendaftaranContainer}>
+            <form className={styles.form} onSubmit={handleSubmit}>
               {currentPage === 1 && (
-                <button value="submit-next-page" type="submit" className={styles.page}>
+                <>
+                  <h3>DATA DIRI PESERTA DIDIK</h3>
+                  <FormPesertaDidik
+                    form={form.calonPesertaDidik}
+                    handleInputTextChange={handleInputTextChange}
+                    handleSelectChange={handleSelectChange}
+                  />
+                  <FormAsalSekolah
+                    form={form.schoolOrigin}
+                    handleInputTextChange={handleInputTextChange}
+                  />
+                  <FormNilaiPesertaDidik
+                    form={form.calonPesertaDidikScore}
+                    handleSelectChange={handleSelectChange}
+                  />
+                  <FormPrestasiPesertaDidik
+                    form={form.prestasi}
+                    handleAddPrestasi={handleAddPrestasi}
+                    handleRemovePrestasi={handleRemovePrestasi}
+                    handleInputTextChange={handlePrestasiInputTextChange}
+                    handleSelectChange={handlePrestasiSelectChange}
+                    handleUploadPrestasi={handleUploadPrestasi}
+                    handleDeletePrestasiFile={handleDeletePrestasiFile}
+                    isUploading={isUploading}
+                  />
+                </>
+              )}
+              {currentPage === 2 && (
+                <>
+                  <h3 style={{ marginBottom: 24 }}>DATA DIRI ORANG TUA/WALI</h3>
+                  <h3>V. Data Orang Tua</h3>
+                  <FormOrangTua
+                    label="father"
+                    form={form.father}
+                    handleInputTextChange={handleInputTextChange}
+                    handleSelectChange={handleSelectChange}
+                    actionClickSameAddressWithSantri={() =>
+                      actionClickSameAddressWithSantri('father')
+                    }
+                  />
+                  <FormOrangTua
+                    label="mother"
+                    form={form.mother}
+                    handleInputTextChange={handleInputTextChange}
+                    handleSelectChange={handleSelectChange}
+                    actionClickSameAddressWithSantri={() =>
+                      actionClickSameAddressWithSantri('mother')
+                    }
+                  />
+                  <FormWali
+                    label="wali"
+                    form={form.wali}
+                    handleInputTextChange={handleInputTextChange}
+                    actionClickSameAddressWithSantri={() =>
+                      actionClickSameAddressWithSantri('wali')
+                    }
+                    onHideFormWali={handleResetFormWali}
+                  />
+                  <button
+                    type="submit"
+                    value="submit-form"
+                    disabled={isSubmitting}
+                    className={styles.submitButton}
+                  >
+                    {isSubmitting ? <LoadingSpinner /> : 'Submit'}
+                  </button>
+                </>
+              )}
+              <div
+                style={{
+                  margin: '36px 0 24px',
+                  textAlign: 'right',
+                  fontWeight: 700,
+                  color: COLORS.BlackGrey,
+                }}
+              >
+                Halaman
+              </div>
+              <div className={styles.pagination}>
+                <button
+                  type="button"
+                  onClick={() => handleChangePage(1)}
+                  className={styles.page}
+                  style={{ opacity: currentPage === 1 ? 0 : 1 }}
+                >
                   <Img
-                    src={ChevronRightGreen}
-                    alt="Next Page"
+                    src={ChevronLeftGreen}
+                    alt="Previous Page"
                     layout="fixed"
                     width={10}
                     height={20}
                     priority
                   />
                 </button>
-              )}
-            </div>
-          </form>
+                <button
+                  type="button"
+                  onClick={() => handleChangePage(1)}
+                  className={currentPage === 1 ? styles.activePage : styles.page}
+                >
+                  1
+                </button>
+                <button
+                  type="submit"
+                  value="submit-first-page"
+                  className={currentPage === 2 ? styles.activePage : styles.page}
+                >
+                  2
+                </button>
+                {currentPage === 1 && (
+                  <button value="submit-next-page" type="submit" className={styles.page}>
+                    <Img
+                      src={ChevronRightGreen}
+                      alt="Next Page"
+                      layout="fixed"
+                      width={10}
+                      height={20}
+                      priority
+                    />
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
         </div>
       </PageLayout>
     </div>

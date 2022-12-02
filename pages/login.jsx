@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { getAuthenticateAPI } from 'client/auth';
-
 import Img from 'components/base/Img';
 import LoginGuruBox from 'components/LoginGuruBox';
 import LoginSantriBox from 'components/LoginSantriBox';
 
-import styles from 'styles/Login.module.scss';
+import { getAuthenticateAPI } from 'client/auth';
 
 import PageLayout from 'shared/layouts/PageLayout';
+
+import styles from 'styles/Login.module.scss';
 
 import welcomeBlurPic from 'public/images/welcome-blur.jpg';
 
@@ -30,7 +30,7 @@ const LoginPage = () => {
       </Head>
       <PageLayout>
         <h2 className={styles.goToMobile}>
-          Mohon gunakan desktop untuk login kedalam aplikasi ini!
+          Mohon gunakan laptop atau komputer untuk login kedalam aplikasi ini!
         </h2>
         <section id="banner" className={styles.bannerSection}>
           <div className={styles.bannerWrapper}>
