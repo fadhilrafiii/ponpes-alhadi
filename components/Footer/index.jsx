@@ -63,8 +63,8 @@ const Footer = () => {
         </p>
         <div>
           <div>Contact Person:</div>
-          <a>0812 7950 3322</a>
-          <a>0896 2607 2735</a>
+          <a>0812 7950 3322 (Umi Aisyah)</a>
+          <a>0896 2607 2735 (Ustadzah Fathimah)</a>
         </div>
       </div>
     </footer>

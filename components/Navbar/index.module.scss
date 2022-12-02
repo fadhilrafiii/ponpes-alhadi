@@ -9,7 +9,7 @@
 
   @media (max-width: $tab) {
     padding: $pad-xl $pad-xxl;
-    flex-wrap: wrap;
+    gap: $pad-xxl;
   }
 
   .imageWrapper {
@@ -123,5 +123,56 @@
     color: white;
     font-weight: 700;
     margin: 0 $pad-l;
+  }
+}
+
+.menuMobile {
+  position: absolute;
+  top: 69px;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  background-color: $primary-light-color;
+  padding: $pad-l;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: $pad-m;
+    align-items: center;
+    color: black;
+    padding: 0;
+
+    li {
+      text-align: center;
+
+      a {
+        color: black;
+        cursor: pointer;
+        font-size: 14px;
+        text-decoration: none;
+        font-weight: 700;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .loginButton {
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    padding: $pad-s $pad-xxxxxl;
+  }
+}
+
+.hamburgerContainer {
+  display: none;
+
+  @media (max-width: $tab) {
+    display: block;
   }
 }

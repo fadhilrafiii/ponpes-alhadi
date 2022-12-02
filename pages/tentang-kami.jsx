@@ -1,12 +1,13 @@
 import Head from 'next/head';
 
-import PageLayout from 'shared/layouts/PageLayout';
+import { fasilitasList } from 'constants/home';
+import { faqs } from 'constants/tentang-kami';
 
+import Carousel from 'components/base/Carousel';
 import Dropdown from 'components/base/Dropdown';
 import Img from 'components/base/Img';
 
-import { fasilitasList } from 'constants/home';
-import { faqs } from 'constants/tentang-kami';
+import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/TentangKami.module.scss';
 
@@ -79,6 +80,28 @@ const TentangKami = () => {
               </div>
             ))}
           </div>
+          <Carousel
+            className={styles.fasilitasCarousel}
+            config={{
+              fade: false,
+              autoplay: false,
+              arrows: true,
+            }}
+          >
+            {fasilitasList.map((fasilitas, idx) => (
+              <div key={idx} className={styles.fasilitasContent}>
+                <div className={styles.fasilitasImageWrapper}>
+                  <Img
+                    layout="fill"
+                    src={fasilitas.image.src}
+                    alt={fasilitas.image.alt}
+                    sizes="(max-width: 768px) 196px, 306px"
+                  />
+                </div>
+                <p>{fasilitas.desc}</p>
+              </div>
+            ))}
+          </Carousel>
         </section>
         <section id="faq" className={styles.faqSection}>
           <h2>FAQs (Frequently Asked Questions)</h2>

@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 
 import Img from 'components/base/Img';
+
+import Hamburger from '../Hamburger';
 
 import styles from '../index.module.scss';
 
@@ -10,6 +12,7 @@ import logo from 'public/images/logo-192.png';
 
 const UnauthenticatedNavbar = memo(() => {
   const { pathname } = useRouter();
+  const [isOpenDropdownMobile, setIsOpenDropdownMobile] = useState(false);
 
   return (
     <nav className={styles.navbarContainer}>
@@ -48,6 +51,36 @@ const UnauthenticatedNavbar = memo(() => {
             </li>
           </ul>
         </div>
+        <div
+          className={styles.hamburgerContainer}
+          role="button"
+          onClick={() => setIsOpenDropdownMobile((prev) => !prev)}
+        >
+          <Hamburger />
+        </div>
+        {isOpenDropdownMobile && (
+          <div className={styles.menuMobile}>
+            <ul>
+              <li className={'/' === pathname ? styles.activeMenu : ''}>
+                <Link href="/">Home</Link>
+              </li>
+              <li className={'/tentang-kami' === pathname ? styles.activeMenu : ''}>
+                <Link href="/tentang-kami">Tentang Kami</Link>
+              </li>
+              <li className={'/akademik' === pathname ? styles.activeMenu : ''}>
+                <Link href="/akademik">Akademik</Link>
+              </li>
+              <li className={'/penerimaan' === pathname ? styles.activeMenu : ''}>
+                <Link href="/penerimaan">Penerimaan Murid Baru</Link>
+              </li>
+              <li>
+                <Link href="/login">
+                  <a className={styles.loginButton}>Login</a>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );

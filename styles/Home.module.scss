@@ -312,6 +312,14 @@
     }
   }
 
+  .fasilitasCarousel {
+    display: none;
+
+    @media (max-width: $tab) {
+      display: block;
+    }
+  }
+
   .fasilitasWrapper {
     display: flex;
     gap: $pad-xxxxxl;
@@ -323,11 +331,15 @@
       gap: $pad-xxxl;
       overflow-x: scroll;
     }
+
+    @media (max-width: $tab) {
+      display: none;
+    }
   }
 
   .fasilitasContent {
     flex-shrink: 0;
-    width: clamp(200px, 40vw, 306px);
+    width: clamp(200px, 40vw, 306px) !important;
     position: relative;
     text-align: center;
     border-top-right-radius: 20px;

@@ -40,6 +40,14 @@ const Carousel = ({ className, config, children }) => {
     arrows: false,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (

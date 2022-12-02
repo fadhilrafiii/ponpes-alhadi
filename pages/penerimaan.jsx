@@ -18,7 +18,7 @@ const Penerimaan = () => {
             <Img
               src={brosurLeftImg}
               alt="Brosur Pondok Pesantren Al Hadi Sungkai Langka"
-              sizes="66vw"
+              sizes="(max-width: 768px) 100vw, 66vw"
               priority
             />
           </div>
@@ -27,13 +27,11 @@ const Penerimaan = () => {
               layout="fill"
               src={brosurRighImg}
               alt="Brosur Pondok Pesantren Al Hadi Sungkai Langka"
-              sizes="66vw"
+              sizes="(max-width: 768px) 50vw, 33vw"
               priority
             />
             <div className={styles.brosurRightContent}>
-              <h2>
-                5 Poin <br /> Ponpes Al Hadi
-              </h2>
+              <h2>5 Poin Ponpes Al Hadi</h2>
               <ul>
                 <li>Muatan Ilmu Lebih Banyak</li>
                 <li>Pembelajaran Menyenangkan</li>
@@ -124,7 +122,7 @@ const Penerimaan = () => {
         <div>
           <p>Pendaftaran dapat dilakukan di</p>
           <h4>Kantor Pondok Pesantren Al Hadi Sungkai Langka</h4>
-          Jalan Sungai Langka Kecamatan Gedong Tataan Kabupaten Pesawaran, Lampung
+          <p>Jalan Sungai Langka Kecamatan Gedong Tataan Kabupaten Pesawaran, Lampung</p>
         </div>
       </section>
     </PageLayout>

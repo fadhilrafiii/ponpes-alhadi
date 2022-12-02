@@ -5,7 +5,12 @@
   display: flex;
   padding: $pad-xxl $pad-xxxxxxl;
   align-items: center;
+  gap: $pad-xxxxl;
   justify-content: space-between;
+
+  @media (max-width: $tab) {
+    padding: $pad-xxl $pad-xl;
+  }
 
   .navLeft {
     display: flex;
@@ -21,11 +26,28 @@
       .currentMenu {
         color: white;
         padding: $pad-m $pad-xxl;
+
+        @media (max-width: $tab) {
+          padding: $pad-m $pad-l;
+        }
+      }
+
+      @media (max-width: $tab) {
+        span, img {
+          min-width: 20px !important;
+          max-width: 20px !important;
+          min-height: 20px !important;
+          max-height: 20px !important;
+        }
       }
     }
 
     .menuDropdownWrapper {
       position: relative;
+
+      @media (max-width: $tab) {
+        position: static;
+      }
 
       .menuSelect {
         cursor: pointer;
@@ -33,6 +55,11 @@
         padding: $pad-m $pad-xxl;
         padding-right: $pad-xxxxl;
         color: white;
+
+        @media (max-width: $tab) {
+          padding: $pad-m $pad-l;
+          padding-right: $pad-xxl;
+        }
 
         .triangle {
           position: absolute;
@@ -44,6 +71,12 @@
           border-left: 8px solid transparent;
           border-right: 8px solid transparent;
           border-top: 8px solid white;
+
+          @media (max-width: $tab) {
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid white;
+          }
         }
       }
 
@@ -59,6 +92,13 @@
         padding: calc($pad-xl - $pad-m) $pad-xxxl;
         box-shadow: 2px 2px 5px -1px $black-grey-color;
         min-width: 196px;
+
+        @media (max-width: $tab) {
+          top: 74.5px;
+          width: 100vw;
+          left: 0;
+          text-align: center;
+        }
 
         .santriDropdown {
           display: flex;
@@ -90,6 +130,12 @@
       color: white;
       gap: $pad-xl;
 
+      .name {
+        @media (max-width: $tab) {
+         display: none;
+        }
+      }
+
       .avatarIcon {
         display: flex;
         align-items: center;
@@ -103,6 +149,10 @@
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         border-top: 8px solid white;
+
+        @media (max-width: $tab) {
+          display: none;
+        }
       }
 
       .menuDropdown {

@@ -21,6 +21,16 @@
       padding-left: $pad-xxxxxxl;
       background-color: $primary-light-color;
       color: $primary-dark-color;
+
+      @media (max-width: $tab) {
+        top: unset;
+        bottom: 0;
+        right: 0;
+        transform: unset;
+        padding: $pad-l;
+        font-size: 16px;
+        text-align: center;
+      }
     }
   }
 }
@@ -28,11 +38,20 @@
 .kurikulumSection {
   padding: $pad-xxxxl 0 $pad-xxl;
 
+  @media (max-width: $tab) {
+    padding-top: $pad-xl;
+  }
+
   h2 {
     background-color: $primary-light-color;
     color: $primary-dark-color;
     padding: $pad-xl $pad-xxxxxxl;
     text-align: center;
+
+    @media (max-width: $tab) {
+      text-align: center;
+      padding: $pad-l;
+    }
   }
 
   .kurikulumWrapper {
@@ -44,10 +63,15 @@
     flex-wrap: wrap;
     align-items: flex-start;
     padding: $pad-xxxxxxl;
-    
-    @media (max-width: $mobile) {
+
+    @media (max-width: $tab) {
+      padding: $pad-xxxl 0 $pad-xxl;
+    }
+  
+    @media (max-width: $tab) {
       align-items: center;
       flex-direction: column;
+      gap: $pad-xxxl;
 
       span {
         width: 26px !important;
@@ -66,6 +90,16 @@
         font-size: 16px;
         text-align: center;
       }
+
+      
+      @media (max-width: $tab) {
+        flex-direction: row;
+
+        p {
+          font-size: 12px;
+          text-align: left;
+        }
+      }
     }
   }
 
@@ -77,6 +111,11 @@
     text-align: center;
     color: $black-grey-color;
     font-size: 14px;
+
+    @media (max-width: $tab) {
+      font-size: 10px;
+      padding: 0 $pad-xxxxl;
+    }
   }
 }
 
@@ -86,20 +125,32 @@
     color: $primary-dark-color;
     padding: $pad-xl $pad-xxxxxxl;
     text-align: right;
+
+    @media (max-width: $tab) {
+      text-align: center;
+      padding: $pad-l;
+    }
   }
 
   .targetWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: $pad-xxxxxxl;
     padding: $pad-xxxxxxl;
+
+    @media (max-width: $tab) {
+      padding: $pad-xxxxl $pad-xxl;
+      gap: $pad-xxl;
+    }
 
     & > div {
       width: calc(50% - $pad-xxxxxxl / 2);
     }
 
     .imageWrapper {
+      min-width: 300px;
       aspect-ratio: 6 / 5;
       padding: $pad-xl $pad-xxxl;
       border-bottom-left-radius: 16px;
@@ -108,6 +159,11 @@
 
     & > div:last-child {
       padding-right: $pad-xxxxxl;
+
+      @media (max-width: $tab) {
+        padding: 0 $pad-xxl;
+        width: 100%;
+      }
     }
 
     h4 {
@@ -123,6 +179,10 @@
     li {
       font-size: 18px;
       margin-bottom: $pad-l;
+
+      @media (max-width: $tab) {
+        font-size: 11px;
+      }
     }
   }
 }
@@ -132,14 +192,24 @@
     background-color: $primary-light-color;
     color: $primary-dark-color;
     padding: $pad-xl $pad-xxxxxxl;
+
+    @media (max-width: $tab) {
+      text-align: center;
+      padding: $pad-l;
+    }
   }
 
   .imageWrapper {
     max-width: 854px;
+    min-width: 328px;
     width: 80vw;
     margin: 0 auto;
     padding: $pad-xxxxxxl;
     aspect-ratio: 6 / 5;
+
+    @media (max-width: $tab) {
+      padding: $pad-xl;
+    }
   }
 }
 
@@ -149,14 +219,23 @@
     color: $primary-dark-color;
     padding: $pad-xl $pad-xxxxxxl;
     text-align: right;
+
+    @media (max-width: $tab) {
+      text-align: center;
+      padding: $pad-l;
+    }
   }
 
   .ekstrakurikulerWrapper {
     padding: $pad-xxxxxxl;
+
+    @media (max-width: $tab) {
+      padding: $pad-xxxl;
+    }
   }
 
   .ekstrakurikulerCard {
-    width: 302px !important;
+    width: clamp(200px, 40vw, 306px) !important;
     text-align: center;
     background-color: $primary-light-color;
     border-bottom-left-radius: 40px;
@@ -164,12 +243,16 @@
     overflow: hidden;
 
     .imageWrapper {
-      height: 200px;
       aspect-ratio: 3 / 2;
+      height: clamp(131px, 26vw, 205px);
     }
 
     .ekstrakurikulerContent {
       padding: $pad-xxxl;
+
+      @media (max-width: $tab) {
+        padding: $pad-xl;
+      }
 
       p {
         font-size: 16px;
@@ -180,6 +263,10 @@
         -webkit-line-clamp: 3; /* number of lines to show */
         line-clamp: 3; 
         -webkit-box-orient: vertical;
+
+        @media (max-width: $tab) {
+          font-size: 11px;
+        }
       }
 
       .link {
@@ -192,6 +279,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @media (max-width: $tab) {
+          display: none;
+        }
         
         a {
           font-size: 16px;

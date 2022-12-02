@@ -181,6 +181,28 @@ const Home = () => {
               </div>
             ))}
           </div>
+          <Carousel
+            className={styles.fasilitasCarousel}
+            config={{
+              fade: false,
+              autoplay: false,
+              arrows: true,
+            }}
+          >
+            {fasilitasList.map((fasilitas, idx) => (
+              <div key={idx} className={styles.fasilitasContent}>
+                <div className={styles.fasilitasImageWrapper}>
+                  <Img
+                    layout="fill"
+                    src={fasilitas.image.src}
+                    alt={fasilitas.image.alt}
+                    sizes="(max-width: 768px) 196px, 306px"
+                  />
+                </div>
+                <p>{fasilitas.desc}</p>
+              </div>
+            ))}
+          </Carousel>
         </section>
         <section id="quote" className={styles.quoteSection}>
           <div className={styles.quoteWrapper}>

@@ -21,6 +21,16 @@
       padding-left: $pad-xxxxxxl;
       background-color: $primary-light-color;
       color: $primary-dark-color;
+
+      @media (max-width: $tab) {
+        top: unset;
+        bottom: 0;
+        right: 0;
+        transform: unset;
+        padding: $pad-l;
+        font-size: 16px;
+        text-align: center;
+      }
     }
   }
 }
@@ -29,6 +39,10 @@
   padding: $pad-xxxxxxl $pad-xxxl;
   text-align: center;
 
+  @media (max-width: $tab) {
+    padding: $pad-xxxl;
+  }
+
   .visionWrapper {
     max-width: 915px;
     margin: 0 auto;
@@ -36,20 +50,32 @@
 
   h2 {
     margin-bottom: $pad-xxxl;
+
+    @media (max-width: $tab) {
+      margin-bottom: $pad-l;
+    }
   }
 
   p {
     margin-bottom: $pad-xxxl;
+
+    @media (max-width: $tab) {
+      margin-bottom: $pad-m;
+    }
   }
 }
 
 .facilitySection {
-
   h2 {
     background-color: $primary-light-color;
     color: $primary-dark-color;
     padding: $pad-xl $pad-xxxxxxl;
     text-align: right;
+
+    @media (max-width: $tab) {
+      padding: $pad-xl;
+      text-align: center;
+    }
   }
 
   .fasilitasWrapper {
@@ -59,10 +85,24 @@
     gap: $pad-xxxxxxl;
     justify-content: center;
     flex-wrap: wrap;
+    
+    @media (max-width: $tab) {
+      display: none;
+    }
+  }
+
+  .fasilitasCarousel {
+    display: none;
+    padding: $pad-xxxl $pad-l $pad-xxxxxl;
+
+    @media (max-width: $tab) {
+      display: block;
+    }
   }
 
   .fasilitasContent {
-    width: 306px;
+    flex-shrink: 0;
+    width: clamp(200px, 40vw, 306px) !important;
     position: relative;
     text-align: center;
     border-top-right-radius: 40px;
@@ -72,7 +112,7 @@
 
     .fasilitasImageWrapper {
       position: relative;
-      height: 205px;
+      height: clamp(131px, 26vw, 205px);
       width: 100%;
 
       img {
@@ -98,10 +138,18 @@
 
   .faqWrapper {
     padding: $pad-xxxxl $pad-xxxxxxl;
+
+    @media (max-width: $tab) {
+      padding: $pad-xxxl $pad-xxxxl;
+    }
   }
 
   .faqTitle {
     color: $primary-color;
+
+    @media (max-width: $tab) {
+      font-size: 14px;
+    }
   }
 
   .faqQuestionContainer {
@@ -110,13 +158,31 @@
     display: flex;
     flex-direction: column;
     gap: $pad-xxxxl;
+
+    @media (max-width: $tab) {
+    padding: $pad-xxl $pad-xxl;
+    gap: $pad-xxxl;
+    }
   }
 
   .faqQuestion {
     margin-bottom: $pad-m;
+
+    @media (max-width: $tab) {
+      margin-bottom: 0;
+
+      h4 {
+        margin-right: $pad-m;
+        font-size: 12px;
+      }
+    }
   }
 
   .faqAnswer {
     font-size: 18px;
+
+    @media (max-width: $tab) {
+      font-size: 12px;
+    }
   }
 }

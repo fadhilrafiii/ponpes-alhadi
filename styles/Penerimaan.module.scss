@@ -1,11 +1,14 @@
 @use './variables' as *;
 
 .brosurWrapper {
-  height: 60vh;
-  min-height: 400px;
   display: flex;
   gap: $pad-s;
   overflow: hidden;
+  flex-wrap: wrap;
+
+  @media (max-width: $tab) {
+    height: unset;
+  }
 
   .brosurLeft, .brosurRight {
     height: 100% !important;
@@ -15,13 +18,44 @@
     }
   }
 
+  @media (max-width: $tab) {
+    gap: 0;
+  }
+
   .brosurLeft {
-    flex: 11;
+    width: 56%;
+    aspect-ratio: 668 / 462;
+
+    @media (max-width: $tab) {
+      flex: unset;
+      width: 100%;
+    }
   }
 
   .brosurRight {
-    flex: 9;
     position: relative;
+    flex-grow: 1;
+
+    & > div:first-child {
+      aspect-ratio: 72 / 63.75;
+    }
+
+    & > * {
+      @media (max-width: $tab) {
+        flex: 0 0 50%;
+
+        &:first-child {
+          aspect-ratio: 8 / 7;
+          max-width: 50%;
+        }
+      }
+    }
+
+    @media (max-width: $tab) {
+      flex: unset;
+      width: 100%;
+      display: flex;
+    }
 
     .brosurRightContent {
       position: absolute;
@@ -34,6 +68,11 @@
       justify-content: center;
       flex-direction: column;
       background-color: rgba(0, 0, 0, 0.6);
+
+      @media (max-width: $tab) {
+        position: static;
+        background-color: white;
+      }
 
       h2 {
         color: white;
@@ -48,6 +87,24 @@
         color: white;
         margin-bottom: $pad-s;
       }
+
+      @media (max-width: $tab) {
+        h2 {
+          color: black;
+          max-width: 200px;
+          text-align: center;
+          margin-bottom: $pad-m;
+          margin-left: -12px;
+        }
+        ul {
+          padding-left: $pad-m;
+        }
+        li {
+          color: black;
+          font-size: 12px;
+          margin-bottom: $pad-s;
+        }
+      }
     }
   }
 }
@@ -55,12 +112,19 @@
 .brosurBottom {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   padding: $pad-xxxxl $pad-xxxxxxl;
   background-color: $primary-color;
+  gap: $pad-xxxl;
+
+  @media (max-width: $tab) {
+    padding: $pad-xxxl 0;
+  }
 
   & > div {
     flex: 3;
-    padding: 0 $pad-xxxxl;
+    min-width: 300px;
+    padding: 0 $pad-xxxl;
     color: white;
 
     &:last-child {
@@ -70,6 +134,10 @@
       row-gap: $pad-xxxl;
       justify-content: center;
       align-items: center;
+
+      @media (max-width: $tab) {
+        row-gap: $pad-l;
+      }
 
       a {
         max-width: 215px;
@@ -82,6 +150,12 @@
         border-radius: 20px;
         border-top-left-radius: 0;
         font-weight: 700;
+
+        @media (max-width: $tab) {
+          max-width: 150px;
+          padding: $pad-m  $pad-l;
+          font-size: 11px;
+        }
       }
     }
 
@@ -91,6 +165,10 @@
       padding-bottom: calc($pad-l / 2);
       padding-top: calc($pad-l / 2);
       vertical-align: top;
+
+      @media (max-width: $tab) {
+        font-size: 12px;
+      }
     }
   }
 }
@@ -100,18 +178,32 @@
     background-color: $primary-light-color;
     width: 100%;
     padding: $pad-xl $pad-l $pad-xl $pad-xxxxxxl;
+
+    @media (max-width: $tab) {
+      text-align: center;
+      padding: $pad-l;
+    }
   }
 
   & > div {
     width: 100%;
     padding: $pad-xxxxl $pad-xxxxxxl;
     max-width: 800px;
+
+    @media (max-width: $tab) {
+      padding: $pad-xxxl;
+    }
   }
 
   ol {
     padding-left: $pad-xxl;
+
     li {
       margin-bottom: $pad-m;
+
+      @media (max-width: $tab) {
+        font-size: 12px;
+      }
     }
 
     ul {
@@ -127,6 +219,11 @@
     background-color: $primary-light-color;
     width: 100%;
     padding: $pad-xl $pad-l $pad-xl $pad-xxxxxxl;
+
+    @media (max-width: $tab) {
+      text-align: center;
+      padding: $pad-l;
+    }
   }
 
   & > div {
@@ -141,6 +238,19 @@
 
     h4 {
       margin-bottom: $pad-s;
+    }
+
+    @media (max-width: $tab) {
+      padding: $pad-xxxl;
+
+      p:first-child {
+        font-size: 11px;
+        margin-bottom: $pad-m;
+      }
+  
+      p:last-child {
+        font-size: 12px;
+      }
     }
   }
 }

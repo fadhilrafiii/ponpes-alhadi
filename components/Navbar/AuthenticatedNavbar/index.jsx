@@ -27,12 +27,15 @@ const AuthenticatedNavbar = ({ userProfile }) => {
 
   const handleToggleMenuDropdown = () => {
     if (
+      // For opening
       menuDropdownRef?.current?.style.display === 'none' ||
       menuDropdownRef?.current?.style.display === ''
     ) {
       menuDropdownRef.current.style.display = 'flex';
       menuDropdownRef.current.focus();
     } else {
+      // For closing
+      console.log('CLOSING', menuDropdownRef?.current?.style.display);
       menuDropdownRef.current.style.display = 'none';
     }
   };
@@ -67,6 +70,7 @@ const AuthenticatedNavbar = ({ userProfile }) => {
         <div className={styles.logoWrapper}>
           <Img
             priority
+            layout="fixed"
             src={homeIcon}
             alt="Home Akademik Pondok Pesantren Al Hadi"
             width={48}
@@ -83,7 +87,7 @@ const AuthenticatedNavbar = ({ userProfile }) => {
             ref={menuDropdownRef}
             className={styles.menuDropdown}
             tabIndex={0}
-            onBlur={handleToggleMenuDropdown}
+            onBlur={window?.innerWidth > 768 ? handleToggleMenuDropdown : () => {}}
           >
             <Link href="/">
               <h4>Home</h4>
@@ -95,11 +99,7 @@ const AuthenticatedNavbar = ({ userProfile }) => {
               <h4>Akademik</h4>
             </Link>
             <Link href="/penerimaan">
-              <h4>
-                Penerimaan
-                <br />
-                Murid Baru
-              </h4>
+              <h4>Penerimaan Murid Baru</h4>
             </Link>
             {userProfile?.type === 'Santri' && (
               <Link href="/santri">
