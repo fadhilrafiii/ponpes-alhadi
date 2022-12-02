@@ -182,6 +182,7 @@
     font-size: 18px;
 
     @media (max-width: $tab) {
+      margin-top: $pad-m;
       font-size: 12px;
     }
   }
