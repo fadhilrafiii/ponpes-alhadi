@@ -40,7 +40,7 @@ const Akademik = () => {
           </div>
         </section>
         <section id="kurikulum" className={styles.kurikulumSection}>
-          <h2>KURIKULUM</h2>
+          <h2>Kurikulum</h2>
           <div className={styles.kurikulumWrapper}>
             <div className={styles.kurikulumItem}>
               <Img
@@ -84,7 +84,7 @@ const Akademik = () => {
           </p>
         </section>
         <section id="target-pendidikan" className={styles.targetSection}>
-          <h2>TARGET PENDIDIKAN</h2>
+          <h2>Target Pendidikan</h2>
           <div className={styles.targetWrapper}>
             <div className={styles.imageWrapper}>
               <Img
@@ -114,7 +114,7 @@ const Akademik = () => {
           </div>
         </section>
         <section id="keseharian-santri" className={styles.dailySection}>
-          <h2>KESEHARIAN SANTRI</h2>
+          <h2>Keseharian Santri</h2>
           <div className={styles.imageWrapper}>
             <Img
               layout="fill"
@@ -126,7 +126,7 @@ const Akademik = () => {
           </div>
         </section>
         <section id="ekstrakurikuler" className={styles.ekstrakurikuler}>
-          <h2>KEGIATAN EKSTRAKURIKULER</h2>
+          <h2>Kegiatan Ekstrakurikuler</h2>
           <div className={styles.ekstrakurikulerWrapper}>
             <Carousel config={{ slidesToShow: 3, fade: false, arrows: true }}>
               {ekstrakurikulers.map(({ image, title, body, to }, idx) => (

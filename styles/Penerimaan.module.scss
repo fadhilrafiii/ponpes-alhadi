@@ -94,14 +94,14 @@
           max-width: 200px;
           text-align: center;
           margin-bottom: $pad-m;
-          margin-left: -12px;
+          margin-left: -13px;
         }
         ul {
           padding-left: $pad-m;
         }
         li {
           color: black;
-          font-size: 12px;
+          font-size: 13px;
           margin-bottom: $pad-s;
         }
       }
@@ -154,7 +154,7 @@
         @media (max-width: $tab) {
           max-width: 150px;
           padding: $pad-m  $pad-l;
-          font-size: 11px;
+          font-size: 13px;
         }
       }
     }
@@ -167,7 +167,7 @@
       vertical-align: top;
 
       @media (max-width: $tab) {
-        font-size: 12px;
+        font-size: 13px;
       }
     }
   }
@@ -176,6 +176,7 @@
 .syaratSection {
   & > h2 {
     background-color: $primary-light-color;
+    color: $primary-dark-color;
     width: 100%;
     padding: $pad-xl $pad-l $pad-xl $pad-xxxxxxl;
 
@@ -202,7 +203,7 @@
       margin-bottom: $pad-m;
 
       @media (max-width: $tab) {
-        font-size: 12px;
+        font-size: 13px;
       }
     }
 
@@ -244,12 +245,12 @@
       padding: $pad-xxxl;
 
       p:first-child {
-        font-size: 11px;
+        font-size: 13px;
         margin-bottom: $pad-m;
       }
   
       p:last-child {
-        font-size: 12px;
+        font-size: 13px;
       }
     }
   }

@@ -18,8 +18,8 @@
     margin-bottom: $pad-xxxl;
 
     span {
-      width: clamp(12px, 1.5vw, 18px);
-      height: clamp(12px, 1.5vw, 18px);
+      width: clamp(13px, 1.5vw, 18px);
+      height: clamp(13px, 1.5vw, 18px);
       border-radius: 50%;
       animation: bounce 1.25s linear infinite alternate;
       box-shadow: 3px 3px 2px black;

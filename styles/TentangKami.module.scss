@@ -173,17 +173,18 @@
 
       h4 {
         margin-right: $pad-m;
-        font-size: 12px;
+        font-size: 13px;
       }
     }
   }
 
   .faqAnswer {
     font-size: 18px;
+    text-align: justify;
 
     @media (max-width: $tab) {
       margin-top: $pad-m;
-      font-size: 12px;
+      font-size: 13px;
     }
   }
 }

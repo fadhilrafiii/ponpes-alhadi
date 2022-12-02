@@ -49,7 +49,6 @@
     text-align: center;
 
     @media (max-width: $tab) {
-      font-size: 14px;
       text-align: center;
       padding: $pad-l;
       background-color: white;
@@ -92,13 +91,13 @@
         font-size: 16px;
         text-align: center;
       }
-
       
       @media (max-width: $tab) {
+        width: 240px;
         flex-direction: row;
 
         p {
-          font-size: 12px;
+          font-size: 13px;
           text-align: left;
         }
       }
@@ -115,8 +114,8 @@
     font-size: 14px;
 
     @media (max-width: $tab) {
-      font-size: 10px;
-      padding: 0 $pad-xxxxl;
+      font-size: 12px;
+      padding: 0 $pad-xxxl $pad-xxxxl;
     }
   }
 }
@@ -183,7 +182,7 @@
       margin-bottom: $pad-l;
 
       @media (max-width: $tab) {
-        font-size: 11px;
+        font-size: 13px;
       }
     }
   }
@@ -203,14 +202,14 @@
 
   .imageWrapper {
     max-width: 854px;
-    min-width: 328px;
+    min-width: 360px;
     width: 80vw;
     margin: 0 auto;
     padding: $pad-xxxxxxl;
     aspect-ratio: 6 / 5;
 
     @media (max-width: $tab) {
-      padding: $pad-xl;
+      padding: $pad-l;
     }
   }
 }
@@ -267,7 +266,7 @@
         -webkit-box-orient: vertical;
 
         @media (max-width: $tab) {
-          font-size: 11px;
+          font-size: 13px;
         }
       }
 
@@ -275,7 +274,7 @@
         width: 120px;
         background-color: $primary-color;
         padding: $pad-s;
-        border-radius: 12px;
+        border-radius: 13px;
         border-top-left-radius: 0;
         margin: 0 auto;
         display: flex;
