@@ -68,6 +68,12 @@
       &:nth-child(2), &:nth-child(3) {
         margin-top: calc(-1 * $pad-xxxxl);
       }
+
+      &:nth-child(3) {
+        .kurikulumtable {
+          margin-bottom: 0 !important;
+        }
+      }
     }
 
     .kurikulumtable {
