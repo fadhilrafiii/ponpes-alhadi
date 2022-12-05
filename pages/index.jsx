@@ -1,13 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { fasilitasList, galleryCardList } from 'constants/home';
+import { dummyNewsList, fasilitasList } from 'constants/home';
 
 import Carousel from 'components/base/Carousel';
 import Img from 'components/base/Img';
-// import MyButton from 'components/base/MyButton';
-import GaleriCard from 'components/GaleriCard';
 
+// import MyButton from 'components/base/MyButton';
 import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/Home.module.scss';
@@ -107,19 +106,44 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section id="gallery" className={styles.galeriSection}>
-          <h2>GALERI</h2>
+        <section id="news" className={styles.newsSection}>
+          <h2>BERITA TERBARU</h2>
           <Carousel
-            className={styles.galeriCarousel}
+            className={styles.newsCarousel}
             config={{
               fade: false,
               autoplay: false,
               arrows: true,
+              slidesToShow: 3,
+              responsive: [
+                {
+                  breakpoint: 768,
+                  settings: {
+                    slidesToShow: 1,
+                  },
+                },
+                {
+                  breakpoint: 1440,
+                  settings: {
+                    slidesToShow: 2,
+                  },
+                },
+              ],
             }}
           >
-            {galleryCardList.map((galeri, idx) => (
-              <div className={styles.galeriWrapper} key={idx}>
-                <GaleriCard {...galeri} />
+            {dummyNewsList.map((news, idx) => (
+              <div key={idx} className={styles.newsCard}>
+                <div className={styles.newsImage}>
+                  <Img layout="fill" src={news.image} alt={news.title} priority />
+                </div>
+                <div className={styles.newsContent}>
+                  <div className={styles.titleContainer}>
+                    <h4>{news.title}</h4>
+                  </div>
+                  <Link href="/">
+                    <a className={styles.continue}>selanjutnya...</a>
+                  </Link>
+                </div>
               </div>
             ))}
           </Carousel>

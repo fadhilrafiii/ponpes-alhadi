@@ -91,7 +91,7 @@ const Akademik = () => {
                 layout="fill"
                 src={kelasPic}
                 alt="Kelas Pondok Pesantren Al-Hadi"
-                placeholder="bluer"
+                placeholder="blur"
                 priority
               />
             </div>

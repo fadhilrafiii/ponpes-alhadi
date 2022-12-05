@@ -63,7 +63,7 @@ const TentangKami = () => {
           </div>
         </section>
         <section id="fasilitas" className={styles.facilitySection}>
-          <h2>FASILITAS PONDOK</h2>
+          <h2>Fasilitas Pondok</h2>
           <div className={styles.fasilitasWrapper}>
             {fasilitasList.map((fasilitas, idx) => (
               <div key={idx} className={styles.fasilitasContent}>
