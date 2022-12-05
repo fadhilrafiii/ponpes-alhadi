@@ -91,19 +91,20 @@ const Transkrip = () => {
                           <td>Matematika</td>
                           <td>0</td>
                         </tr>
+
                         <tr>
                           <td>1111</td>
-                          <td>Matematika</td>
+                          <td>Fisika</td>
                           <td>0</td>
                         </tr>
                         <tr>
                           <td>1111</td>
-                          <td>Matematika</td>
+                          <td>Kimia</td>
                           <td>0</td>
                         </tr>
                         <tr>
                           <td>1111</td>
-                          <td>Matematika</td>
+                          <td>Biologi</td>
                           <td>0</td>
                         </tr>
                       </tbody>
@@ -165,17 +166,17 @@ const Transkrip = () => {
                         </tr>
                         <tr>
                           <td>1111</td>
-                          <td>Matematika</td>
+                          <td>Fisika</td>
                           <td>0</td>
                         </tr>
                         <tr>
                           <td>1111</td>
-                          <td>Matematika</td>
+                          <td>Kimia</td>
                           <td>0</td>
                         </tr>
                         <tr>
                           <td>1111</td>
-                          <td>Matematika</td>
+                          <td>Biologi</td>
                           <td>0</td>
                         </tr>
                       </tbody>
@@ -237,17 +238,17 @@ const Transkrip = () => {
                         </tr>
                         <tr>
                           <td>1111</td>
-                          <td>Matematika</td>
+                          <td>Fisika</td>
                           <td>0</td>
                         </tr>
                         <tr>
                           <td>1111</td>
-                          <td>Matematika</td>
+                          <td>Kimia</td>
                           <td>0</td>
                         </tr>
                         <tr>
                           <td>1111</td>
-                          <td>Matematika</td>
+                          <td>Biologi</td>
                           <td>0</td>
                         </tr>
                       </tbody>
