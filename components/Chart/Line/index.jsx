@@ -1,9 +1,21 @@
 import dynamic from 'next/dynamic';
 import React, { useMemo } from 'react';
 
+import { COLORS } from 'constants/colors';
 import PropTypes from 'prop-types';
 
-const Chart = dynamic(() => import('react-charts').then((mod) => mod.Chart), { ssr: false });
+import LoadingSpinner from 'components/base/LoadingSpinner';
+
+import styles from './Chart.module.scss';
+
+const Chart = dynamic(() => import('react-charts').then((mod) => mod.Chart), {
+  ssr: false,
+  loading: () => (
+    <div className={styles.loadingContainer}>
+      <LoadingSpinner size={40} color={COLORS.PrimaryDark} />
+    </div>
+  ),
+});
 
 const LineChart = ({ data, xLabel, yLabel }) => {
   const primaryAxis = useMemo(

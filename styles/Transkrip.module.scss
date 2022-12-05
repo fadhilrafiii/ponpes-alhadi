@@ -1,0 +1,156 @@
+@use './variables' as *;
+
+.statusSection {
+  padding: $pad-xxxxxxl;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: $pad-xxxxxl;
+    color: $primary-dark-color;
+  }
+
+  .statusWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $pad-xxxl;
+    align-items: flex-start;
+
+    & > * {
+      flex: 1 0 calc(50% - $pad-xxxl/2);
+      width: 100%;
+      min-width: 360px;
+    }
+
+    .statusLeft {
+      display: flex;
+      flex-direction: column;
+      gap: $pad-xxxl;
+
+      .status {
+        display: flex;
+        gap: $pad-xl;
+        padding: $pad-xxl 0;
+        align-items: flex-start;
+
+        & > *:first-child {
+          flex: 0 0 20%;
+        }
+
+        & > *:last-child {
+          display: table;
+          flex: 1 0 80%;
+
+          td {
+            padding: $pad-s;
+          }
+        }
+
+        .ImageWrapper {
+          aspect-ratio: 3 / 4;
+
+          & > * {
+            height: 100%;
+
+            span { height: 100% !important }
+          }
+        }
+      }
+
+      tr > td:first-child {
+        font-weight: 700;
+      }
+    }
+
+    .tableBoxContainer {
+      &:nth-child(2), &:nth-child(3) {
+        margin-top: calc(-1 * $pad-xxxxl);
+      }
+    }
+
+    .kurikulumtable {
+      width: calc(100% + 2 * $pad-xxxxl);
+      padding: $pad-xl $pad-xxxxl;
+      margin: calc(-1 * $pad-xl) calc(-1 * $pad-xxxxl) $pad-xxxl;
+
+      table {width: 100%;}
+
+      h4 {
+        background-color: white;
+        padding: $pad-s $pad-xxxxl;
+        width: calc(100% + 2 * $pad-xxxxl);
+        margin: calc(-1 * $pad-xl) calc(-1 * $pad-xxxxl) 0;
+      }
+
+      th {
+        font-weight: 700;
+        padding-top: $pad-l;
+        text-align: left;
+      }
+    }
+  }
+}
+      
+.link:first-child {
+  margin-bottom: $pad-l;
+}
+
+.inputNilaiContainer {
+
+  .selectWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $pad-xl;
+    margin-bottom: $pad-xxxxl;
+
+    & > * {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+
+  .inputNilaiTable {
+    max-width: 840px;
+    margin: 0 auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th {
+        font-weight: 700;
+        text-align: left;
+        background-color: white;
+        padding: $pad-s;
+      }
+
+      td {
+        padding: $pad-s;
+      }
+
+      tbody {
+        tr:first-child td {
+          padding-top: $pad-xl;
+        }
+      }
+
+      .nilaiField {
+        width: auto;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-start;
+
+        input {
+          max-width: 50px;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          font-size: 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
