@@ -112,6 +112,11 @@ const AuthenticatedNavbar = ({ userProfile }) => {
                 <h4>Guru</h4>
               </Link>
             )}
+            {userProfile?.type === 'Guru' && (
+              <Link href="/admin">
+                <h4>Admin</h4>
+              </Link>
+            )}
           </div>
         </div>
       </div>

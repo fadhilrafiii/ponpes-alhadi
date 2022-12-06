@@ -1,5 +1,6 @@
 import Visitor from 'db/models/Visitor';
 
+import { authenticate } from 'middlewares/authenticate';
 import { errorHandlerMiddleware } from 'middlewares/error-handler';
 
 import dayjs from 'shared/utils/datetime';
@@ -9,8 +10,7 @@ const handler = async (req, res) => {
   if (req.method !== 'GET') {
     return response(res, {
       message: 'Method harus "GET"!',
-      status: 200,
-      data,
+      status: 405,
     });
   }
 
@@ -42,4 +42,4 @@ const handler = async (req, res) => {
   });
 };
 
-export default errorHandlerMiddleware(handler);
+export default errorHandlerMiddleware(authenticate(handler));

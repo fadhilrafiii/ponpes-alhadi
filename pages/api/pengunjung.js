@@ -1,5 +1,6 @@
 import { monthOptions } from 'constants/general';
 
+import connectDB from 'db';
 import Visitor from 'db/models/Visitor';
 
 import { errorHandlerMiddleware } from 'middlewares/error-handler';
@@ -24,6 +25,8 @@ const handler = async (req, res) => {
   const { method, query, body } = req;
   if (method !== 'POST' && method !== 'GET')
     return response(res, { status: 405, message: 'Method harus "POST" atau "GET"!' });
+
+  await connectDB();
 
   if (method === 'GET') {
     const { month, year } = await getVisitorSchema.validateAsync(query);

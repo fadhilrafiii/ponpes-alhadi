@@ -78,6 +78,68 @@
     font-weight: 400;
     margin-bottom: $pad-xxxxl;
   }
+  
+  .tableContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 200px;
+    min-width: 760px;
+
+    .viewButton {
+      align-self: flex-start;
+      padding: $pad-l $pad-xxl;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: $primary-light-color;
+      font-weight: 700;
+      margin-bottom: $pad-xl;
+      cursor: pointer;
+    }
+
+    .downloadButton {
+      align-self: flex-end;
+      padding: $pad-l $pad-xxl;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: $primary-color;
+      color: white;
+      font-weight: 700;
+      margin-bottom: $pad-xl;
+      cursor: pointer;
+      margin-top: $pad-xxl;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      background-color: $primary-light-color;
+      font-weight: 400;
+      padding: $pad-m $pad-xxl;
+      text-align: left;
+      font-size: 16px;
+
+      &:first-child {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+    }
+
+    td {
+      padding: $pad-l;
+      padding-left: $pad-xxl;
+      font-size: 16px;
+    }
+  }
 }
 
 .inputKontenContainer {
