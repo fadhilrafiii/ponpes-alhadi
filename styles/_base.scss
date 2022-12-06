@@ -14,6 +14,10 @@ html {
   scroll-behavior: smooth;
 }
 
+main {
+  min-height: calc(100vh - 300px);
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: $ff-heading;
@@ -110,4 +114,32 @@ input {
     &[type="number"] {
       -moz-appearance: textfield;
     } 
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $primary-light-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $primary-color;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+  background-color: $primary-dark-color;
+}
+
+
+
+.ReactChart path {
+  stroke: $primary-color !important;
+}
+
+.ReactChart rect {
+  stroke: $primary-color !important;
+  fill: $primary-color !important;
 }

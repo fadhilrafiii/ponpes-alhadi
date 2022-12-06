@@ -29,7 +29,6 @@ const handler = async (req, res) => {
   if (method !== 'POST') return response(res, { status: 405, message: 'Method harus "POST"!' });
 
   const { nip, email, password } = await loginSchema.validateAsync(req.body, { abortEarly: true });
-
   await connectDB();
 
   const teacher = await Teacher.findOne({ $or: [{ email }, { nip }] });
@@ -42,7 +41,10 @@ const handler = async (req, res) => {
       message: 'Password salah, Coba lagi!',
     });
 
-  const teacherObject = { ...teacher.toObject(), type: 'Guru' };
+  const teacherObject = {
+    ...teacher.toObject(),
+    type: nip?.indexOf('admin' === 0) ? 'Admin' : 'Guru',
+  };
   delete teacherObject.password;
   const token = jwt.sign(teacherObject, process.env.JWT_SECRET_KEY);
 
@@ -52,13 +54,13 @@ const handler = async (req, res) => {
       httpOnly: false,
       secure: process.env.NODE_ENV !== 'production' ? false : true,
       sameSite: 'strict',
-      maxAge: 3600 * 24,
+      maxAge: 3600,
       path: '/',
     }),
   );
   return response(res, {
     status: 200,
-    message: 'Login Guru berhasil!',
+    message: `Login ${nip?.indexOf('admin' === 0) ? 'Admin' : 'Guru'} berhasil!`,
     data: teacherObject,
   });
 };

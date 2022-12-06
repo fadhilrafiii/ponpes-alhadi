@@ -35,17 +35,20 @@ const handler = async (req, res) => {
 
   await connectDB();
 
-  const { nisn } = validatedPayload;
-  const existingGuru = await Teacher.findOne({ nisn });
+  const { nip } = validatedPayload;
+  const existingGuru = await Teacher.findOne({ nip });
   if (existingGuru)
-    return response(res, { status: 400, message: `Guru dengan NISN ${nisn} sudah ada!` });
+    return response(res, {
+      status: 400,
+      message: `Guru dengan ${nip?.indexOf('admin' === 0) ? 'Username' : 'NIP'} ${nip} sudah ada!`,
+    });
 
   // Hash Password
   const hashedPassword = await bcrypt.hashSync(validatedPayload.password, 10);
   validatedPayload.password = hashedPassword;
 
   const guru = await Teacher.create(validatedPayload);
-  const guruObject = { ...guru.toObject(), type: 'Guru' };
+  const guruObject = { ...guru.toObject(), type: nip?.indexOf('admin' === 0) ? 'Admin' : 'Guru' };
   delete guruObject.password;
   const token = jwt.sign(guruObject, process.env.JWT_SECRET_KEY);
 
@@ -55,7 +58,7 @@ const handler = async (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV !== 'production' ? false : true,
       sameSite: 'strict',
-      maxAge: 3600 * 24,
+      maxAge: 3600,
       path: '/',
     }),
   );
@@ -63,7 +66,7 @@ const handler = async (req, res) => {
   delete guru.password;
   return response(res, {
     status: 200,
-    message: 'Pendaftaran Guru berhasil!',
+    message: `Pendaftaran ${nip?.indexOf('admin' === 0) ? 'Admin' : 'Guru'} berhasil!`,
     data: guruObject,
   });
 };

@@ -17,7 +17,7 @@ const Chart = dynamic(() => import('react-charts').then((mod) => mod.Chart), {
   ),
 });
 
-const LineChart = ({ data, xLabel, yLabel }) => {
+const BarChart = ({ data, xLabel, yLabel }) => {
   const primaryAxis = useMemo(
     () => ({
       getValue: (datum) => datum[xLabel],
@@ -29,7 +29,6 @@ const LineChart = ({ data, xLabel, yLabel }) => {
     () => [
       {
         getValue: (datum) => datum[yLabel],
-        elementType: 'line',
       },
     ],
     [yLabel],
@@ -47,7 +46,7 @@ const LineChart = ({ data, xLabel, yLabel }) => {
   );
 };
 
-LineChart.propTypes = {
+BarChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       data: PropTypes.arrayOf(PropTypes.shape()),
@@ -57,4 +56,4 @@ LineChart.propTypes = {
   yLabel: PropTypes.string.isRequired,
 };
 
-export default LineChart;
+export default BarChart;

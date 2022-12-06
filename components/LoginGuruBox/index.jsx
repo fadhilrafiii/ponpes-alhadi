@@ -48,7 +48,7 @@ const LoginGuruBox = ({ redirectTo }) => {
     dispatch(showSnackbar({ message, type: 'success' }));
     localStorage.setItem('ponpes-alhadi-profil', JSON.stringify(data));
 
-    router.push(redirectTo || '/guru');
+    router.push(redirectTo || (username?.indexOf('admin') === 0 ? '/admin' : '/guru'));
   }, [dispatch, loginData, redirectTo, router]);
 
   const actionPressEnter = (e) => {

@@ -170,7 +170,7 @@ const FormPenerimaan = () => {
 
     if (
       key === 'ijazahNumber' &&
-      form.calonPesertaDidik.ijazahNumber.indexOf('DN-') === 0 &&
+      form.calonPesertaDidik.ijazahNumber?.indexOf('DN-') === 0 &&
       value.length < 3
     )
       return;

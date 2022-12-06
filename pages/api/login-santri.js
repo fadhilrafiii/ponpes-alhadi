@@ -52,7 +52,7 @@ const handler = async (req, res) => {
       httpOnly: false,
       secure: process.env.NODE_ENV !== 'production' ? false : true,
       sameSite: 'strict',
-      maxAge: 3600 * 24,
+      maxAge: 3600,
       path: '/',
     }),
   );

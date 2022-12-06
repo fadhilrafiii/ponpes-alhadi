@@ -84,13 +84,13 @@ const Select = ({
                 label: customPlaceholder,
                 value: customPlaceholder,
               }
-            : options.find((opt) => opt.value === defaultValue)
+            : options.find((opt) => opt.value === defaultValue?.toString())
         }
         isDisabled={isDisabled}
         name={name}
         options={options}
         required={required}
-        value={options.find((opt) => opt.value === value)}
+        value={options.find((opt) => opt.value === value?.toString())}
         onChange={({ value }) => onChange(value)}
         styles={colourStyles}
         noOptionsMessage={() => 'Tidak ada pilihan tersebut!'}

@@ -34,7 +34,7 @@ const InputNilai = () => {
   };
 
   const handleChangeNilai = (idx, value) => {
-    dummyNilaiSiswa[idx].nilai = value;
+    dummyNilaiSiswa[idx].nilai = parseInt(value, 10).toString();
   };
 
   const validateNilai = (e, idx) => {

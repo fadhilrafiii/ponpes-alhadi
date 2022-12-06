@@ -35,7 +35,6 @@ const AuthenticatedNavbar = ({ userProfile }) => {
       menuDropdownRef.current.focus();
     } else {
       // For closing
-      console.log('CLOSING', menuDropdownRef?.current?.style.display);
       menuDropdownRef.current.style.display = 'none';
     }
   };
@@ -63,7 +62,9 @@ const AuthenticatedNavbar = ({ userProfile }) => {
     router.replace('/');
   }, [dispatch, router]);
 
-  const menuName = pathname.split('/').pop();
+  const menuNameList = pathname.split('/');
+  const menuName = menuNameList[1] === 'admin' ? 'admin' : menuNameList.pop();
+
   return (
     <nav className={styles.authenticatedNav}>
       <div className={styles.navLeft}>

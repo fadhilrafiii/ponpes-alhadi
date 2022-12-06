@@ -11,11 +11,10 @@ export const joiErrorHandler = (error) => {
   } else if (errorKey === 'format') {
     errorMsg = error.flags.label += ' harus berformat ' + error.local.format;
   } else {
-    errorMsg = 'Terdapat kesalahan pada input ' + error.flags.label;
+    errorMsg = 'Terdapat kesalahan pada input ' + error?.flags?.label || '';
   }
 
   const errObject = new Error(JSON.stringify({ message: errorMsg, _original: true }));
-
   return errObject;
 };
 

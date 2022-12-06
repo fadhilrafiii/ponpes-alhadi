@@ -32,11 +32,12 @@ export const authenticate = (fn) => async (req, res) => {
             message: 'Santri tidak ditemukan! Silakan login kembali.',
             status: 401,
           });
-      } else if (decoded.type === 'Guru') {
+      } else if (decoded.type === 'Guru' || decoded.type === 'Admin') {
         const teacher = await Teacher.findOne({ _id: decoded._id });
+
         if (!teacher)
           return response(res, {
-            message: 'Guru tidak ditemukan! Silakan login kembali.',
+            message: `${decoded.type} tidak ditemukan! Silakan login kembali.`,
             status: 401,
           });
       } else
@@ -44,7 +45,7 @@ export const authenticate = (fn) => async (req, res) => {
           message: 'Tipe pengguna tidak ditemukan! Silakan login kembali.',
           status: 401,
         });
-
+      
       req.user = decoded;
       return fn(req, res);
     }

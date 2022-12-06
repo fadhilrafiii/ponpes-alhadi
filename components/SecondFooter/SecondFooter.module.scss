@@ -1,0 +1,15 @@
+@use '/styles/variables' as *;
+
+.container {
+  padding: $pad-xxxxxl $pad-xxxxxxl;
+  background-color: $primary-light-color;
+
+  h1 {
+    color: $primary-color;
+  }
+
+  p {
+    font-size: 16px;
+    color: $primary-dark-color;
+  }
+}

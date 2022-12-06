@@ -7,13 +7,14 @@ import { useDispatch } from 'react-redux';
 import Footer from 'components/Footer';
 import LoadingPage from 'components/LoadingPage';
 import Navbar from 'components/Navbar';
+import SecondFooter from 'components/SecondFooter';
 
 import { postLogoutAPI } from 'client/auth';
 
 import { useClient } from 'shared/hooks/useClient';
 import { removeUserProfile, setUserProfile } from 'shared/redux/slices/user-slice';
 
-const PageLayout = ({ children, showNavbarBottom, withFooter }) => {
+const PageLayout = ({ children, showNavbarBottom, withFooter, withSecondFooter }) => {
   const dispatch = useDispatch();
   const { isClientLoading } = useClient();
 
@@ -37,8 +38,9 @@ const PageLayout = ({ children, showNavbarBottom, withFooter }) => {
   return (
     <div>
       <Navbar showNavbarBottom={showNavbarBottom} />
-      {children}
+      <main>{children}</main>
       {withFooter && <Footer />}
+      {withSecondFooter && <SecondFooter />}
     </div>
   );
 };
@@ -47,11 +49,13 @@ PageLayout.propTypes = {
   showNavbarBottom: PropTypes.bool,
   children: PropTypes.node.isRequired,
   withFooter: PropTypes.bool,
+  withSecondFooter: PropTypes.bool,
 };
 
 PageLayout.defaultProps = {
   showNavbarBottom: false,
   withFooter: false,
+  withSecondFooter: false,
 };
 
 export default PageLayout;

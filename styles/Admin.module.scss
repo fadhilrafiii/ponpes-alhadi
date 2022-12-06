@@ -1,0 +1,68 @@
+@use '/styles/variables' as *;
+
+.pengunjungContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $pad-xxxxxl $pad-xxxxxxl;
+
+  .pengunjungTitle {
+    font-weight: 400;
+    margin-bottom: $pad-xxxxl;
+  }
+
+  .pengunjungSummary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $pad-xxxxl;
+    padding-bottom: $pad-xxxxl;
+    margin-bottom: $pad-xxxxxxl;
+
+    & > * {
+      flex: 1 1 calc(100% / 3 - $pad-xxxxl);
+    }
+  }
+
+  .chartFilter {
+    display: flex;
+    gap: $pad-xxxl;
+
+    & > * {
+      min-width: 160px;
+    }
+  }
+
+  .chartWrapper {
+    background-color: $primary-light-color;
+    border-radius: 20px;
+    padding: $pad-xxxl $pad-xxxxl;
+    margin: $pad-xxxxxl auto;
+    width: min(100%, 720px);
+
+    & > div {
+      aspect-ratio: 8 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.pengunjungSummaryCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: $pad-xxxxl;
+  background-color: $primary-light-color;
+  padding: $pad-xxxxxl;
+  border-radius: 20px;
+
+  h1 {
+    color: $primary-color;
+  }
+
+  h4 {
+    text-align: center;
+  }
+}

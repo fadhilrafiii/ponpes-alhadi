@@ -8,15 +8,15 @@ import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/Santri.module.scss';
 
-import EvalIcon from 'public/icons/eval.svg';
-import PaperIcon from 'public/icons/paper.svg';
+import ChartIcon from 'public/icons/chart.svg';
+import EditIcon from 'public/icons/edit-filled.svg';
 import ProfileIcon from 'public/icons/profile.svg';
 
 const SiswaPage = () => {
   return (
     <div>
       <Head>
-        <title>Guru | Pondok Pesantren Al Hadi</title>
+        <title>Santri | Pondok Pesantren Al Hadi</title>
         <meta
           name="description"
           content="Masuk untuk dapatkan info seputar Pondok Pesantren Al Hadi atau mengelola hal-hal terkait akademik bagi guru, santri, dan santriwati Pondok Pesantren Al Hadi"
@@ -26,49 +26,49 @@ const SiswaPage = () => {
       <PageLayout>
         <div className={styles.container}>
           <div className={styles.menuWrapper}>
-            <Link href="/guru/status">
+            <Link href="/admin/pengunjung">
+              <div className={styles.menu}>
+                <div className={styles.imageWrapper}>
+                  <Img
+                    src={ChartIcon}
+                    layout="fixed"
+                    width={67}
+                    height={67}
+                    alt="Lihat Pengunjung Website"
+                    priority
+                  />
+                </div>
+                <h3>Lihat Pengunjung Website</h3>
+              </div>
+            </Link>
+            <Link href="/admin/hasil-pendaftaran">
               <div className={styles.menu}>
                 <div className={styles.imageWrapper}>
                   <Img
                     src={ProfileIcon}
+                    alt="Hasil Pendaftaran Santri Baru"
                     layout="fixed"
                     width={67}
                     height={67}
-                    alt="Status Guru"
                     priority
                   />
                 </div>
-                <h3>Status Guru</h3>
+                <h3>Hasil Pendaftaran Santri Baru</h3>
               </div>
             </Link>
-            <Link href="/kurikulum">
+            <Link href="/admin/input-berita">
               <div className={styles.menu}>
                 <div className={styles.imageWrapper}>
                   <Img
-                    src={PaperIcon}
-                    alt="Kurikulum"
+                    src={EditIcon}
+                    alt="Input Berita Terbaru/Foto"
                     layout="fixed"
-                    width={56}
-                    height={72}
+                    width={67}
+                    height={67}
                     priority
                   />
                 </div>
-                <h3>Kurikulum</h3>
-              </div>
-            </Link>
-            <Link href="/guru/input-nilai">
-              <div className={styles.menu}>
-                <div className={styles.imageWrapper}>
-                  <Img
-                    src={EvalIcon}
-                    alt="Input Nilai"
-                    layout="fixed"
-                    width={56}
-                    height={72}
-                    priority
-                  />
-                </div>
-                <h3>Input Nilai</h3>
+                <h3>Input Berita Terbaru/Foto</h3>
               </div>
             </Link>
           </div>
@@ -78,7 +78,7 @@ const SiswaPage = () => {
   );
 };
 
-export const getServerSideProps = withAuth('Guru', () => {
+export const getServerSideProps = withAuth('Admin', () => {
   return { props: {} };
 });
 
