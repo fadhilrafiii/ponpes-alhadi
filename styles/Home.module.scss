@@ -143,7 +143,7 @@
 }
 
 .newsCard {
-  width: clamp(340px, 37.5vw, 442px) !important;
+  width: clamp(340px, 28vw, 442px) !important;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   overflow: hidden;
@@ -170,6 +170,12 @@
 
       h4 {
         text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        line-clamp: 2; 
+        -webkit-box-orient: vertical;
       }
     }
 

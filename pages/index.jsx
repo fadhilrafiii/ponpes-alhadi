@@ -123,7 +123,7 @@ const Home = () => {
                   },
                 },
                 {
-                  breakpoint: 1440,
+                  breakpoint: 1200,
                   settings: {
                     slidesToShow: 2,
                   },
