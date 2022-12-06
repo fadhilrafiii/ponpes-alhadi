@@ -56,7 +56,7 @@ const SiswaPage = () => {
                 <h3>Hasil Pendaftaran Santri Baru</h3>
               </div>
             </Link>
-            <Link href="/admin/input-berita">
+            <Link href="/admin/input-konten">
               <div className={styles.menu}>
                 <div className={styles.imageWrapper}>
                   <Img

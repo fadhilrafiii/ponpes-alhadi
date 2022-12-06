@@ -37,7 +37,7 @@
     border-radius: 20px;
     padding: $pad-xxxl $pad-xxxxl;
     margin: $pad-xxxxxl auto;
-    width: min(100%, 720px);
+    width: min(100%, 960px);
 
     & > div {
       aspect-ratio: 8 / 5;
@@ -64,5 +64,30 @@
 
   h4 {
     text-align: center;
+  }
+}
+
+
+.hasilPendaftaranContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $pad-xxxxxl $pad-xxxxxxl;
+
+  .hasilPendaftaranTitle {
+    font-weight: 400;
+    margin-bottom: $pad-xxxxl;
+  }
+}
+
+.inputKontenContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $pad-xxxxxl $pad-xxxxxxl;
+
+  .inputKontenTitle {
+    font-weight: 400;
+    margin-bottom: $pad-xxxxl;
   }
 }

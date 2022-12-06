@@ -4,5 +4,7 @@ export const breadcrumbs = {
   '/guru/status': ['Home', 'Status Guru'],
   '/guru/input-nilai': ['Home', 'Input Nilai'],
   '/transkrip': ['Home', 'Transkrip'],
-  '/admin/pengunjung': ['Home','Jumlah Pengunjung Website']
+  '/admin/pengunjung': ['Home', 'Jumlah Pengunjung Website'],
+  '/admin/hasil-pendaftaran': ['Home', 'Hasil Pendaftaran Santri Baru'],
+  '/admin/input-konten': ['Home', 'Input Berita Terbaru/Video'],
 };
