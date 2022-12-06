@@ -141,7 +141,7 @@ const Home = () => {
                     <h4>{news.title}</h4>
                   </div>
                   <Link href="/">
-                    <a className={styles.continue}>selanjutnya...</a>
+                    <a className={styles.continue}>selengkapnya...</a>
                   </Link>
                 </div>
               </div>
