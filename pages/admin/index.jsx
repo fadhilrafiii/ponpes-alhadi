@@ -12,7 +12,7 @@ import ChartIcon from 'public/icons/chart.svg';
 import EditIcon from 'public/icons/edit-filled.svg';
 import ProfileIcon from 'public/icons/profile.svg';
 
-const SiswaPage = () => {
+const AdminPage = () => {
   return (
     <div>
       <Head>
@@ -82,4 +82,4 @@ export const getServerSideProps = withAuth('Admin', () => {
   return { props: {} };
 });
 
-export default SiswaPage;
+export default AdminPage;

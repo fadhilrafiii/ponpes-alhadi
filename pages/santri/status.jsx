@@ -26,7 +26,7 @@ const StatusSantri = () => {
         <meta name="description" content="Info akademik seputar Santri Pondok Pesantren Al Hadi" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageLayout>
+      <PageLayout withSecondFooter>
         <section id="status-santri" className={styles.statusSection}>
           <h1>Status Santri</h1>
           <div className={styles.statusWrapper}>

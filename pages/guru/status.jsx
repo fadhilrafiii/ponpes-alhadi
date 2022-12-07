@@ -24,7 +24,7 @@ const StatusGuru = () => {
         <meta name="description" content="Info akademik seputar Guru Pondok Pesantren Al Hadi" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageLayout>
+      <PageLayout withSecondFooter>
         <section id="status-guru" className={styles.statusSection}>
           <h1>Status Guru</h1>
           <div className={styles.statusWrapper}>

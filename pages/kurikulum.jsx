@@ -7,7 +7,7 @@ import styles from 'styles/Kurikulum.module.scss';
 
 const Kurikulum = () => {
   return (
-    <PageLayout>
+    <PageLayout withSecondFooter>
       <section id="kurikulum" className={styles.kurikulumSection}>
         <h1>Kurikulum</h1>
         <div className={styles.kurikulumWrapper}>

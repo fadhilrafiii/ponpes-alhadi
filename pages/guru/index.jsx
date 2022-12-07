@@ -23,7 +23,7 @@ const SiswaPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageLayout>
+      <PageLayout withSecondFooter>
         <div className={styles.container}>
           <div className={styles.menuWrapper}>
             <Link href="/guru/status">

@@ -326,7 +326,7 @@ export const getStaticProps = async () => {
   const res = await getVideos();
   return {
     props: {
-      videos: res.data,
+      videos: res?.data || {},
     },
     revalidate: 60, // In seconds
   };

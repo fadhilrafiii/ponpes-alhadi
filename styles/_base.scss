@@ -143,3 +143,23 @@ input {
   stroke: $primary-color !important;
   fill: $primary-color !important;
 }
+
+
+.editor-class {
+  border: 1px solid $primary-color;
+  max-width: 600px;
+  padding: 0 $pad-l;
+  background-color: $primary-light-color;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.toolbar-class {
+  border: 1px solid $primary-color !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}

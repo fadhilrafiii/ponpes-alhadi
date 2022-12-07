@@ -65,7 +65,7 @@ const InputNilai = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageLayout>
+      <PageLayout withSecondFooter>
         <section id="input-nilai" className={styles.statusSection}>
           <h1>Input Nilai</h1>
           <div className={styles.inputNilaiContainer}>
