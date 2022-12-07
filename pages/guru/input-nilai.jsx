@@ -38,13 +38,17 @@ const InputNilai = () => {
   };
 
   const validateNilai = (e, idx) => {
-    if (e.target.value < 0) dummyNilaiSiswa[idx].nilai = 0;
+    if (!e.target.value) dummyNilaiSiswa[idx].nilai = 0;
     if (e.target.value > 100) {
       const limitedVal = parseInt(dummyNilaiSiswa[idx].nilai.toString().slice(0, 2));
       dummyNilaiSiswa[idx].nilai = limitedVal === 10 ? 100 : limitedVal;
     }
 
     setSelectedNilaiIdx(null);
+  };
+
+  const actionPressEnter = (e) => {
+    if (e.charCode === 13) editRef.current.blur();
   };
 
   useEffect(() => {
@@ -110,6 +114,7 @@ const InputNilai = () => {
                                   ref={selectedNilaiIdx === idx ? editRef : null}
                                   value={selectedNilaiIdx !== idx ? ns.nilai : undefined}
                                   readOnly={selectedNilaiIdx !== idx}
+                                  onKeyPress={actionPressEnter}
                                   onBlur={(e) => validateNilai(e, idx)}
                                   onChange={(e) => handleChangeNilai(idx, e.target.value)}
                                 />

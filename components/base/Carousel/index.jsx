@@ -47,6 +47,12 @@ const Carousel = ({ className, config, children }) => {
           slidesToShow: 1,
         },
       },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
     ],
   };
 

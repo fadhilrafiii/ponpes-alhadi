@@ -362,7 +362,7 @@
   .fasilitasCarousel {
     display: none;
 
-    @media (max-width: $tab) {
+    @media (max-width: $small-desktop) {
       display: block;
     }
   }
@@ -374,12 +374,6 @@
     justify-content: center;
 
     @media (max-width: $small-desktop) {
-      justify-content: flex-start;
-      gap: $pad-xxxl;
-      overflow-x: scroll;
-    }
-
-    @media (max-width: $tab) {
       display: none;
     }
   }
@@ -462,52 +456,38 @@
     }
   }
 
-  .videoWrapper {
-    display: flex;
+.videoContent {
+  min-width: 320px;
+  margin: 0 $pad-l;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: $primary-light-color;
+
+  .videoImage {
+    width: 100%;
     margin: 0 auto;
-    align-items: flex-start;
-    justify-content: center;
-    gap: $pad-xxxxl;
-    max-width: 1100px;
-    flex-wrap: wrap;
+    aspect-ratio: 1.76 / 1;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow: hidden;
 
-    @media (max-width: $tab) {
-      gap: $pad-xxl;
-    }
-
-    .videoContent {
-      flex: 0 0 calc(50% - $pad-xxxxl / 2);
-      min-width: 320px;
-      border-top-right-radius: 20px;
-      border-bottom-left-radius: 20px;
-      background-color: $primary-light-color;
-
-      .videoImage {
-        width: 100%;
-        margin: 0 auto;
-        aspect-ratio: 1.76 / 1;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        overflow: hidden;
-
-        .iframe {
-          width: 100%;
-          height: 100%;
-        }
-      }
-
-      p {
-        color: black;
-        text-align: center;
-        font-size: 16px;
-        padding: $pad-xxxl;
-        font-weight: 700;
-
-        @media (max-width: $tab) {
-          font-size: 13px;
-          padding: $pad-m $pad-l;
-        }
-      }
+    .iframe {
+      width: 100%;
+      height: 100%;
     }
   }
+
+  p {
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    padding: $pad-xxxl;
+    font-weight: 700;
+
+    @media (max-width: $tab) {
+      font-size: 13px;
+      padding: $pad-m $pad-l;
+    }
+  }
+}
 }

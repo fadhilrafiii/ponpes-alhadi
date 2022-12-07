@@ -75,3 +75,14 @@ export const monthOptions = [
     value: '11',
   },
 ];
+
+export const inputTypeOptions = [
+  {
+    label: 'Video',
+    value: 'video'
+  },
+  {
+    label: 'Berita',
+    value: 'berita'
+  }
+];

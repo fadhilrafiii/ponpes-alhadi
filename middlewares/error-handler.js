@@ -12,8 +12,8 @@ export const errorHandlerMiddleware = (fn) => async (req, res) => {
         _original: true,
         message: err.details[0]?.message,
       };
-    } else if (err instanceof Error) {
-      error = JSON.parse(typeof err?.message === 'object' ? err?.message : '{}');
+    } else if (typeof err?.message === 'object') {
+      error = JSON.parse(err.message);
     } else error = err;
 
     return response(res, {
