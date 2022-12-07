@@ -61,14 +61,14 @@ const AdminPage = () => {
                 <div className={styles.imageWrapper}>
                   <Img
                     src={EditIcon}
-                    alt="Input Berita Terbaru/Foto"
+                    alt="Input Berita Terbaru/Video"
                     layout="fixed"
                     width={67}
                     height={67}
                     priority
                   />
                 </div>
-                <h3>Input Berita Terbaru/Foto</h3>
+                <h3>Input Berita Terbaru/Video</h3>
               </div>
             </Link>
           </div>
