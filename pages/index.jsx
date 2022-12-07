@@ -324,6 +324,7 @@ const Home = ({ videos }) => {
 
 export const getStaticProps = async () => {
   const res = await getVideos();
+  console.log(res);
   return {
     props: {
       videos: res?.data || {},
