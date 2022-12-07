@@ -5,8 +5,9 @@ import { COLORS } from 'constants/colors';
 
 import LoadingSpinner from 'components/base/LoadingSpinner';
 
-import { getHasilPendaftaranAPI } from 'client/hasilPendaftaran';
+import { downloadHasilPendaftaranAPI, getHasilPendaftaranAPI } from 'client/pendaftaran';
 
+import withAuth from 'shared/hocs/withAuth';
 import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/Admin.module.scss';
@@ -16,16 +17,23 @@ const HasilPendaftaran = () => {
   const [totalAvailableData, setTotalAvailableData] = useState(0);
   const [showAll, setShowAll] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingDownload, setIsLoadingDownload] = useState(false);
 
   const getHasilPendaftaran = useCallback(async () => {
     setIsLoading(true);
-    const { data } = await getHasilPendaftaranAPI({ showAll });
-    if (data.success) {
-      setData(data?.data?.listPendaftaran || []);
-      setTotalAvailableData(data?.data?.totalData || 0);
+    const { data, success } = await getHasilPendaftaranAPI({ showAll });
+    if (success) {
+      setData(data?.listPendaftaran || []);
+      setTotalAvailableData(data?.totalData || 0);
     }
     setIsLoading(false);
   }, [showAll]);
+
+  const downloadHasilPendaftaran = useCallback(async () => {
+    setIsLoadingDownload(true);
+    await downloadHasilPendaftaranAPI();
+    setIsLoadingDownload(false);
+  }, []);
 
   useEffect(() => {
     getHasilPendaftaran();
@@ -76,8 +84,12 @@ const HasilPendaftaran = () => {
                 </tbody>
               </table>
             )}
-            <span role="button" className={styles.downloadButton} onClick={() => setShowAll(true)}>
-              Download
+            <span
+              role="button"
+              className={isLoadingDownload ? styles.downloadButtonDisabled : styles.downloadButton}
+              onClick={downloadHasilPendaftaran}
+            >
+              {isLoadingDownload ? <LoadingSpinner size={16} color={COLORS.White} /> : 'Download'}
             </span>
           </div>
         </div>
@@ -85,5 +97,9 @@ const HasilPendaftaran = () => {
     </div>
   );
 };
+
+export const getServerSideProps = withAuth('Admin', () => {
+  return { props: {} };
+});
 
 export default HasilPendaftaran;

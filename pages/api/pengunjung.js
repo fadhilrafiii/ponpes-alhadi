@@ -78,7 +78,6 @@ const handler = async (req, res) => {
       data: Object.values(data),
     });
   } else {
-    console.log(body);
     const payload = await postVisitorSchema.validateAsync(body);
     const startOfToday = dayjs().startOf('day');
     const endOfToday = dayjs().endOf('day');

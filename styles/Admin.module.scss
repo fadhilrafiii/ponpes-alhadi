@@ -99,7 +99,11 @@
     }
 
     .downloadButton {
+      min-width: 160px;
       align-self: flex-end;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: $pad-l $pad-xxl;
       border-radius: 8px;
       font-size: 16px;
@@ -109,6 +113,11 @@
       margin-bottom: $pad-xl;
       cursor: pointer;
       margin-top: $pad-xxl;
+    }
+
+    .downloadButtonDisabled {
+      @extend .downloadButton;
+      pointer-events: none;
     }
 
     table {

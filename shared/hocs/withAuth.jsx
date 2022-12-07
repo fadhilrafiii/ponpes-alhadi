@@ -18,7 +18,6 @@ const withAuth = (profileType, gssp) => {
     }
 
     const { status, data: user } = await getAuthenticateAPI({ headers: { cookie } });
-    console.log(user, profileType);
     if (user && profileType && profileType !== user?.type) {
       return {
         props: component.props,

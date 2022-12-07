@@ -201,6 +201,7 @@ const Home = () => {
                     src={fasilitas.image.src}
                     alt={fasilitas.image.alt}
                     sizes="(max-width: 768px) 196px, 306px"
+                    priority
                   />
                 </div>
                 <p>{fasilitas.desc}</p>

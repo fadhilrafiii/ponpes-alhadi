@@ -112,7 +112,7 @@ const AuthenticatedNavbar = ({ userProfile }) => {
                 <h4>Guru</h4>
               </Link>
             )}
-            {userProfile?.type === 'Guru' && (
+            {userProfile?.type === 'Admin' && (
               <Link href="/admin">
                 <h4>Admin</h4>
               </Link>

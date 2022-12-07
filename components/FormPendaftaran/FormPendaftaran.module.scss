@@ -79,7 +79,7 @@
     padding: 0;
     column-gap: $pad-m;
     font-size: 16px;
-    margin-bottom: $pad-xxxxl;
+    margin-bottom: $pad-xl;
 
     span {
       display: flex;
@@ -131,4 +131,10 @@
 
 .waliSectionForm {
   display: none
+}
+
+.uploadKeterangan {
+  color: $primary-color;
+  font-size: 16px;
+  margin-bottom: $pad-xxxxl;
 }

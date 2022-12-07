@@ -67,7 +67,6 @@ const PendaftaranSchema = new Schema({
     income: String,
     addressPhone: String,
     phone: String,
-    String,
   },
   wali: {
     name: String,

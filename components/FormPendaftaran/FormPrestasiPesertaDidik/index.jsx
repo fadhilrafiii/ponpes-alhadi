@@ -146,10 +146,13 @@ const FormPrestasiPesertaDidik = ({
           </React.Fragment>
         );
       })}
-      <button type="button" onClick={handleAddPrestasi} className={styles.button}>
-        <span>+</span>
-        Tambah Data Prestasi
-      </button>
+      {form.length < 3 && (
+        <button type="button" onClick={handleAddPrestasi} className={styles.button}>
+          <span>+</span>
+          Tambah Data Prestasi
+        </button>
+      )}
+      <div className={styles.uploadKeterangan}>Maksimal menginput 3 data prestasi</div>
     </div>
   );
 };
