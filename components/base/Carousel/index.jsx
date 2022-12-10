@@ -50,7 +50,7 @@ const Carousel = ({ className, config, children }) => {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: children.length < 2 ? children.length : 2,
         },
       },
     ],
@@ -58,7 +58,11 @@ const Carousel = ({ className, config, children }) => {
 
   return (
     <div className={className}>
-      <Slider {...baseConfig} {...config}>
+      <Slider
+        {...baseConfig}
+        {...config}
+        slidesToShow={children.length < config.slidesToShow ? children.length : config.slidesToShow}
+      >
         {children}
       </Slider>
     </div>

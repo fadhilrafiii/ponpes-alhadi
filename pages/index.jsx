@@ -114,6 +114,7 @@ const Home = ({ videos, news }) => {
             </div>
           </div>
         </section>
+        {console.log(news)}
         {news.length > 0 && (
           <section id="news" className={styles.newsSection}>
             <h2>BERITA TERBARU</h2>
@@ -198,51 +199,53 @@ const Home = ({ videos, news }) => {
             </p>
           </div>
         </section>
-        <section id="video" className={styles.videoSection}>
-          <h2>VIDEO</h2>
-          <Carousel
-            config={{
-              fade: false,
-              autoplay: false,
-              arrows: true,
-              slidesToShow: 3,
-              responsive: [
-                {
-                  breakpoint: 768,
-                  settings: {
-                    slidesToShow: 1,
+        {availableVideos.length > 0 && (
+          <section id="video" className={styles.videoSection}>
+            <h2>VIDEO</h2>
+            <Carousel
+              config={{
+                fade: false,
+                autoplay: false,
+                arrows: true,
+                slidesToShow: 3,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      slidesToShow: 1,
+                    },
                   },
-                },
-                {
-                  breakpoint: 1200,
-                  settings: {
-                    slidesToShow: 2,
+                  {
+                    breakpoint: 1200,
+                    settings: {
+                      slidesToShow: 2,
+                    },
                   },
-                },
-              ],
-            }}
-          >
-            {availableVideos.map((v, idx) => (
-              <div className={styles.videoContent} key={idx}>
-                <div className={styles.videoImage}>
-                  <iframe
-                    className={styles.iframe}
-                    src={v.url}
-                    srcDoc={
-                      // eslint-disable-next-line quotes, max-len
-                      `<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${v.url}/?autoplay=1><img src=${v.thumbnail} alt='Kata Babe Haikal Hasan Tentang Pondok Pesantren Al-Hadi'><span>▶</span></a>`
-                    }
-                    title={v.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    frameBorder={0}
-                    allowFullScreen
-                  />
+                ],
+              }}
+            >
+              {availableVideos.map((v, idx) => (
+                <div className={styles.videoContent} key={idx}>
+                  <div className={styles.videoImage}>
+                    <iframe
+                      className={styles.iframe}
+                      src={v.url}
+                      srcDoc={
+                        // eslint-disable-next-line quotes, max-len
+                        `<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${v.url}/?autoplay=1><img src=${v.thumbnail} alt='Kata Babe Haikal Hasan Tentang Pondok Pesantren Al-Hadi'><span>▶</span></a>`
+                      }
+                      title={v.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      frameBorder={0}
+                      allowFullScreen
+                    />
+                  </div>
+                  <p>{v.title}</p>
                 </div>
-                <p>{v.title}</p>
-              </div>
-            ))}
-          </Carousel>
-        </section>
+              ))}
+            </Carousel>
+          </section>
+        )}
       </PageLayout>
     </div>
   );
