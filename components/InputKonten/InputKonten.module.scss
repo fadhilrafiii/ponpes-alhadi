@@ -1,5 +1,13 @@
 @use '/styles/variables' as *;
 
+.editorLoadingContainer {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .videoInputContainer {
   display: flex;
   flex-direction: column;
@@ -34,4 +42,175 @@
   color: white;
   font-weight: 700;
   margin: $pad-xxxxl auto;
+}
+
+.newsForm {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $pad-xxl;
+  width: 100%;
+}
+
+.inputNewsContainer {
+  position: relative;
+  width: calc(70% - $pad-xxl / 2);
+  display: flex;
+  gap: $pad-xxxxl;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: $pad-xxl auto;
+
+  @media (max-width: 1200px) {
+    min-width: 720px;
+  }
+
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
+
+  & > * {
+    width: 100%;
+  }
+
+  .newsContentLabel {
+    font-size: 16px;
+    margin-bottom: $pad-m;
+  }
+
+  .submitButton {
+    align-self: flex-end;
+    font-size: 16px;
+    padding: $pad-l $pad-xxxxl;
+    background-color: $primary-color;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    min-width: 160px;
+    color: white;
+    font-weight: 700;
+    width: fit-content;
+  }
+}
+
+.preview {
+  position: relative;
+  min-height: 450px;
+  width: 320px;
+
+  & > div {
+    margin-top: $pad-xl;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    flex-direction: column;
+    display: flex;
+    width: 640px;
+    height: 850px;
+    transform: scale(calc(0.5));
+    transform-origin: top left;
+    border: 2px solid $primary-color;
+    padding: $pad-xl;
+    border-radius: 8px;
+    overflow: auto;
+
+    & * {
+      text-align: justify;
+    }
+
+    & img {
+      margin: $pad-m auto;
+      // width: 180px !important;
+    }
+  }
+
+  p {
+    word-break: break-word;
+    margin: $pad-s 0;
+  }
+
+  ol, ul {
+    padding-left: $pad-l;
+  }
+}
+
+.imageContainer {
+  position: relative;
+
+  .deleteButton {
+    cursor: pointer;
+    display: flex;
+    gap: $pad-m;
+    padding: $pad-l;
+    justify-content: center;
+    color: red;
+    font-size: 16px;
+    align-items: center;
+
+    &:hover > span {
+      text-decoration: underline;
+    }
+  }
+}
+
+.imageWrapper {
+  height: 240px;
+}
+
+.uploadBannerContainer {
+  position: relative;
+}
+
+.inputBannerError {
+  margin-top: $pad-s;
+  text-align: center;
+  font-size: 16px;
+  color: red;
+  display: none !important;
+}
+
+.uploadBannerBox {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  row-gap: $pad-m;
+  align-items: center;
+  justify-content: center;
+  padding: $pad-xl $pad-xxxl;
+  background-color: $primary-light-color;
+  border-radius: 8px;
+
+  & > div {
+    text-align: center;
+  }
+
+  & + input {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+
+    &:valid + .inputBannerError{
+      display: none !important;
+    }
+
+    &:focus:invalid + .inputBannerError {
+      display: block !important;
+    }
+  }
+
+
+  span {
+    font-size: 16px;
+  }
+
+  .or {
+    color: $black-grey-color;
+  }
+
+  .uploadBanner {
+    font-size: 24px;
+    font-weight: 700;
+  }
 }

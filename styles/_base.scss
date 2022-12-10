@@ -51,6 +51,14 @@ p, div, li {
   font-size: 20px;
 }
 
+span {
+  display: block !important;
+}
+
+label {
+  display: flex;
+}
+
 @media (max-width: $tab) {
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -147,11 +155,25 @@ input {
 
 .editor-class {
   border: 1px solid $primary-color;
-  max-width: 600px;
-  padding: 0 $pad-l;
+  width: 100%;
+  padding: $pad-l;
   background-color: $primary-light-color;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  min-height: 360px;
+
+  & > * {
+    width: 100%;
+    word-break: break-word;
+  }
+
+  span {
+    display: flex !important;
+  }
+
+  .public-DraftStyleDefault-block {
+    margin: $pad-s 0;
+  }
 }
 
 .toolbar-class {

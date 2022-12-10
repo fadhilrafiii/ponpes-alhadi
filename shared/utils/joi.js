@@ -3,6 +3,7 @@ import Joi from 'joi';
 
 export const joiErrorHandler = (error) => {
   let errorMsg;
+  console.log('Error', error);
   const errorKey = error.code.split('.').pop();
   if (errorKey === 'required' || errorKey === 'empty') {
     errorMsg = error.flags.label += ' tidak boleh kosong!';

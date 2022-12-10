@@ -19,6 +19,7 @@ const Penerimaan = () => {
               src={brosurLeftImg}
               alt="Brosur Pondok Pesantren Al Hadi Sungkai Langka"
               sizes="(max-width: 768px) 100vw, 66vw"
+              placeholder="blur"
               priority
             />
           </div>
@@ -28,6 +29,7 @@ const Penerimaan = () => {
               src={brosurRighImg}
               alt="Brosur Pondok Pesantren Al Hadi Sungkai Langka"
               sizes="(max-width: 768px) 50vw, 33vw"
+              placeholder="blur"
               priority
             />
             <div className={styles.brosurRightContent}>

@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useMemo } from 'react';
 
-import { dummyNewsList, fasilitasList } from 'constants/home';
+import { fasilitasList } from 'constants/home';
 
 import Carousel from 'components/base/Carousel';
 import Img from 'components/base/Img';
 
+import { getNews } from 'client/news';
 import { getVideos } from 'client/video';
 
 // import MyButton from 'components/base/MyButton';
@@ -16,7 +18,12 @@ import styles from 'styles/Home.module.scss';
 import AssignmentIcon from 'public/icons/assignment.svg';
 import fotoBersamaPutriPic from 'public/images/foto-bersama-putri.jpg';
 
-const Home = ({ videos }) => {
+const Home = ({ videos, news }) => {
+  const availableVideos = useMemo(
+    () => Object.values(videos).filter((video) => video.url),
+    [videos],
+  );
+
   return (
     <div>
       <Head>
@@ -38,7 +45,6 @@ const Home = ({ videos }) => {
                 tatangan masa depan
               </p>
             </div>
-            {/* <MyButton theme="secondary">LOGIN</MyButton> */}
           </div>
           <div>
             <div className={styles.dropShadow} />
@@ -108,76 +114,36 @@ const Home = ({ videos }) => {
             </div>
           </div>
         </section>
-        <section id="news" className={styles.newsSection}>
-          <h2>BERITA TERBARU</h2>
-          <Carousel
-            className={styles.newsCarousel}
-            config={{
-              fade: false,
-              autoplay: false,
-              arrows: true,
-              slidesToShow: 3,
-            }}
-          >
-            {dummyNewsList.map((news, idx) => (
-              <div key={idx} className={styles.newsCard}>
-                <div className={styles.newsImage}>
-                  <Img layout="fill" src={news.image} alt={news.title} priority />
-                </div>
-                <div className={styles.newsContent}>
-                  <div className={styles.titleContainer}>
-                    <h4>{news.title}</h4>
+        {news.length > 0 && (
+          <section id="news" className={styles.newsSection}>
+            <h2>BERITA TERBARU</h2>
+            <Carousel
+              className={styles.newsCarousel}
+              config={{
+                fade: false,
+                autoplay: false,
+                arrows: true,
+                slidesToShow: 3,
+              }}
+            >
+              {news.map((news, idx) => (
+                <div key={idx} className={styles.newsCard}>
+                  <div className={styles.newsImage}>
+                    <Img layout="fill" src={news.banner} alt={news.title} priority />
                   </div>
-                  <Link href="/">
-                    <a className={styles.continue}>selengkapnya...</a>
-                  </Link>
+                  <div className={styles.newsContent}>
+                    <div className={styles.titleContainer}>
+                      <h4>{news.title}</h4>
+                    </div>
+                    <Link href={`/berita/${news.title}`}>
+                      <a className={styles.continue}>selengkapnya...</a>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </Carousel>
-        </section>
-        {/* <section id="quote" className={styles.quoteSection}>
-          <div className={styles.quoteWrapper}>
-            <div className={styles.imageWrapper}>
-              <Img
-                layout="fill"
-                src={fotoBersamaPutraHivePic}
-                alt="Foto Bersama Putra Pondok Pesantren Al-Hadi"
-                sizes="(max-width: 560px) 300px, (max-width: 1200px) 400px, 500px"
-              />
-            </div>
-            <div className={styles.quote}>
-              <h4>Visi</h4>
-              <p>
-                Membentuk generasi umat yang solih, menjaga Al-Qur’an & Sunnah Nabi Muhammad SAW,
-                serta tangguh dalam menaklukan tantangan zaman
-              </p>
-              <h4>Misi</h4>
-              <div>
-                Lulusan Pondok Pesantren Al-Hadi setingkat SMP/MTs diharapkan memiliki kompetensi
-                sebagai berikut:
-                <ol>
-                  <li>
-                    Memiliki hafalan Al-Qur&rsquo;an 20 Juz dan bisa menerjemahkan Al-Qur&rsquo;.
-                  </li>
-                  <li>Hafal Hadits Arba&rsquo; Nawawiyyah & terjemahannya.</li>
-                  <li>
-                    Khattam kitab Hadits Riyadhus Sholihin & mampu menerjemahkannya, memahami ilmu
-                    fiqih dasar, Mustholah hadits dasar, Ushul fiqih pengantar.
-                  </li>
-                  <li>
-                    Menggunakan bahasa Arab & bahasa Inggris dalam percakapan harian & tulisan.
-                  </li>
-                  <li>Menguasai teknologi informatika menengah.</li>
-                  <li>
-                    Menguasai ilmu pengetahuan umum setingkat Tsanawiyah, berakhlah mulia,
-                    bersemangat dalam mengembangkan ilmu & menyampaikannya.
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </section> */}
+              ))}
+            </Carousel>
+          </section>
+        )}
         <section id="fasilitas" className={styles.fasilitasSection}>
           <h2>FASILITAS</h2>
           <div className={styles.fasilitasWrapper}>
@@ -230,44 +196,6 @@ const Home = ({ videos }) => {
               <br />
               Al-Hasan al-Basri
             </p>
-            {/* <div className={styles.imageWrapper}>
-              <Img
-                layout="fill"
-                // src={fotoBersamaPutraHivePic}
-                alt="Foto Bersama Putra Pondok Pesantren Al-Hadi"
-                sizes="(max-width: 560px) 300px, (max-width: 1200px) 400px, 500px"
-              />
-            </div>
-            <div className={styles.quote}>
-              <h4>Visi</h4>
-              <p>
-                Membentuk generasi umat yang solih, menjaga Al-Qur’an & Sunnah Nabi Muhammad SAW,
-                serta tangguh dalam menaklukan tantangan zaman
-              </p>
-              <h4>Misi</h4>
-              <div>
-                Lulusan Pondok Pesantren Al-Hadi setingkat SMP/MTs diharapkan memiliki kompetensi
-                sebagai berikut:
-                <ol>
-                  <li>
-                    Memiliki hafalan Al-Qur&rsquo;an 20 Juz dan bisa menerjemahkan Al-Qur&rsquo;.
-                  </li>
-                  <li>Hafal Hadits Arba&rsquo; Nawawiyyah & terjemahannya.</li>
-                  <li>
-                    Khattam kitab Hadits Riyadhus Sholihin & mampu menerjemahkannya, memahami ilmu
-                    fiqih dasar, Mustholah hadits dasar, Ushul fiqih pengantar.
-                  </li>
-                  <li>
-                    Menggunakan bahasa Arab & bahasa Inggris dalam percakapan harian & tulisan.
-                  </li>
-                  <li>Menguasai teknologi informatika menengah.</li>
-                  <li>
-                    Menguasai ilmu pengetahuan umum setingkat Tsanawiyah, berakhlah mulia,
-                    bersemangat dalam mengembangkan ilmu & menyampaikannya.
-                  </li>
-                </ol>
-              </div>
-            </div> */}
           </div>
         </section>
         <section id="video" className={styles.videoSection}>
@@ -294,27 +222,25 @@ const Home = ({ videos }) => {
               ],
             }}
           >
-            {Object.values(videos).map((v, idx) =>
-              !v.url ? null : (
-                <div className={styles.videoContent} key={idx}>
-                  <div className={styles.videoImage}>
-                    <iframe
-                      className={styles.iframe}
-                      src={v.url}
-                      srcDoc={
-                        // eslint-disable-next-line quotes, max-len
-                        `<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${v.url}/?autoplay=1><img src=${v.thumbnail} alt='Kata Babe Haikal Hasan Tentang Pondok Pesantren Al-Hadi'><span>▶</span></a>`
-                      }
-                      title={v.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      frameBorder={0}
-                      allowFullScreen
-                    />
-                  </div>
-                  <p>{v.title}</p>
+            {availableVideos.map((v, idx) => (
+              <div className={styles.videoContent} key={idx}>
+                <div className={styles.videoImage}>
+                  <iframe
+                    className={styles.iframe}
+                    src={v.url}
+                    srcDoc={
+                      // eslint-disable-next-line quotes, max-len
+                      `<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=${v.url}/?autoplay=1><img src=${v.thumbnail} alt='Kata Babe Haikal Hasan Tentang Pondok Pesantren Al-Hadi'><span>▶</span></a>`
+                    }
+                    title={v.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    frameBorder={0}
+                    allowFullScreen
+                  />
                 </div>
-              ),
-            )}
+                <p>{v.title}</p>
+              </div>
+            ))}
           </Carousel>
         </section>
       </PageLayout>
@@ -323,11 +249,11 @@ const Home = ({ videos }) => {
 };
 
 export const getStaticProps = async () => {
-  const res = await getVideos();
-  console.log(res);
+  const res = await Promise.all([getVideos(), getNews({ limit: 5 })]);
   return {
     props: {
-      videos: res?.data || {},
+      videos: res[0]?.data || [],
+      news: res[1]?.data || {},
     },
     revalidate: 60, // In seconds
   };

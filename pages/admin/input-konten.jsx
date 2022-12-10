@@ -32,10 +32,13 @@ const InputKonten = ({ videos }) => {
           <div className={styles.inputKontenFilter}>
             <Select value={filter} onChange={setFilter} options={inputTypeOptions} />
           </div>
-          <div className={styles.inputKontenWrapper}>
-            {filter === 'video' && <InputVideo videos={videos} />}
-            {filter === 'berita' && <InputBerita />}
-          </div>
+
+          {filter === 'video' && (
+            <div className={styles.inputKontenWrapper}>
+              <InputVideo videos={videos} />
+            </div>
+          )}
+          {filter === 'berita' && <InputBerita news={[]} />}
         </div>
       </PageLayout>
     </div>
