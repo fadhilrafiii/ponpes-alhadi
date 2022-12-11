@@ -1,3 +1,4 @@
+import connectDB from 'db';
 import News from 'db/models/News';
 
 import { errorHandlerMiddleware } from 'middlewares/error-handler';
@@ -6,10 +7,11 @@ import response from 'shared/utils/response';
 
 const handler = async (req, res) => {
   const { query, method } = req;
+
+  await connectDB();
+
   if (method !== 'GET') return response(res, { status: 405, message: 'Method harus "GET"!' });
-  console.log(query.slug);
   const news = await News.findOne({ title: query.slug });
-  console.log(news);
 
   return response(res, {
     status: 200,
