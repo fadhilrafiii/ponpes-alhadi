@@ -71,7 +71,7 @@ const BeritaDetail = ({ news, recentNews }) => {
                 Ditulis oleh <strong>Admin</strong>
               </span>
               <span>{`${weekdays[newsCreated.day()]}, ${newsCreated.date()} ${
-                monthOptions[newsCreated.month()].label
+                monthOptions[newsCreated.month() + 1].label
               } ${newsCreated.year()}`}</span>
             </div>
             <div className={styles.newsContent}>{parse(news.content)}</div>
