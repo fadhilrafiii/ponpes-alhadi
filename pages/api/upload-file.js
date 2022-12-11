@@ -22,7 +22,7 @@ const post = async (req, res) => {
       region: process.env.AWS_S3_REGION,
       credentials: {
         accessKeyId: process.env.AWS_S3_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_S3_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_S3_ACCESS_SECRET_KEY,
       },
     });
 

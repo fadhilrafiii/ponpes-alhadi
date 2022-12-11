@@ -89,7 +89,7 @@ const InputBerita = () => {
     const file = e.target.files[0];
     if (!file) return dispatch(showSnackbar({ message: 'Banner belum diupload', type: 'error' }));
 
-    const { data } = await uploadImgCallback(file);
+    const { data } = (await uploadImgCallback(file)) || {};
     if (!data) return;
 
     setBannerUrl(data?.link);
