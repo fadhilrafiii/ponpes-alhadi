@@ -10,6 +10,7 @@ const handler = async (req, res) => {
 
   await connectDB();
 
+  console.log('QUERY PATH BERITA', query);
   if (method !== 'GET') return response(res, { status: 405, message: 'Method harus "GET"!' });
   const news = await News.findOne({ title: query.slug });
 
