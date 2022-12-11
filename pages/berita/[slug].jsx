@@ -24,7 +24,9 @@ const BeritaDetail = ({ news, recentNews }) => {
   return (
     <div>
       <Head>
-        <title>{news.title} | Berita Ponpes Al Hadi</title>
+        <title>{`${
+          news.title?.split(' ')?.slice(5)?.join(' ') || 'Berita'
+        } | Berita Ponpes Al Hadi`}</title>
         <meta
           name="description"
           content={`Berita ${news.title}. Pondok Pesantren Al Hadi Sungkai Langka.`}
