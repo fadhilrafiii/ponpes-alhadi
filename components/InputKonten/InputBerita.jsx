@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import { useCallback, useState } from 'react';
 
 import { COLORS } from 'constants/colors';
+import { headingTypeNews } from 'constants/general';
 import { convertToRaw, EditorState } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import parse from 'html-react-parser';
@@ -11,11 +12,13 @@ import { useDispatch } from 'react-redux';
 import Img from 'components/base/Img';
 import LoadingSpinner from 'components/base/LoadingSpinner';
 import Input from 'components/Input';
+import Select from 'components/Select';
 
 import { createNews } from 'client/news';
 import { uploadFile } from 'client/upload-file';
 
 import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
+import { convertBytes } from 'shared/utils/file';
 
 import styles from './InputKonten.module.scss';
 
@@ -35,6 +38,7 @@ const InputBerita = () => {
   const dispatch = useDispatch();
   const [isLoadingUploadBanner, setIsLoadingUploadBanner] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [headingType, setHeadingType] = useState('gambar');
   const [newsTitle, setNewsTitle] = useState('');
   const [bannerUrl, setBannerUrl] = useState('');
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
@@ -60,17 +64,25 @@ const InputBerita = () => {
     [bannerUrl, dispatch, editorState, newsTitle],
   );
 
-  const uploadImgCallback = useCallback(async (file) => {
-    const { success, data } = await uploadFile(file);
+  const uploadImgCallback = useCallback(
+    async (file) => {
+      if (convertBytes(file.size, 'MB') > 1)
+        return dispatch(
+          showSnackbar({ message: 'Gambar tidak boleh lebih dari 1 MB', type: 'error' }),
+        );
 
-    if (!success) return;
+      const { success, data } = await uploadFile(file);
 
-    return {
-      data: {
-        link: data,
-      },
-    };
-  }, []);
+      if (!success) return;
+
+      return {
+        data: {
+          link: data,
+        },
+      };
+    },
+    [dispatch],
+  );
 
   const uploadBanner = async (e) => {
     setIsLoadingUploadBanner(true);
@@ -84,6 +96,11 @@ const InputBerita = () => {
     setIsLoadingUploadBanner(false);
   };
 
+  const handleChangeHeadingType = (val) => {
+    setHeadingType(val);
+    setBannerUrl('');
+  };
+
   return (
     <form onSubmit={handleSubmitNews} className={styles.newsForm}>
       <div className={styles.inputNewsContainer}>
@@ -94,50 +111,72 @@ const InputBerita = () => {
           name="news-title"
           label="Judul Berita"
         />
-        {!bannerUrl ? (
-          <div className={styles.uploadBannerContainer}>
-            <label htmlFor="upload-banner" className={styles.uploadBannerBox}>
-              {isLoadingUploadBanner ? (
-                <LoadingSpinner size={44} color={COLORS.Primary} />
-              ) : (
-                <Img layout="fixed" priority width={44} height={44} src={CameraIcon} />
-              )}
-              <div>
-                <span className={styles.uploadBanner}>Unggah Banner</span>
-                <span className={styles.or}>atau</span>
-                <span>Seret dan Lepas disini</span>
-                <span className={styles.maxFile}>berkas PNG/JPG maksimum 1MB</span>
-              </div>
-            </label>
+        <div className={styles.headingTypeSelect}>
+          <Select
+            label="Jenis Heading"
+            name="heading-type"
+            required
+            value={headingType}
+            options={headingTypeNews}
+            onChange={handleChangeHeadingType}
+          />
+        </div>
+        {headingType === 'gambar' ? (
+          <>
+            {!bannerUrl ? (
+              <div className={styles.uploadBannerContainer}>
+                <label htmlFor="upload-banner" className={styles.uploadBannerBox}>
+                  {isLoadingUploadBanner ? (
+                    <LoadingSpinner size={44} color={COLORS.Primary} />
+                  ) : (
+                    <Img layout="fixed" priority width={44} height={44} src={CameraIcon} />
+                  )}
+                  <div>
+                    <span className={styles.uploadBanner}>Unggah Gambar</span>
+                    <span className={styles.or}>atau</span>
+                    <span>Seret dan Lepas disini</span>
+                    <span className={styles.maxFile}>berkas PNG/JPG maksimum 1MB</span>
+                  </div>
+                </label>
 
-            <input
-              type="file"
-              id="upload-banner"
-              style={{ opacity: 0, height: 0 }}
-              value={bannerUrl ? undefined : ''}
-              accept="image/jpeg, image/png"
-              onChange={uploadBanner}
-              required
-            />
-            <span className={styles.inputBannerError}>Harus diisi</span>
-          </div>
+                <input
+                  type="file"
+                  id="upload-banner"
+                  style={{ opacity: 0, height: 0 }}
+                  value={bannerUrl ? undefined : ''}
+                  accept="image/jpeg, image/png"
+                  onChange={uploadBanner}
+                  required
+                />
+                <span className={styles.inputBannerError}>Harus diisi</span>
+              </div>
+            ) : (
+              <div className={styles.imageContainer}>
+                <div className={styles.imageWrapper}>
+                  <Img
+                    src={bannerUrl}
+                    layout="fill"
+                    placeholder="blur"
+                    usePlaceholder
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                    objectFit="contain"
+                  />
+                </div>
+                <div role="button" className={styles.deleteButton} onClick={() => setBannerUrl('')}>
+                  <Img src={DeleteIcon} alt="Delete File" layout="fixed" width={20} height={20} />
+                  <span>Hapus Banner</span>
+                </div>
+              </div>
+            )}
+          </>
         ) : (
-          <div className={styles.imageContainer}>
-            <div className={styles.imageWrapper}>
-              <Img
-                src={bannerUrl}
-                layout="fill"
-                placeholder="blur"
-                usePlaceholder
-                sizes="(max-width: 768px) 100vw, 60vw"
-                objectFit="contain"
-              />
-            </div>
-            <div role="button" className={styles.deleteButton} onClick={() => setBannerUrl('')}>
-              <Img src={DeleteIcon} alt="Delete File" layout="fixed" width={20} height={20} />
-              <span>Hapus Banner</span>
-            </div>
-          </div>
+          <Input
+            label="URL Video Heading"
+            required
+            value={bannerUrl}
+            onChange={(e) => setBannerUrl(e.target.value)}
+            placeholder="Masukkan URL Youtube"
+          />
         )}
         <div>
           <label className={styles.newsContentLabel}>
@@ -183,7 +222,6 @@ const InputBerita = () => {
       </div>
       <div className={styles.preview}>
         <h4>Preview Berita</h4>
-        {console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())))}
         <div>{parse(draftToHtml(convertToRaw(editorState.getCurrentContent())))}</div>
       </div>
     </form>

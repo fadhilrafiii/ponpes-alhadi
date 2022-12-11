@@ -7,7 +7,6 @@ import response from 'shared/utils/response';
 const handler = async (req, res) => {
   const { query, method } = req;
   if (method !== 'GET') return response(res, { status: 405, message: 'Method harus "GET"!' });
-
   const news = await News.findOne({ title: query.slug });
 
   return response(res, {

@@ -9,6 +9,7 @@ import Select from 'components/Select';
 
 import { getVideos } from 'client/video';
 
+import withAuth from 'shared/hocs/withAuth';
 import PageLayout from 'shared/layouts/PageLayout';
 
 import styles from 'styles/Admin.module.scss';
@@ -30,7 +31,12 @@ const InputKonten = ({ videos }) => {
         <div className={styles.inputKontenContainer}>
           <h2 className={styles.inputKontenTitle}>Input Berita Terbaru/Video</h2>
           <div className={styles.inputKontenFilter}>
-            <Select value={filter} onChange={setFilter} options={inputTypeOptions} />
+            <Select
+              name="input-type"
+              value={filter}
+              onChange={setFilter}
+              options={inputTypeOptions}
+            />
           </div>
 
           {filter === 'video' && (
@@ -45,7 +51,7 @@ const InputKonten = ({ videos }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = withAuth('Admin', async () => {
   const videos = await getVideos({ isAdmin: true });
 
   return {
@@ -53,6 +59,6 @@ export const getServerSideProps = async () => {
       videos: videos.data,
     },
   };
-};
+});
 
 export default InputKonten;

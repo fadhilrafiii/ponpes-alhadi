@@ -79,10 +79,23 @@ export const monthOptions = [
 export const inputTypeOptions = [
   {
     label: 'Video',
-    value: 'video'
+    value: 'video',
   },
   {
     label: 'Berita',
-    value: 'berita'
-  }
+    value: 'berita',
+  },
 ];
+
+export const headingTypeNews = [
+  {
+    label: 'Video',
+    value: 'video',
+  },
+  {
+    label: 'Gambar',
+    value: 'gambar',
+  },
+];
+
+export const weekdays = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];

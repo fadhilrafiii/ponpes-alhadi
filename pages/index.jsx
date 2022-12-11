@@ -114,7 +114,6 @@ const Home = ({ videos, news }) => {
             </div>
           </div>
         </section>
-        {console.log(news)}
         {news.length > 0 && (
           <section id="news" className={styles.newsSection}>
             <h2>BERITA TERBARU</h2>

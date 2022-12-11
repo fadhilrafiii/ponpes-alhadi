@@ -8,8 +8,8 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['ponpes-alhadi.s3.ap-southeast-1.amazonaws.com'],
-  },  
+    domains: ['ponpes-alhadi.s3.ap-southeast-1.amazonaws.com', 'img.youtube.com'],
+  },
 };
 
 module.exports = nextConfig;

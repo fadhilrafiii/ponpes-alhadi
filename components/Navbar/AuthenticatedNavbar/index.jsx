@@ -77,7 +77,9 @@ const AuthenticatedNavbar = ({ userProfile }) => {
             width={48}
             height={36}
           />
-          <h3 className={styles.currentMenu}>{menuName.replace('-', ' ').toUpperCase()}</h3>
+          <h3 className={styles.currentMenu}>
+            {menuNameList[1] === 'berita' ? 'Berita' : menuName.replace('-', ' ').toUpperCase()}
+          </h3>
         </div>
         <div className={styles.menuDropdownWrapper}>
           <div role="button" className={styles.menuSelect} onClick={handleToggleMenuDropdown}>

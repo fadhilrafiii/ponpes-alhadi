@@ -21,3 +21,5 @@ export const getVideoYoutubeThumbnailImage = (url) => {
 
   return 'https://img.youtube.com/vi/' + idQuery.slice(2) + '/hqdefault.jpg';
 };
+
+export const isYoutubeUrl = (url) => url.indexOf('youtube.com/') > -1;
