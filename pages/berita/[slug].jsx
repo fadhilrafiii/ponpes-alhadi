@@ -101,9 +101,7 @@ export const getStaticPaths = async () => {
     params: { slug: post.title },
   }));
 
-  console.log(paths);
-
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 };
 
 export const getStaticProps = async ({ params }) => {
