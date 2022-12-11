@@ -142,6 +142,7 @@ const InputBerita = () => {
                 <input
                   type="file"
                   id="upload-banner"
+                  disabled={isLoadingUploadBanner}
                   style={{ opacity: 0, height: 0 }}
                   value={bannerUrl ? undefined : ''}
                   accept="image/jpeg, image/png"
