@@ -93,7 +93,7 @@ const BeritaDetail = ({ news, recentNews }) => {
 };
 
 export const getStaticPaths = async () => {
-  const { data } = await getNews({ isTitleOnly: true, limit: 1000 });
+  const { data = [] } = await getNews({ isTitleOnly: true, limit: 1000 });
 
   const paths = data.map((post) => ({
     params: { slug: post.title },
