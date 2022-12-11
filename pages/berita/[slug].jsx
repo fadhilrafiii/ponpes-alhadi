@@ -103,6 +103,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
+  console.log('BERITA PATH', params.slug);
   const { data: news } = (await getNewsDetail(params.slug)) || {};
   const { data: recentNews = [] } = (await getNews({ isTitleOnly: true, limit: 5 })) || {};
 
