@@ -101,11 +101,14 @@ export const getStaticPaths = async () => {
     params: { slug: post.title },
   }));
 
+  console.log('PATH BERITA', paths);
+
   return { paths, fallback: 'blocking' };
 };
 
 export const getStaticProps = async ({ params }) => {
   const { data: news } = (await getNewsDetail(params.slug)) || {};
+  console.log('BERITA', params.slug, news);
   const { data: recentNews = [] } = (await getNews({ isTitleOnly: true, limit: 5 })) || {};
 
   if (!news)
