@@ -6,6 +6,5 @@ export const getNews = (query) => {
   return axios.get(`/api/news?${qs}`);
 };
 export const getNewsDetail = (title) => {
-  console.log(`/api/news/${title}`);
   return axios.get(`/api/news/${title}`);
 };
