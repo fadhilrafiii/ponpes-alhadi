@@ -246,6 +246,7 @@
     .imageWrapper {
       aspect-ratio: 3 / 2;
       height: clamp(131px, 26vw, 205px);
+      min-width: 100%;
     }
 
     .ekstrakurikulerContent {

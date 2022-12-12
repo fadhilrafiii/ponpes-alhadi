@@ -82,7 +82,7 @@
     margin-bottom: $pad-xl;
 
     span {
-      display: flex;
+      display: flex !important;
       vertical-align: middle;
       align-items: center;
       justify-content: center;
