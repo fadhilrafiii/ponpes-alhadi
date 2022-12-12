@@ -198,8 +198,11 @@ const InputBerita = () => {
               inline: {
                 options: ['bold', 'italic', 'underline'],
               },
+              list: {
+                options: ['unordered', 'ordered'],
+              },
               blockType: {
-                options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'],
+                options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5'],
               },
               image: {
                 uploadEnabled: true,
