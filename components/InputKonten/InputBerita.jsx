@@ -197,6 +197,7 @@ const InputBerita = () => {
               ],
               image: {
                 uploadEnabled: true,
+                urlEnabled: false,
                 uploadCallback: uploadImgCallback,
                 alignmentEnabled: false,
                 defaultSize: {
