@@ -58,7 +58,6 @@ const BeritaDetail = ({ news, recentNews }) => {
               ) : (
                 <Img
                   layout="fill"
-                  objectFit="contain"
                   src={news.banner}
                   alt={news.title}
                   size="(max-width: 960px) 100vw, 80vw"

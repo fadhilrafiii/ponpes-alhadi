@@ -1,0 +1,14 @@
+.container {
+  position: relative;
+  width: auto;
+  height: 100%;
+
+  img {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    min-height: unset;
+    max-height: unset;
+    height: 100%;
+  }
+}

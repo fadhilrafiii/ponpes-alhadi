@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import PropTypes from 'prop-types';
 
-import classes from './index.module.css';
+import classes from './Img.module.scss';
 
 const Img = forwardRef(
   ({ className, src, alt, sizes, layout, usePlaceholder, priority, ...props }, ref) => {
