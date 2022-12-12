@@ -11,20 +11,6 @@ const Footer = () => {
     <footer className={styles.footerContainer}>
       <div className={styles.footerContentLeft}>
         <div>
-          <div className={styles.imageWrapper}>
-            <Img
-              layout="fixed"
-              src={WhatsappIcon}
-              alt="Whatsapp"
-              width={28}
-              height={28}
-              placeholder="empty"
-              priority
-            />
-          </div>
-          <a>0812 7950 3322</a>
-        </div>
-        <div>
           <div className={styles.image}>
             <Img
               layout="fixed"
