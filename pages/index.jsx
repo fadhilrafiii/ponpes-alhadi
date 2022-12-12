@@ -110,7 +110,7 @@ const Home = ({ videos, news }) => {
               </a>
             </div>
             <div className={styles.link}>
-              <Link href="/form-pendaftaran">Pendaftaran</Link>
+              <Link href="/penerimaan">Pendaftaran Santri</Link>
             </div>
           </div>
         </section>
