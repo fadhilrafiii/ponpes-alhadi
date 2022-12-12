@@ -106,7 +106,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const { data: news } = (await getNewsDetail(params.slug)) || {};
-  const { data: recentNews = [] } = (await getNews({ isTitleOnly: true, limit: 5 })) || {};
+  const { data: recentNews = [] } = (await getNews({ isTitleOnly: true, limit: 20 })) || {};
 
   if (!news)
     return {
