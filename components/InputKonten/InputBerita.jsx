@@ -195,6 +195,12 @@ const InputBerita = () => {
                 'remove',
                 'history',
               ],
+              inline: {
+                options: ['bold', 'italic', 'underline'],
+              },
+              blockType: {
+                options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'],
+              },
               image: {
                 uploadEnabled: true,
                 urlEnabled: false,
@@ -205,6 +211,7 @@ const InputBerita = () => {
                   width: 360,
                 },
               },
+              remove: { className: styles.wysiwygRemoveIcon },
             }}
             toolbarClassName="toolbar-class"
             wrapperClassName="wrapper-class"
