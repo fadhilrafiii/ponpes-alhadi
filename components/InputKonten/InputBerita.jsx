@@ -184,6 +184,7 @@ const InputBerita = () => {
             Isi Berita<span style={{ color: 'red' }}>*</span>
           </label>
           <Editor
+            handlePastedText={() => false}
             toolbar={{
               options: [
                 'inline',
