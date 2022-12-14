@@ -4,7 +4,6 @@ import styles from './Footer.module.scss';
 
 import FacebookIcon from 'public/icons/facebook.svg';
 import InstagramIcon from 'public/icons/instagram.svg';
-import WhatsappIcon from 'public/icons/whatsapp.svg';
 
 const Footer = () => {
   return (
