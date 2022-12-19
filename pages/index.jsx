@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { fasilitasList } from 'constants/home';
 
 import Carousel from 'components/base/Carousel';
 import Img from 'components/base/Img';
 
-import { getNews, getNewsDetail } from 'client/news';
+import { getNews } from 'client/news';
 import { getVideos } from 'client/video';
 
 // import MyButton from 'components/base/MyButton';
@@ -23,17 +23,6 @@ const Home = ({ videos, news }) => {
     () => Object.values(videos).filter((video) => video.url),
     [videos],
   );
-
-  const testFetchNewsDetail = useCallback(async () => {
-    const res = await getNewsDetail(
-      'MasyaAllah Santri Pondok Pesantren Al Hadi Ini Mengaji Al Qur’an Suaranya Merdu Sekali',
-    );
-    console.log(res.data.content);
-  }, []);
-
-  useEffect(() => {
-    testFetchNewsDetail();
-  }, [testFetchNewsDetail]);
 
   return (
     <div>
