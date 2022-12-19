@@ -7,37 +7,37 @@ export const ekstrakurikulers = [
   {
     image: computerPic,
     title: 'Komputer & Informatika',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    body: 'Ekstrakurikuler mengenai studi, perancangan, serta pembuatan sistem komputasi',
     to: '/'
   },
   {
     image: kaligrafiPic,
     title: 'Kaligrafi',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    body: 'Ekstrakurikuler seni menulis indah huruf dari ayat-ayat Al-Qur\'an sebagai sumber pokok ajaran Islam',
     to: '/'
   },
   {
     image: olahragaPic,
     title: 'Olahraga',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    body: 'Ekstrakurikuler olahraga yang dapat diikuti santri  Pondok Pesantren Al Hadi meliputi panahan, berenang, dan bela diri',
     to: '/'
   },
   {
     image: marawisPic,
     title: 'Marawis',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    body: 'Ekstrakurikuler musik kolaborasi kesenian Timur Tengah dan Betawi dengan unsur pujian serta kecintaan terhadap Allah SWT',
     to: '/'
   },
   {
     image: computerPic,
     title: 'Komputer & Informatika',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    body: 'Ekstrakurikuler mengenai studi, perancangan, serta pembuatan sistem komputasi',
     to: '/'
   },
   {
     image: kaligrafiPic,
     title: 'Kaligrafi',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+    body: 'Ekstrakurikuler seni menulis indah huruf dari ayat-ayat Al-Qur\'an sebagai sumber pokok ajaran Islam',
     to: '/'
   },
 ];
