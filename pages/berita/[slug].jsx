@@ -112,7 +112,10 @@ export const getStaticProps = async ({ params }) => {
     return {
       notFound: true,
     };
-  return { props: { news, recentNews } };
+  return {
+    props: { news, recentNews },
+    revalidate: 60, // In seconds
+  };
 };
 
 export default BeritaDetail;
