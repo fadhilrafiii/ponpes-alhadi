@@ -6,5 +6,7 @@ export const getNews = (query) => {
   return axios.get(`/api/news?${qs}`);
 };
 export const getNewsDetail = (title) => {
-  return axios.get(`/api/news/${title}`);
+  return axios.get(`/api/news/${title}`, {
+    headers: { 'Accept-Encoding': 'gzip,deflate,compress' },
+  });
 };
