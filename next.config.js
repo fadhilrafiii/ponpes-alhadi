@@ -11,7 +11,7 @@ const nextConfig = {
     domains: ['ponpes-alhadi.s3.ap-southeast-1.amazonaws.com', 'img.youtube.com'],
   },
   experimental: {
-    largePageDataBytes: 1024,
+    largePageDataBytes: 1024 * 1024,
   }
 };
 
