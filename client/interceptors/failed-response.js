@@ -2,6 +2,7 @@ import { showSnackbar } from 'shared/redux/slices/snackbar-slice';
 import store from 'shared/redux/store';
 
 export const failedResponseInterceptor = (response) => {
+  console.log(response);
   const { data = {} } = response.response || {};
   if (data.status === 401 || data.status === 302) return data;
 
