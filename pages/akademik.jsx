@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 
 import { ekstrakurikulers } from 'constants/akademik';
 
@@ -129,7 +128,7 @@ const Akademik = () => {
           <h2>Kegiatan Ekstrakurikuler</h2>
           <div className={styles.ekstrakurikulerWrapper}>
             <Carousel config={{ slidesToShow: 3, fade: false, arrows: true }}>
-              {ekstrakurikulers.map(({ image, title, body, to }, idx) => (
+              {ekstrakurikulers.map(({ image, title, body }, idx) => (
                 <div className={styles.ekstrakurikulerCard} key={idx}>
                   <div className={styles.imageWrapper}>
                     <Img
@@ -143,9 +142,6 @@ const Akademik = () => {
                   <div className={styles.ekstrakurikulerContent}>
                     <h4>{title}</h4>
                     <p>{body}</p>
-                    <div className={styles.link}>
-                      <Link href={to}>read more</Link>
-                    </div>
                   </div>
                 </div>
               ))}
